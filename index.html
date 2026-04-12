@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GetTreatmentHelp MCP Server — Substance Abuse Facility Intelligence API</title>
+<meta name="description" content="Search 12,000+ licensed substance abuse treatment facilities across all 50 US states via MCP. Filter by location, level of care (IOP, Detox, MAT, Inpatient Rehab, Outpatient), and insurance acceptance. Built for AI agents, admissions consultants, and behavioral health researchers.">
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:860px;margin:0 auto;padding:40px 20px;line-height:1.6;color:#222}
+  h1{color:#1B3A6B;font-size:1.9rem;margin-bottom:0.25rem}
+  h2{color:#1B3A6B;font-size:1.2rem;margin-top:2rem}
+  .badge{display:inline-block;background:#1B3A6B;color:white;font-size:0.75rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:3px;margin-right:0.4rem;margin-bottom:0.4rem}
+  .badge.green{background:#2D7A4F}
+  .meta{color:#666;font-size:0.95rem;margin-bottom:2rem}
+  pre{background:#1E2A3A;color:#E2E8F0;padding:1.25rem;border-radius:6px;overflow-x:auto;font-size:0.88rem}
+  code{background:#f0f4f8;padding:2px 6px;border-radius:3px;font-size:0.9rem}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+  .card{background:#F0F4FF;border:1px solid #DDE3F0;border-radius:6px;padding:1.25rem}
+  .card h3{margin:0 0 0.75rem;color:#1B3A6B;font-size:1rem}
+  .card li{font-size:0.88rem;color:#444;margin-bottom:0.4rem}
+  table{width:100%;border-collapse:collapse;margin:1rem 0}
+  th{background:#1B3A6B;color:white;padding:0.6rem 1rem;text-align:left;font-size:0.9rem}
+  td{padding:0.6rem 1rem;border-bottom:1px solid #eee;font-size:0.88rem}
+  tr:nth-child(even) td{background:#F8F9FC}
+  .cta{background:#1B3A6B;color:white;padding:1.5rem 2rem;border-radius:6px;margin:2rem 0;text-align:center}
+  .cta a{color:white;font-weight:700;margin:0 0.75rem}
+  .stat{font-size:2rem;font-weight:800;color:#1B3A6B;display:block}
+  .stat-label{font-size:0.85rem;color:#666}
+  .stats{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:1rem;background:#F0F4FF;border-radius:8px;padding:1.5rem;margin:1.5rem 0;text-align:center}
+  hr{border:none;border-top:1px solid #eee;margin:2rem 0}
+</style>
+</head>
+<body>
+
+<h1>🏥 GetTreatmentHelp MCP Server</h1>
+<p class="meta">Substance abuse facility intelligence for AI agents and developers. <a href="https://gettreatmenthelp.com">GetTreatmentHelp.com</a> · <a href="https://gettreatmenthelp.com/api-access/">API Pricing</a> · <a href="https://gettreatmenthelp.com/mcp-guide/">Usage Guide</a></p>
+
+<span class="badge">Healthcare</span>
+<span class="badge">Behavioral Health</span>
+<span class="badge">SAMHSA Data</span>
+<span class="badge green">Public · No Auth Required</span>
+
+<div class="stats">
+  <div><span class="stat">12,373</span><span class="stat-label">Licensed Facilities</span></div>
+  <div><span class="stat">50</span><span class="stat-label">States + DC</span></div>
+  <div><span class="stat">5</span><span class="stat-label">Levels of Care</span></div>
+  <div><span class="stat">Monthly</span><span class="stat-label">Data Refresh</span></div>
+</div>
+
+<h2>What You Can Ask</h2>
+<div class="grid">
+  <div class="card">
+    <h3>For Operators & Admissions Teams</h3>
+    <ul>
+      <li>"Find IOP programs near 60601 that accept Medicaid"</li>
+      <li>"Which detox centers in Nashville accept Blue Cross?"</li>
+      <li>"Compare facilities near 75201 by insurance acceptance"</li>
+      <li>"Show all MAT programs in Chicago with their payer mix"</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>For Researchers & Consultants</h3>
+    <ul>
+      <li>"How many IOP programs operate in Baltimore, MD?"</li>
+      <li>"List all SAMHSA-certified MAT providers in Phoenix"</li>
+      <li>"Compare insurance acceptance across Chicago detox centers"</li>
+      <li>"What levels of care are available in rural Montana?"</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Available Tools</h2>
+<table>
+  <thead><tr><th>Tool</th><th>Description</th><th>Example Use</th></tr></thead>
+  <tbody>
+    <tr><td><code>search_facilities</code></td><td>Filter by state, city, treatment type, insurance</td><td>Find all IOP programs in Chicago that accept Medicaid</td></tr>
+    <tr><td><code>get_facility_detail</code></td><td>Full profile for a specific facility</td><td>Get details on Cumberland Heights Treatment Center</td></tr>
+    <tr><td><code>list_states</code></td><td>Coverage summary by state</td><td>How many facilities does GTH cover in Texas?</td></tr>
+    <tr><td><code>get_treatment_types</code></td><td>Definitions for each level of care</td><td>What's the difference between IOP and PHP?</td></tr>
+  </tbody>
+</table>
+
+<h2>Connect to Claude Desktop</h2>
+<pre id="config">Loading...</pre>
+
+<h2>MCP Endpoint</h2>
+<p><code id="endpoint">Loading...</code></p>
+
+<h2>Data Coverage</h2>
+<ul>
+  <li><strong>Source:</strong> SAMHSA National Survey of Substance Abuse Treatment Services (N-SSATS)</li>
+  <li><strong>Scope:</strong> Substance abuse (SA-designated) facilities only</li>
+  <li><strong>Levels of care:</strong> IOP, Detox, Inpatient Rehab, MAT, Outpatient, PHP</li>
+  <li><strong>Fields:</strong> Facility name, address, phone, insurance accepted, services offered, certifications, distance calculations</li>
+  <li><strong>Refresh:</strong> Monthly (1st of each month, automated)</li>
+</ul>
+
+<h2>Rate Limits & Pricing</h2>
+<p>The public endpoint is free with standard rate limits. For higher limits and a dedicated API key, see <a href="https://gettreatmenthelp.com/api-access/">API pricing</a> starting at $99/mo.</p>
+
+<div class="cta">
+  <strong style="color:white;font-size:1.1rem;">Ready to integrate?</strong><br><br>
+  <a href="https://gettreatmenthelp.com/mcp-guide/">Usage Guide →</a>
+  <a href="https://gettreatmenthelp.com/api-access/">Get API Access →</a>
+  <a href="https://gettreatmenthelp.com">GTH Website →</a>
+</div>
+
+<hr>
+<p style="color:#888;font-size:0.85rem;">🆘 <strong>SAMHSA National Helpline: 1-800-662-4357</strong> (free, confidential, 24/7) · For immediate treatment assistance, call anytime.</p>
+
+<script>
+const origin = window.location.origin;
+document.getElementById('endpoint').textContent = origin + '/mcp';
+document.getElementById('config').textContent = JSON.stringify({
+  "mcpServers": {
+    "gettreatmenthelp": {
+      "url": origin + "/mcp",
+      "type": "http"
+    }
+  }
+}, null, 2);
+</script>
+</body>
+</html>
