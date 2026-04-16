@@ -4,41 +4,50 @@
 const TOOLS = [
   {
     name: "search_facilities",
-    description: "Search for addiction treatment and mental health facilities. Filter by US state, city, treatment type, and insurance. Returns facility names, locations, programs, insurance, phone numbers, and direct links.",
+    title: "Search Treatment Facilities",
+    description: "Search the 12,373 SAMHSA-verified US addiction & mental health treatment facility directory by state, city, treatment type, and insurance. Returns matched facilities with name, city/state, programs offered, insurance accepted, phone, and browse URL. Use this to find candidates — then call get_facility_detail for one facility's full profile. If the user is uncertain about location coverage, call list_states first.",
+    annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
     inputSchema: {
       type: "object",
       properties: {
-        state: { type: "string", description: 'US state name or 2-letter abbreviation (e.g. "California" or "CA")' },
-        city: { type: "string", description: "City name" },
+        state: { type: "string", description: 'US state name or 2-letter abbreviation (e.g. "California" or "CA"). Required — searches are scoped to one state at a time.' },
+        city: { type: "string", description: "City name (partial match supported — 'san fran' matches 'San Francisco')" },
         treatment_type: {
           type: "string",
           enum: ["Inpatient Rehab", "Outpatient", "Detox", "IOP (Intensive Outpatient)", "PHP (Partial Hospitalization)", "MAT (Medication-Assisted Treatment)", "Counseling", "Sober Living"],
-          description: "Type of treatment program"
+          description: "Type of treatment program. Call get_treatment_types if the user is unsure which applies."
         },
-        insurance: { type: "string", description: 'Insurance provider (e.g. "Medicaid", "Aetna", "Blue Cross", "Medicare", "Private Pay")' },
-        limit: { type: "number", description: "Results to return (1-20, default 5)", minimum: 1, maximum: 20, default: 5 }
-      }
+        insurance: { type: "string", description: 'Insurance provider accepted (e.g. "Medicaid", "Aetna", "Blue Cross", "Medicare", "Private Pay"). Partial match supported.' },
+        limit: { type: "number", description: "Max results to return (1-20, default 5)", minimum: 1, maximum: 20, default: 5 }
+      },
+      required: ["state"]
     }
   },
   {
     name: "get_facility_detail",
-    description: "Get detailed information about a specific treatment facility by name.",
+    title: "Get Facility Detail",
+    description: "Get the full profile of one specific treatment facility: address, phone, programs offered, insurance plans accepted, SAMHSA verification status, and a direct browse URL. Supports partial name matching — returns the best match if multiple facilities contain the query string. Use after search_facilities when the user wants to drill into a named facility.",
+    annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
     inputSchema: {
       type: "object",
       properties: {
-        name: { type: "string", description: "Full or partial facility name" }
+        name: { type: "string", description: "Full or partial facility name (e.g. 'Betty Ford' or 'Hazelden Betty Ford Center')" }
       },
       required: ["name"]
     }
   },
   {
     name: "list_states",
-    description: "List all US states with available treatment facility data and counts.",
+    title: "List States with Coverage",
+    description: "List every US state that has treatment facility data in this directory, with per-state facility counts. Returns an array of {state, stateAbbr, count}. Use as a first step when the user's location is unclear, or to discover where coverage exists before calling search_facilities.",
+    annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
     inputSchema: { type: "object", properties: {} }
   },
   {
     name: "get_treatment_types",
-    description: "Get definitions and explanations of all treatment program types to help users understand their options.",
+    title: "Get Treatment Type Definitions",
+    description: "Get definitions of all treatment program types (Inpatient Rehab, Detox, PHP, IOP, Outpatient, MAT, Counseling, Sober Living) with duration, intensity, and typical fit. Returns markdown-formatted explanations. Use when the user is uncertain which treatment_type to pass to search_facilities, or asks 'what's the difference between X and Y'.",
+    annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
     inputSchema: { type: "object", properties: {} }
   }
 ];
