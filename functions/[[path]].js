@@ -196,6 +196,45 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
 };
 
+// ── KV Metering — IP abuse layer + anonymous lifetime tier ──
+
+const GTH_FREE_LIMIT = 10;    // anonymous lifetime per IP
+const GTH_ABUSE_LIMIT = 10;   // per hour per IP (applies to keyed + anonymous)
+
+async function checkGthMeter(request, env) {
+  const kv = env?.GTH_CALL_METER;
+  if (!kv) return { allowed: true }; // KV not bound, allow
+
+  const apiKey = request.headers.get('x-api-key') || '';
+  const ip = request.headers.get('cf-connecting-ip') || 'unknown';
+
+  // Layer 1: IP abuse detection (10/hr per IP) — applies to BOTH keyed and anonymous
+  const abuseKey = `ip_abuse:${ip}`;
+  const abuseCount = parseInt(await kv.get(abuseKey) || '0');
+  if (abuseCount >= GTH_ABUSE_LIMIT) {
+    return {
+      allowed: false,
+      reason: 'Rate limit exceeded. Please register for an API key at https://gettreatmenthelp.com/api-access/'
+    };
+  }
+  await kv.put(abuseKey, String(abuseCount + 1), { expirationTtl: 3600 });
+
+  // Keyed users bypass the lifetime tier
+  if (apiKey) return { allowed: true };
+
+  // Layer 2: Anonymous lifetime tier (10 per IP, no TTL)
+  const permKey = `anon:perm:${ip}`;
+  const current = parseInt(await kv.get(permKey) || '0');
+  if (current >= GTH_FREE_LIMIT) {
+    return {
+      allowed: false,
+      reason: "You've used your 10 free queries. Register at https://gettreatmenthelp.com/api-access/ with your email to get a free API key — no credit card required. Paid plans from $99/mo for unlimited access."
+    };
+  }
+  await kv.put(permKey, String(current + 1)); // no TTL = permanent per-IP lifetime counter
+  return { allowed: true };
+}
+
 export async function onRequest(context) {
   const { request, env } = context;
   const url = new URL(request.url);
@@ -255,6 +294,13 @@ export async function onRequest(context) {
     }
 
     if (method === "tools/call") {
+      const meter = await checkGthMeter(request, env);
+      if (!meter.allowed) {
+        return Response.json(
+          jsonRpc(id, { content: [{ type: 'text', text: meter.reason }], isError: true }),
+          { headers: CORS_HEADERS }
+        );
+      }
       const toolName = params?.name;
       const toolArgs = params?.arguments || {};
       const result = await handleToolCall(toolName, toolArgs, env);

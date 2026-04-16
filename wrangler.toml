@@ -1,0 +1,7 @@
+name = "gth-mcp-server"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "."
+
+[[kv_namespaces]]
+binding = "GTH_CALL_METER"
+id = "6bf2873cf50b4e258a054e3f0acf2744"
