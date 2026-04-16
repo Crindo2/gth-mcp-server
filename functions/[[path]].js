@@ -272,7 +272,7 @@ export async function onRequest(context) {
         serverInfo: {
           name: "gettreatmenthelp",
           version: "1.1.0",
-          description: "Treatment facility search + market intelligence — GetTreatmentHelp.com"
+          description: "Find US addiction & mental health treatment facilities. 12,373 SAMHSA-verified. Filter by location, treatment type, and insurance accepted."
         }
       }), { headers: CORS_HEADERS });
     }
