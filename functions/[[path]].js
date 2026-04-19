@@ -205,43 +205,127 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
 };
 
-// ── KV Metering — IP abuse layer + anonymous lifetime tier ──
+// ── Access control (Apr 2026): API key required for tools/call. Anonymous tier removed. ──
 
-const GTH_FREE_LIMIT = 10;    // anonymous lifetime per IP
-const GTH_ABUSE_LIMIT = 10;   // per hour per IP (applies to keyed + anonymous)
+const GTH_ABUSE_LIMIT = 10;  // per hour per IP
+const GTH_PRICING_URL = 'https://gettreatmenthelp.com/api-access/';
 
-async function checkGthMeter(request, env) {
-  const kv = env?.GTH_CALL_METER;
-  if (!kv) return { allowed: true }; // KV not bound, allow
+// GTH Scale/Enterprise support overage billing via existing metered prices.
+// Meter event names are read from env at runtime so they can be configured without a code change.
+// If unset, plans hardCap instead of reporting overage (safer default).
+function gthPlanLimits(env) {
+  return {
+    developer:  { limit: 500,     hardCap: true,  reportUsage: false, meterEvent: null },
+    growth:     { limit: 2500,    hardCap: true,  reportUsage: false, meterEvent: null },
+    scale:      {
+      limit: 10000,
+      hardCap: !env?.GTH_SCALE_METER_EVENT,
+      reportUsage: !!env?.GTH_SCALE_METER_EVENT,
+      meterEvent: env?.GTH_SCALE_METER_EVENT || null,
+    },
+    enterprise: {
+      limit: 50000,
+      hardCap: !env?.GTH_ENT_METER_EVENT,
+      reportUsage: !!env?.GTH_ENT_METER_EVENT,
+      meterEvent: env?.GTH_ENT_METER_EVENT || null,
+    },
+    payg:       { limit: Infinity, hardCap: false, reportUsage: true, meterEvent: 'gth_api_call' },
+  };
+}
 
+async function validateKey(request, env) {
   const apiKey = request.headers.get('x-api-key') || '';
-  const ip = request.headers.get('cf-connecting-ip') || 'unknown';
 
-  // Layer 1: IP abuse detection (10/hr per IP) — applies to BOTH keyed and anonymous
-  const abuseKey = `ip_abuse:${ip}`;
-  const abuseCount = parseInt(await kv.get(abuseKey) || '0');
-  if (abuseCount >= GTH_ABUSE_LIMIT) {
+  if (!apiKey) {
     return {
       allowed: false,
-      reason: 'Rate limit exceeded. Please register for an API key at https://gettreatmenthelp.com/api-access/'
+      reason: `GTH Intelligence requires an API key. 12,373 SAMHSA-verified treatment facilities with insurance acceptance, service types, and contact data. Subscribe from $99/mo or pay-per-query at $1.00/call at ${GTH_PRICING_URL}`
     };
   }
-  await kv.put(abuseKey, String(abuseCount + 1), { expirationTtl: 3600 });
 
-  // Keyed users bypass the lifetime tier
-  if (apiKey) return { allowed: true };
+  const kv = env?.GTH_API_KEYS;
+  if (!kv) return { allowed: false, reason: 'Server misconfiguration. Please try again later.' };
 
-  // Layer 2: Anonymous lifetime tier (10 per IP, no TTL)
-  const permKey = `anon:perm:${ip}`;
-  const current = parseInt(await kv.get(permKey) || '0');
-  if (current >= GTH_FREE_LIMIT) {
+  const raw = await kv.get(apiKey);
+  if (!raw) {
     return {
       allowed: false,
-      reason: "You've used your 10 free queries. Register at https://gettreatmenthelp.com/api-access/ with your email to get a free API key — no credit card required. Paid plans from $99/mo for unlimited access."
+      reason: `Invalid API key. If you recently subscribed, check your welcome email for the correct key. Otherwise subscribe at ${GTH_PRICING_URL}`
     };
   }
-  await kv.put(permKey, String(current + 1)); // no TTL = permanent per-IP lifetime counter
-  return { allowed: true };
+
+  const record = JSON.parse(raw);
+  if (record.status === 'canceled') {
+    return { allowed: false, reason: `This API key has been canceled. Resubscribe at ${GTH_PRICING_URL}` };
+  }
+
+  const abuseKv = env?.GTH_CALL_METER;
+  if (abuseKv) {
+    const ip = request.headers.get('cf-connecting-ip') || 'unknown';
+    const abuseKey = `ip_abuse:${ip}`;
+    const abuseCount = parseInt(await abuseKv.get(abuseKey) || '0', 10);
+    if (abuseCount >= GTH_ABUSE_LIMIT) {
+      return { allowed: false, reason: 'Rate limit exceeded (10 req/hr per IP). If unexpected, reply to your welcome email.' };
+    }
+    await abuseKv.put(abuseKey, String(abuseCount + 1), { expirationTtl: 3600 });
+  }
+
+  const planSpec = gthPlanLimits(env)[record.plan];
+  if (!planSpec) return { allowed: false, reason: 'Unknown plan on this API key. Reply to your welcome email.' };
+
+  if (planSpec.hardCap && record.callsThisPeriod >= planSpec.limit) {
+    return {
+      allowed: false,
+      reason: `Monthly quota reached (${planSpec.limit.toLocaleString()} calls on the ${record.plan} plan). Upgrade at ${GTH_PRICING_URL} or wait until ${record.periodEnd} for the next cycle.`
+    };
+  }
+
+  return { allowed: true, record, apiKey, planSpec };
+}
+
+async function recordSuccessfulCall(env, validation) {
+  if (!validation.record) return;
+  const updated = {
+    ...validation.record,
+    callsThisPeriod: (validation.record.callsThisPeriod || 0) + 1,
+    lastUsedAt: new Date().toISOString(),
+  };
+  await env.GTH_API_KEYS.put(validation.apiKey, JSON.stringify(updated));
+
+  if (validation.planSpec.reportUsage && validation.planSpec.meterEvent) {
+    await postMeterEvent(env, validation.planSpec.meterEvent, validation.record.customerId);
+  }
+}
+
+async function postMeterEvent(env, eventName, customerId) {
+  const stripeKey = env?.STRIPE_SECRET_KEY;
+  if (!stripeKey || !customerId) return;
+  const identifier = `${eventName}-${customerId}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  const body = new URLSearchParams({
+    event_name: eventName,
+    'payload[stripe_customer_id]': customerId,
+    'payload[value]': '1',
+    identifier,
+  });
+  try {
+    const res = await fetch('https://api.stripe.com/v1/billing/meter_events', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${stripeKey}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Idempotency-Key': identifier,
+      },
+      body,
+    });
+    if (!res.ok) throw new Error(`meter event ${res.status}`);
+  } catch (e) {
+    // Queue for later retry. Drained by cbeg-usage-reporter Worker (Phase 3.6).
+    await env.GTH_API_KEYS.put(
+      `usage_retry:${Date.now()}:${identifier}`,
+      JSON.stringify({ eventName, customerId, identifier, timestamp: Date.now() }),
+      { expirationTtl: 86400 * 7 }
+    ).catch(() => {});
+  }
 }
 
 export async function onRequest(context) {
@@ -303,10 +387,10 @@ export async function onRequest(context) {
     }
 
     if (method === "tools/call") {
-      const meter = await checkGthMeter(request, env);
-      if (!meter.allowed) {
+      const validation = await validateKey(request, env);
+      if (!validation.allowed) {
         return Response.json(
-          jsonRpc(id, { content: [{ type: 'text', text: meter.reason }], isError: true }),
+          jsonRpc(id, { content: [{ type: 'text', text: validation.reason }], isError: true }),
           { headers: CORS_HEADERS }
         );
       }
@@ -315,6 +399,11 @@ export async function onRequest(context) {
       const result = await handleToolCall(toolName, toolArgs, env);
       if (!result) {
         return Response.json(jsonRpcError(id, -32602, `Unknown tool: ${toolName}`), { headers: CORS_HEADERS });
+      }
+      if (!result.isError) {
+        const recording = recordSuccessfulCall(env, validation).catch(e => console.error('record failed:', e));
+        if (typeof context.waitUntil === 'function') context.waitUntil(recording);
+        else await recording;
       }
       return Response.json(jsonRpc(id, result), { headers: CORS_HEADERS });
     }

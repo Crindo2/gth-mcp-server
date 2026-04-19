@@ -5,3 +5,7 @@ pages_build_output_dir = "."
 [[kv_namespaces]]
 binding = "GTH_CALL_METER"
 id = "6bf2873cf50b4e258a054e3f0acf2744"
+
+[[kv_namespaces]]
+binding = "GTH_API_KEYS"
+id = "efb2f3eb19154e8290021e083c931b87"
