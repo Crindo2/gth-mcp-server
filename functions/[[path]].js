@@ -205,14 +205,18 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
 };
 
-// ── Access control (Apr 2026): API key required for tools/call. Anonymous tier removed. ──
+// ── Access control (2026-06-10): free distribution. Anonymous tools/call ENABLED; paid tiers
+//    retired. Rate cap 100 calls/IP/day (rolling daily). Legacy keys honored but NOT required.
+//    Higher-volume access -> contact via /api-access/. Supersedes the Apr-2026 key-only posture.
+//    EKRA: informational B2B treatment-facility data distribution only — no affiliate,
+//    pay-per-lead, or ranked-placement monetization on any GTH surface. ──
 
-const GTH_ABUSE_LIMIT = 10;  // per hour per IP
-const GTH_PRICING_URL = 'https://gettreatmenthelp.com/api-access/';
+const GTH_DAILY_LIMIT = 100;   // free-tier calls per IP per UTC day (rolling daily — no lifetime accumulation)
+const GTH_CONTACT_URL = 'https://gettreatmenthelp.com/api-access/';
 
-// GTH Scale/Enterprise support overage billing via existing metered prices.
-// Meter event names are read from env at runtime so they can be configured without a code change.
-// If unset, plans hardCap instead of reporting overage (safer default).
+function gthUtcDay() { return new Date().toISOString().slice(0, 10); }
+
+// Legacy plan limits retained so any pre-existing keyed caller keeps working (keys are not required).
 function gthPlanLimits(env) {
   return {
     developer:  { limit: 500,     hardCap: true,  reportUsage: false, meterEvent: null },
@@ -236,51 +240,37 @@ function gthPlanLimits(env) {
 async function validateKey(request, env) {
   const apiKey = request.headers.get('x-api-key') || '';
 
-  if (!apiKey) {
-    return {
-      allowed: false,
-      reason: `GTH Intelligence requires an API key. 12,373 SAMHSA-verified treatment facilities with insurance acceptance, service types, and contact data. Subscribe from $99/mo or pay-per-query at $1.00/call at ${GTH_PRICING_URL}`
-    };
-  }
-
-  const kv = env?.GTH_API_KEYS;
-  if (!kv) return { allowed: false, reason: 'Server misconfiguration. Please try again later.' };
-
-  const raw = await kv.get(apiKey);
-  if (!raw) {
-    return {
-      allowed: false,
-      reason: `Invalid API key. If you recently subscribed, check your welcome email for the correct key. Otherwise subscribe at ${GTH_PRICING_URL}`
-    };
-  }
-
-  const record = JSON.parse(raw);
-  if (record.status === 'canceled') {
-    return { allowed: false, reason: `This API key has been canceled. Resubscribe at ${GTH_PRICING_URL}` };
-  }
-
-  const abuseKv = env?.GTH_CALL_METER;
-  if (abuseKv) {
-    const ip = request.headers.get('cf-connecting-ip') || 'unknown';
-    const abuseKey = `ip_abuse:${ip}`;
-    const abuseCount = parseInt(await abuseKv.get(abuseKey) || '0', 10);
-    if (abuseCount >= GTH_ABUSE_LIMIT) {
-      return { allowed: false, reason: 'Rate limit exceeded (10 req/hr per IP). If unexpected, reply to your welcome email.' };
+  // Legacy keyed access (optional): a recognized, non-canceled key bypasses the anonymous daily cap.
+  if (apiKey) {
+    const kv = env?.GTH_API_KEYS;
+    if (kv) {
+      const raw = await kv.get(apiKey);
+      if (raw) {
+        const record = JSON.parse(raw);
+        const planSpec = gthPlanLimits(env)[record.plan];
+        if (record.status !== 'canceled' && planSpec) {
+          if (planSpec.hardCap && record.callsThisPeriod >= planSpec.limit) {
+            return { allowed: false, reason: `Monthly quota reached (${planSpec.limit.toLocaleString()} calls on the ${record.plan} plan). For higher-volume access, get in touch via ${GTH_CONTACT_URL}` };
+          }
+          return { allowed: true, record, apiKey, planSpec };
+        }
+      }
     }
-    await abuseKv.put(abuseKey, String(abuseCount + 1), { expirationTtl: 3600 });
+    // Unrecognized or canceled key: fall through to the free anonymous tier (never hard-block).
   }
 
-  const planSpec = gthPlanLimits(env)[record.plan];
-  if (!planSpec) return { allowed: false, reason: 'Unknown plan on this API key. Reply to your welcome email.' };
-
-  if (planSpec.hardCap && record.callsThisPeriod >= planSpec.limit) {
-    return {
-      allowed: false,
-      reason: `Monthly quota reached (${planSpec.limit.toLocaleString()} calls on the ${record.plan} plan). Upgrade at ${GTH_PRICING_URL} or wait until ${record.periodEnd} for the next cycle.`
-    };
+  // Free anonymous tier — 100 calls/IP/day (UTC), rolling daily, no lifetime cap.
+  const meter = env?.GTH_CALL_METER;
+  if (meter) {
+    const ip = request.headers.get('cf-connecting-ip') || 'unknown';
+    const dayKey = `ip_daily:${ip}:${gthUtcDay()}`;
+    const count = parseInt(await meter.get(dayKey) || '0', 10);
+    if (count >= GTH_DAILY_LIMIT) {
+      return { allowed: false, reason: `Free tier limit reached (${GTH_DAILY_LIMIT} calls/IP/day; resets 00:00 UTC). For higher-volume access, get in touch via ${GTH_CONTACT_URL}` };
+    }
+    await meter.put(dayKey, String(count + 1), { expirationTtl: 172800 });
   }
-
-  return { allowed: true, record, apiKey, planSpec };
+  return { allowed: true, anonymous: true };
 }
 
 async function recordSuccessfulCall(env, validation) {

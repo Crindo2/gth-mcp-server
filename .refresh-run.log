@@ -1,0 +1,171 @@
+Loaded 12392 previous records (157 curated)
+Fetching page 1...
+  recordCount=12201, total_pages=13
+Fetching page 2...
+Fetching page 3...
+Fetching page 4...
+Fetching page 5...
+Fetching page 6...
+Fetching page 7...
+Fetching page 8...
+Fetching page 9...
+Fetching page 10...
+Fetching page 11...
+Fetching page 12...
+Fetching page 13...
+Fetched 12201 raw SAMHSA rows
+Filtered to 12201 SA rows
+DEDUP: dropped 20 SAMHSA records that matched curated (lat/lng primary, name+state+city fallback)
+  Examples: Westwind Recovery (Los Angeles, CA); Lighthouse Treatment Center (Anaheim, CA); Mountainside Treatment Center (Canaan, CT); Turning Point of Tampa (Tampa, FL); Riverside Recovery of Tampa (Tampa, FL)...
+TARGETS: 277 net-new + 774 weak-insurance backfill = 1051 total
+
+=== Enriching net-new: 277 records ===
+  net-new 25/277 | cost $0.050 | success 25 fail 0
+  net-new 50/277 | cost $0.101 | success 50 fail 0
+  net-new 75/277 | cost $0.151 | success 75 fail 0
+  net-new 100/277 | cost $0.200 | success 100 fail 0
+  --- Quality spot-check (5 of 100 enriched in net-new) ---
+    [medium] Bernalillo County CARE Campus - Behavioral Health Services CARE Campus (Albuquerque, NM)
+      Bernalillo County CARE Campus - Behavioral Health Services is a facility in Albuquerque, NM that provides comprehensive programs for substance use disorder and mental health conditions. Services include detox, stabilization programs, inpati
+      insurance: ['Contact for details']
+    [high] Portland Metro Treatment Center - Metro Treatment of Oregon LP (Portland, OR)
+      SAMHSA-verified facility in Portland, OR providing medication-assisted treatment for opioid addiction, including methadone and buprenorphine/Suboxone. Services include IOP, outpatient programs, MAT, and counseling. CARF accredited since 200
+      insurance: ['Most Major Insurance', 'Medicare', 'Tricare']
+    [medium] New Vision - OSF St Anthonys Health Center (Alton, IL)
+      New Vision - OSF St Anthonys Health Center is a medically supervised, hospital-based addiction treatment facility in Alton, IL offering detoxification services to help patients overcome withdrawal symptoms from alcohol, prescription medicat
+      insurance: ['Most Major Insurance', 'Medicare', 'Medicaid', 'Tricare']
+    [medium] Soulful Recovery (Denver, CO)
+      Soulful Recovery is a SAMHSA-verified facility in Denver, CO specializing in telehealth addiction treatment for adolescents and adults. Services include Intensive Outpatient Programming (IOP), Outpatient care, Medication-Assisted Treatment 
+      insurance: ['Most Major Insurance', 'Medicaid', 'Tricare']
+    [medium] Cindy Baird Guidance in Recovery - DUI Services (Calhoun, KY)
+      Cindy Baird Guidance in Recovery - DUI Services is a private for-profit addiction treatment facility in Calhoun, KY specializing in substance use treatment for adults. The center offers individual and group counseling, cognitive behavioral 
+      insurance: ['Contact for details']
+  --- end spot-check ---
+  net-new 125/277 | cost $0.251 | success 125 fail 0
+  net-new 150/277 | cost $0.302 | success 150 fail 0
+  net-new 175/277 | cost $0.352 | success 175 fail 0
+  net-new 200/277 | cost $0.403 | success 200 fail 0
+  --- Quality spot-check (5 of 200 enriched in net-new) ---
+    [medium] Drug Abuse Treatment Association Inc - (DATA)/Walter D Kelly Trt Ctr (Jupiter, FL)
+      SAMHSA-verified facility in Jupiter, FL offering inpatient rehabilitation, medication-assisted treatment (MAT), and counseling services. Drug Abuse Treatment Association (DATA)/Walter D Kelly Treatment Center is a private non-profit providi
+      insurance: ['Contact for details']
+    [medium] Lost Dreams Awaken LLC - DBA New Hope Recovery (Modesto, CA)
+      Lost Dreams Awaken LLC, operating as New Hope Recovery, is a full-service addiction recovery center in Modesto, California offering comprehensive treatment services including inpatient rehab, detox, intensive outpatient programs, outpatient
+      insurance: ['Self-Pay']
+    [medium] Clear Concepts Counseling (Lewistown, PA)
+      Clear Concepts Counseling is a SAMHSA-verified addiction treatment facility located at 24 North Main Street, Lewistown, PA 17044. Services include Intensive Outpatient (IOP), Outpatient, Medication-Assisted Treatment (MAT), and Counseling. 
+      insurance: ['Most Major Insurance', 'Medicaid']
+    [medium] Community Counseling Center - Genevieve Office and PSR (Sainte Genevieve, MO)
+      Community Counseling Center - Genevieve Office and PSR is a private, not-for-profit behavioral health organization located at 820 Park Drive, Sainte Genevieve, MO 63670, serving the public since 1974. The facility provides Intensive Outpati
+      insurance: ['Most Major Insurance', 'Medicare', 'Medicaid', 'Tricare']
+    [medium] East Portland Comprehensive Treatment - CRC Health Oregon LLC (Portland, OR)
+      SAMHSA-verified outpatient facility in Portland, OR offering medication-assisted treatment and counseling for substance use disorders. Services include cognitive behavioral therapy, motivational interviewing, anger management, and relapse p
+      insurance: ['Most Major Insurance', 'Medicare', 'Medicaid', 'Tricare']
+  --- end spot-check ---
+  net-new 225/277 | cost $0.454 | success 225 fail 0
+  net-new 250/277 | cost $0.505 | success 250 fail 0
+  net-new 275/277 | cost $0.555 | success 275 fail 0
+=== net-new complete: 277/277 succeeded, 0 failed, halted=False ===
+
+=== Enriching weak-insurance: 774 records ===
+  weak-insurance 25/774 | cost $0.609 | success 25 fail 0
+  weak-insurance 50/774 | cost $0.660 | success 50 fail 0
+  weak-insurance 75/774 | cost $0.710 | success 75 fail 0
+  weak-insurance 100/774 | cost $0.759 | success 100 fail 0
+  --- Quality spot-check (5 of 100 enriched in weak-insurance) ---
+    [medium] Progress House Inc - Progress House Counseling Center (Placerville, CA)
+      SAMHSA-verified treatment facility in Placerville, CA. Offers Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] Counseling Associates (Joliet, IL)
+      SAMHSA-verified treatment facility in Joliet, IL. Offers IOP (Intensive Outpatient), Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] No Longer Bound (Cumming, GA)
+      SAMHSA-verified treatment facility in Cumming, GA. Offers Inpatient Rehab, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] Free at Last - Walker House/Williams House I and II (Palo Alto, CA)
+      SAMHSA-verified treatment facility in Palo Alto, CA. Offers Inpatient Rehab, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] ACT/Counseling and Education (Phoenix, AZ)
+      SAMHSA-verified treatment facility in Phoenix, AZ. Offers Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+  --- end spot-check ---
+  weak-insurance 125/774 | cost $0.810 | success 125 fail 0
+  weak-insurance 150/774 | cost $0.860 | success 150 fail 0
+  weak-insurance 175/774 | cost $0.911 | success 175 fail 0
+  weak-insurance 200/774 | cost $0.962 | success 200 fail 0
+  --- Quality spot-check (5 of 200 enriched in weak-insurance) ---
+    [medium] Ascensa Health - Day Outpatient Program (Atlanta, GA)
+      SAMHSA-verified treatment facility in Atlanta, GA. Offers Inpatient Rehab, IOP (Intensive Outpatient), Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] Free at Last - Walker House/Williams House I and II (Palo Alto, CA)
+      SAMHSA-verified treatment facility in Palo Alto, CA. Offers Inpatient Rehab, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] Mary Hall Freedom Village Inc (Atlanta, GA)
+      SAMHSA-verified treatment facility in Atlanta, GA. Offers Inpatient Rehab, IOP (Intensive Outpatient), Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] Wayward DUI Counseling Inc (Algonquin, IL)
+      SAMHSA-verified treatment facility in Algonquin, IL. Offers Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] Hands Up Counseling LLC (Colorado Springs, CO)
+      SAMHSA-verified treatment facility in Colorado Springs, CO. Offers Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+  --- end spot-check ---
+  weak-insurance 225/774 | cost $1.012 | success 225 fail 0
+  weak-insurance 250/774 | cost $1.063 | success 250 fail 0
+  weak-insurance 275/774 | cost $1.113 | success 275 fail 0
+  weak-insurance 300/774 | cost $1.163 | success 300 fail 0
+  --- Quality spot-check (5 of 300 enriched in weak-insurance) ---
+    [medium] Cindy Baird Guidance in Recovery and - DUI Services (Greenville, KY)
+      SAMHSA-verified treatment facility in Greenville, KY. Offers IOP (Intensive Outpatient), Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] WestCare Pacific Islands - Sanctuary (Hagatna, GU)
+      SAMHSA-verified treatment facility in Hagatna, GU. Offers Inpatient Rehab, IOP (Intensive Outpatient), Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] Addictions Associates Therapy Inc (Libertyville, IL)
+      SAMHSA-verified treatment facility in Libertyville, IL. Offers IOP (Intensive Outpatient), Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] Hina Mauka/Teen Care - Pearl City High School (Pearl City, HI)
+      SAMHSA-verified treatment facility in Pearl City, HI. Offers Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] Maui Youth and Family Services Inc - Adolescent Treatment Intensive Outpt (Wailuku, HI)
+      SAMHSA-verified treatment facility in Wailuku, HI. Offers IOP (Intensive Outpatient), Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+  --- end spot-check ---
+  weak-insurance 325/774 | cost $1.214 | success 325 fail 0
+  weak-insurance 350/774 | cost $1.264 | success 350 fail 0
+  weak-insurance 375/774 | cost $1.314 | success 375 fail 0
+  weak-insurance 400/774 | cost $1.364 | success 400 fail 0
+  --- Quality spot-check (5 of 400 enriched in weak-insurance) ---
+    [medium] We Care Foundation (Las Vegas, NV)
+      SAMHSA-verified treatment facility in Las Vegas, NV. Offers Inpatient Rehab, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] Phoenix VA Healthcare System - Domiciliary Substance Use Disorder (Phoenix, AZ)
+      SAMHSA-verified treatment facility in Phoenix, AZ. Offers Inpatient Rehab, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Tricare']
+    [medium] Hina Mauka/Teen Care - Aliamanu Middle School (Honolulu, HI)
+      SAMHSA-verified treatment facility in Honolulu, HI. Offers Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] Omega Centre (Fort Myers, FL)
+      SAMHSA-verified treatment facility in Fort Myers, FL. Offers Outpatient, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+    [medium] REA of Hope Fellowship Home (Charleston, WV)
+      SAMHSA-verified treatment facility in Charleston, WV. Offers Inpatient Rehab, MAT (Medication-Assisted Treatment), Counseling. Accepts various payment options.
+      insurance: ['Contact for details']
+  --- end spot-check ---
+  weak-insurance 425/774 | cost $1.415 | success 425 fail 0
+  weak-insurance 450/774 | cost $1.465 | success 450 fail 0
+  weak-insurance 475/774 | cost $1.516 | success 475 fail 0
+  ! HALT: cost $1.516 exceeds $1.50 cap
+=== weak-insurance complete: 475/774 succeeded, 0 failed, halted=True ===
+
+=== Enrichment cost summary ===
+  Anthropic input tokens:   391,446
+  Anthropic output tokens:  74,449
+  Anthropic cache writes:   0
+  Anthropic cache reads:    0
+  Serper credits:           752
+  TOTAL COST:               $1.5157
+  Halted at cap:            True
+
+Final merged: 12338 (157 curated + 12181 SAMHSA)
+Wrote C:\Code\gth-mcp-server\facilities.json
