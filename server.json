@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.Crindo2/gth-mcp-server",
-  "title": "GTH Intelligence — Substance Abuse Treatment Finder (API key required)",
-  "description": "Search 12,373 SAMHSA-verified substance abuse treatment facilities across all 50 US states.",
-  "version": "1.1.0",
+  "title": "GTH Intelligence - Substance Abuse Treatment Finder",
+  "description": "Search 12,338 curated addiction and mental health treatment facilities, sourced from SAMHSA, across all 50 US states.",
+  "version": "1.1.1",
   "repository": {
     "url": "https://github.com/Crindo2/gth-mcp-server",
     "source": "github"

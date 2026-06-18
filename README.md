@@ -1,36 +1,34 @@
-# GTH Intelligence — Substance Abuse Treatment Finder
+# GTH Intelligence - Substance Abuse Treatment Finder
 
-An MCP server providing AI agents with access to 12,373 SAMHSA-verified substance abuse treatment facilities across all 50 US states. The only fully enriched, actively maintained SAMHSA MCP server available.
+An MCP server that gives AI agents access to 12,338 curated US addiction and mental health treatment facilities, sourced from SAMHSA, across all 50 states. Built for treatment operators, healthcare AI developers, and anyone building tools that help people find care.
 
 ## What It Does
 
-The GTH Intelligence MCP server gives AI agents structured access to the GetTreatmentHelp database of substance abuse and mental health treatment facilities — enriched with descriptions, verified phone numbers, websites, and competitive intelligence data.
+The GTH Intelligence MCP server provides structured access to GetTreatmentHelp's directory of addiction and mental health treatment facilities -- enriched with descriptions, phone numbers, websites, programs offered, and insurance accepted.
 
 ## Tools
 
 ### `search_facilities`
-Search for addiction treatment and mental health facilities. Filter by US state, city, treatment type, and insurance. Returns facility names, locations, programs, insurance, phone numbers, and direct links.
+Search for addiction and mental health treatment facilities. Filter by US state (required), city, treatment type, and insurance accepted. Returns facility names, locations, programs, insurance, phone numbers, and a browse URL.
 
 **Parameters:**
-- `zip` — ZIP code to search near
-- `state` — Two-letter state abbreviation
-- `city` — City name
-- `treatment_type` — Type of treatment (e.g. "detox", "inpatient", "outpatient", "MAT")
-- `insurance` — Insurance accepted
-- `radius` — Search radius in miles (default 25)
-- `limit` — Max results to return
+- `state` (required) -- US state name or two-letter abbreviation (e.g. "California" or "CA")
+- `city` -- City name (partial match supported)
+- `treatment_type` -- One of: Inpatient Rehab, Outpatient, Detox, IOP (Intensive Outpatient), PHP (Partial Hospitalization), MAT (Medication-Assisted Treatment), Counseling, Sober Living
+- `insurance` -- Insurance provider accepted (e.g. "Medicaid", "Aetna", "Medicare")
+- `limit` -- Max results to return (1-20, default 5)
 
 ### `get_facility_detail`
-Get detailed information about a specific treatment facility by name. Returns programs offered, insurance accepted, phone number, website, and description.
+Get the full profile of one treatment facility by name: location, phone, programs offered, insurance accepted, and a browse URL. Partial name matching supported.
 
 **Parameters:**
-- `name` (required) — Facility name
+- `name` (required) -- Full or partial facility name
 
 ### `list_states`
-List all US states that have treatment facility data available, with facility count per state.
+List every US state with treatment facility data, with per-state facility counts.
 
 ### `get_treatment_types`
-Get definitions and explanations of all treatment program types (Inpatient, Detox, IOP, PHP, Outpatient, MAT, Counseling, Sober Living).
+Get definitions of all treatment program types (Inpatient Rehab, Detox, PHP, IOP, Outpatient, MAT, Counseling, Sober Living) with duration, intensity, and typical fit.
 
 ## Usage
 
@@ -46,45 +44,38 @@ Add to your `claude_desktop_config.json`:
   "mcpServers": {
     "gth-intelligence": {
       "command": "npx",
-      "args": ["-y", "@smithery/cli@latest", "run", "cbeggroup/gettreatmenthelp", "--key", "YOUR_SMITHERY_KEY"]
+      "args": ["-y", "mcp-remote", "https://gth-mcp-server.pages.dev/mcp"]
     }
   }
 }
 ```
-
-### Connect via Smithery
-```bash
-smithery mcp add cbeggroup/gettreatmenthelp
-```
+No API key required.
 
 ## Data Coverage
 
-- **12,373** SAMHSA-verified substance abuse treatment facilities
+- **12,338** curated addiction and mental health treatment facilities, sourced from SAMHSA
 - **All 50 states** + DC
-- **100%** description coverage
-- **99.9%** website coverage
-- **99.2%** verified phone numbers
+- Programs, insurance accepted, phone numbers, and browse links per facility
 - Monthly data refreshes from SAMHSA
 
 ## Use Cases
 
-- Help patients find nearby treatment options
-- Build competitive intelligence tools for treatment operators
-- Power facility finder features in healthcare apps
+- Help people find nearby treatment options
+- Build facility-finder features into healthcare apps
+- Power competitive intelligence tools for treatment operators
 - Research treatment availability by geography or program type
 
 ## API Access
 
-Free tier: 10 calls/month — no API key required.
+Free: 100 calls per IP per day, no API key required.
 
-Paid tiers available at [gettreatmenthelp.com/api-access/](https://www.gettreatmenthelp.com/api-access/)
+For higher-volume access, get in touch via [gettreatmenthelp.com/api-access/](https://www.gettreatmenthelp.com/api-access/)
 
 ## Links
 
 - **Homepage:** [gettreatmenthelp.com](https://www.gettreatmenthelp.com)
 - **For Operators:** [gettreatmenthelp.com/for-operators/](https://www.gettreatmenthelp.com/for-operators/)
-- **Smithery:** [smithery.ai/server/cbeggroup/gettreatmenthelp](https://smithery.ai/server/cbeggroup/gettreatmenthelp)
-- **MCP Registry:** [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io/v0.1/servers?search=gettreatmenthelp)
+- **MCP Registry:** [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io)
 
 ## License
 
