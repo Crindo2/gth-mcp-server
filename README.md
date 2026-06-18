@@ -76,6 +76,7 @@ For higher-volume access, get in touch via [gettreatmenthelp.com/api-access/](ht
 - **Homepage:** [gettreatmenthelp.com](https://www.gettreatmenthelp.com)
 - **For Operators:** [gettreatmenthelp.com/for-operators/](https://www.gettreatmenthelp.com/for-operators/)
 - **MCP Registry:** [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io)
+- **Privacy:** [gth-mcp-server.pages.dev/privacy](https://gth-mcp-server.pages.dev/privacy)
 
 ## License
 
