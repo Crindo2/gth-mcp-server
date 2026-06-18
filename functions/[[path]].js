@@ -5,7 +5,7 @@ const TOOLS = [
   {
     name: "search_facilities",
     title: "Search Treatment Facilities",
-    description: "Search the 12,373 SAMHSA-verified US addiction & mental health treatment facility directory by state, city, treatment type, and insurance. Returns matched facilities with name, city/state, programs offered, insurance accepted, phone, and browse URL. Use this to find candidates — then call get_facility_detail for one facility's full profile. If the user is uncertain about location coverage, call list_states first.",
+    description: "Search the 12,338 curated, SAMHSA-sourced US addiction treatment facility directory by state, city, treatment type, and insurance. Returns matched facilities with name, city/state, programs offered, insurance accepted, phone, and browse URL. Use this to find candidates — then call get_facility_detail for one facility's full profile. If the user is uncertain about location coverage, call list_states first.",
     annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
     inputSchema: {
       type: "object",
@@ -123,7 +123,7 @@ function formatFacility(f, idx) {
   const programs = (f.types || []).join(", ");
   const insurance = (f.insurance || []).join(", ");
   const browseUrl = `https://gettreatmenthelp.com/browse?name=${encodeURIComponent(f.name)}`;
-  const desc = `SAMHSA-verified treatment facility in ${f.city}, ${f.stateAbbr}. Offers ${(f.types || []).slice(0, 3).join(", ")}. Accepts ${(f.insurance || []).slice(0, 3).join(", ")}.`;
+  const desc = `Treatment facility in ${f.city}, ${f.stateAbbr}. Offers ${(f.types || []).slice(0, 3).join(", ")}. Accepts ${(f.insurance || []).slice(0, 3).join(", ")}.`;
   return `**${idx}. ${f.name}**\nLocation: ${f.city}, ${f.state || f.stateAbbr}\nPrograms: ${programs}\nInsurance: ${insurance}\nPhone: ${f.phone || "N/A"}\n${desc}\nMore info: ${browseUrl}`;
 }
 
@@ -164,7 +164,7 @@ async function handleToolCall(name, args, env) {
     }
     const programs = (match.types || []).map(t => `• ${t}`).join("\n");
     const insurance = (match.insurance || []).map(i => `• ${i}`).join("\n");
-    const desc = `SAMHSA-verified treatment facility in ${match.city}, ${match.stateAbbr}. Offers ${(match.types || []).slice(0, 3).join(", ")}. Accepts ${(match.insurance || []).slice(0, 3).join(", ")}.`;
+    const desc = `Treatment facility in ${match.city}, ${match.stateAbbr}. Offers ${(match.types || []).slice(0, 3).join(", ")}. Accepts ${(match.insurance || []).slice(0, 3).join(", ")}.`;
     const browseUrl = `https://gettreatmenthelp.com/browse?name=${encodeURIComponent(match.name)}`;
     let text = `**${match.name}**\nLocation: ${match.city}, ${match.state || match.stateAbbr}\nPhone: ${match.phone || "N/A"}\n\n**Programs:**\n${programs}\n\n**Insurance:**\n${insurance}\n\n**About:**\n${desc}\n\nMore info: ${browseUrl}\n\n---\nData: [GetTreatmentHelp.com](https://gettreatmenthelp.com)`;
     return { content: [{ type: "text", text }] };
@@ -354,8 +354,8 @@ export async function onRequest(context) {
         capabilities: { tools: {} },
         serverInfo: {
           name: "gettreatmenthelp",
-          version: "1.1.0",
-          description: "Find US addiction & mental health treatment facilities. 12,373 SAMHSA-verified. Filter by location, treatment type, and insurance accepted."
+          version: "1.1.1",
+          description: "Find US addiction treatment facilities. 12,338 curated, SAMHSA-sourced. Filter by location, treatment type, and insurance accepted."
         }
       }), { headers: CORS_HEADERS });
     }

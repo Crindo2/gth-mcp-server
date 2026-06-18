@@ -1,15 +1,15 @@
 # GTH Intelligence - Substance Abuse Treatment Finder
 
-An MCP server that gives AI agents access to 12,338 curated US addiction and mental health treatment facilities, sourced from SAMHSA, across all 50 states. Built for treatment operators, healthcare AI developers, and anyone building tools that help people find care.
+An MCP server that gives AI agents access to 12,338 curated US addiction treatment facilities, sourced from SAMHSA, across all 50 states. Built for treatment operators, healthcare AI developers, and anyone building tools that help people find care.
 
 ## What It Does
 
-The GTH Intelligence MCP server provides structured access to GetTreatmentHelp's directory of addiction and mental health treatment facilities -- enriched with descriptions, phone numbers, websites, programs offered, and insurance accepted.
+The GTH Intelligence MCP server provides structured access to GetTreatmentHelp's directory of addiction treatment facilities -- enriched with descriptions, phone numbers, websites, programs offered, and insurance accepted.
 
 ## Tools
 
 ### `search_facilities`
-Search for addiction and mental health treatment facilities. Filter by US state (required), city, treatment type, and insurance accepted. Returns facility names, locations, programs, insurance, phone numbers, and a browse URL.
+Search for addiction treatment facilities. Filter by US state (required), city, treatment type, and insurance accepted. Returns facility names, locations, programs, insurance, phone numbers, and a browse URL.
 
 **Parameters:**
 - `state` (required) -- US state name or two-letter abbreviation (e.g. "California" or "CA")
@@ -53,7 +53,7 @@ No API key required.
 
 ## Data Coverage
 
-- **12,338** curated addiction and mental health treatment facilities, sourced from SAMHSA
+- **12,338** curated addiction treatment facilities, sourced from SAMHSA
 - **All 50 states** + DC
 - Programs, insurance accepted, phone numbers, and browse links per facility
 - Monthly data refreshes from SAMHSA
