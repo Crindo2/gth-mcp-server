@@ -205,6 +205,21 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
 };
 
+// ── Origin validation (MCP Streamable HTTP security requirement) ──
+// Per the MCP spec, servers MUST validate the Origin header on all incoming connections
+// to the MCP endpoint to prevent DNS rebinding attacks. Non-browser MCP clients (Claude
+// Desktop, mcp-remote, server-to-server) send no Origin and are allowed; browser requests
+// must come from an allowed host.
+const ALLOWED_ORIGIN_HOSTS = ["gth-mcp-server.pages.dev", "claude.ai", "claude.com", "anthropic.com", "localhost", "127.0.0.1"];
+
+function originAllowed(request) {
+  const origin = request.headers.get("Origin");
+  if (!origin) return true; // no Origin header = non-browser client; no DNS-rebinding vector
+  let hostname;
+  try { hostname = new URL(origin).hostname; } catch { return false; }
+  return ALLOWED_ORIGIN_HOSTS.some(h => hostname === h || hostname.endsWith("." + h));
+}
+
 // ── Access control (2026-06-10): free distribution. Anonymous tools/call ENABLED; paid tiers
 //    retired. Rate cap 100 calls/IP/day (rolling daily). Legacy keys honored but NOT required.
 //    Higher-volume access -> contact via /api-access/. Supersedes the Apr-2026 key-only posture.
@@ -325,6 +340,11 @@ export async function onRequest(context) {
   // Only handle /mcp
   if (url.pathname !== "/mcp") {
     return env.ASSETS ? env.ASSETS.fetch(request) : new Response("Not Found", { status: 404 });
+  }
+
+  // Validate Origin on the MCP endpoint (DNS-rebinding protection; static assets above are unaffected)
+  if (!originAllowed(request)) {
+    return Response.json(jsonRpcError(null, -32600, "Origin not allowed"), { status: 403, headers: CORS_HEADERS });
   }
 
   // CORS preflight
