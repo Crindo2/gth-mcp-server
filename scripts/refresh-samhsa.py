@@ -65,7 +65,7 @@ ENRICH_SYSTEM_PROMPT = (
     "GROUNDING RULE: Every claim in `description` must be supported by the search snippets. "
     "DO NOT invent founding dates, success rates, program counts, certifications, or any unverified claim. "
     "If snippets are sparse or off-topic, write a minimal factual description from SAMHSA fields only "
-    "(form: 'SAMHSA-verified facility in {city}, {state}. Services include {types}.')."
+    "(form: 'SAMHSA-sourced facility in {city}, {state}. Services include {types}.')."
 )
 
 STATE_NAMES = {
@@ -160,7 +160,7 @@ def normalize(row):
     lat = row.get("latitude"); lng = row.get("longitude")
     types_str = ", ".join(types) if types else "addiction treatment services"
     ins_str = ", ".join(i for i in insurance if i != "Contact for details") or "various payment options"
-    description = f"SAMHSA-verified treatment facility in {city}, {state_abbr}. Offers {types_str}. Accepts {ins_str}."
+    description = f"SAMHSA-sourced treatment facility in {city}, {state_abbr}. Offers {types_str}. Accepts {ins_str}."
     return {
         "name": name, "city": city, "state": state_full, "stateAbbr": state_abbr,
         "phone": phone, "website": website,
