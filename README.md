@@ -71,6 +71,17 @@ Free: 100 calls per IP per day, no API key required.
 
 For higher-volume access, get in touch via [gettreatmenthelp.com/api-access/](https://www.gettreatmenthelp.com/api-access/)
 
+## Troubleshooting
+
+- **No results returned** -- `state` is required for `search_facilities`, so make sure it is set; then broaden by removing the `city`/`treatment_type`/`insurance` filters or trying a different state. Call `list_states` to see where coverage exists.
+- **HTTP 429 (rate limited)** -- the free tier allows 100 calls per IP per day, resetting at 00:00 UTC. For higher volume, see API Access above.
+- **Can't connect** -- point your client at the remote endpoint, no API key required:
+  ```
+  npx -y mcp-remote https://gth-mcp-server.pages.dev/mcp
+  ```
+- **403 from a browser** -- the `/mcp` endpoint validates the `Origin` header to prevent DNS rebinding. Standard MCP clients (Claude Desktop, `mcp-remote`, server-to-server) send no `Origin` header and connect fine; only disallowed browser origins are blocked.
+- **Support** -- questions or higher-volume access requests: cbeggroup@gmail.com
+
 ## Links
 
 - **Homepage:** [gettreatmenthelp.com](https://www.gettreatmenthelp.com)
