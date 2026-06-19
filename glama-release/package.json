@@ -1,0 +1,16 @@
+{
+  "name": "gth-mcp-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Stdio MCP proxy to the GetTreatmentHelp remote MCP server, packaged for a Glama containerized release.",
+  "bin": {
+    "gth-mcp-proxy": "entrypoint.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0"
+  }
+}
