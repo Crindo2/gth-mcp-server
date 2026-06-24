@@ -17,24 +17,24 @@
 </head>
 <body>
   <h1>Privacy Policy</h1>
-  <p class="meta"><strong>GTH Intelligence MCP Server</strong> &middot; Last updated: 2026-06-18 &middot; Operated by CBEG GROUP, LLC &middot; Contact: <a href="mailto:cbeggroup@gmail.com">cbeggroup@gmail.com</a></p>
+  <p class="meta"><strong>GTH Intelligence MCP Server</strong> &middot; Last updated: 2026-06-24 &middot; Operated by CBEG GROUP, LLC &middot; Contact: <a href="mailto:cbeggroup@gmail.com">cbeggroup@gmail.com</a></p>
 
   <p>This policy describes how the GTH Intelligence MCP Server (<code>https://gth-mcp-server.pages.dev/mcp</code>) handles data. The directory itself is SAMHSA-sourced public facility data, not patient records.</p>
 
   <h2>What we collect</h2>
-  <p>When you call a tool, we process the query parameters you supply &mdash; state, city, treatment type, and insurance &mdash; to return results. We receive your IP address from the network connection and use it solely for rate limiting. If you send a legacy API key, we track usage counts associated with it.</p>
+  <p>When you call a tool, we receive the name of the tool you called and the query parameters you supply &mdash; state, city, treatment type, insurance, and facility-name searches &mdash; together with the number of results returned and a timestamp. We also record the user-agent string and referer (if any) of the calling software and, where your client supplies one, the MCP session identifier. If you send a legacy API key, we record its access tier (otherwise the call is logged as "anonymous"). We receive your IP address from the network connection and use it only (a) for rate limiting and (b) as a transient input to a daily-rotating, non-reversible session-correlation value; your raw IP address is never written to any store.</p>
 
   <h2>How we use it</h2>
-  <p>To operate the service and return results, and to enforce rate limits (100 calls per IP per day).</p>
+  <p>To operate the service and return results; to enforce rate limits (100 calls per IP per day); and to produce aggregate, non-identifying analytics on which treatment categories and locations are searched, so we can understand coverage and improve the directory.</p>
 
   <h2>Storage and retention</h2>
-  <p>Your IP address is stored only as a per-day rate-limit counter in Cloudflare KV and automatically expires after 48 hours. Legacy-key usage counts are stored in Cloudflare KV. <strong>GTH does not log query metadata to any analytics store</strong>, and query parameters are not retained after the response is returned.</p>
+  <p>Usage records are stored in Cloudflare D1 (our hosting provider's own database) and mirrored to Airtable for review. Each record holds the non-identifying call metadata described above &mdash; tool, query arguments, user-agent, referer, and the derived session identifier &mdash; and does not contain your IP address or any account identity. Your IP address is held only as a per-day rate-limit counter in Cloudflare KV, which expires automatically after 48 hours. Individual usage records are retained for up to 24 months, after which they are deleted; aggregate, de-identified demand statistics derived from them may be kept indefinitely.</p>
 
   <h2>Sharing</h2>
-  <p>We use Cloudflare as our hosting and infrastructure provider. We do not sell personal data and do not share query data with third parties.</p>
+  <p>We use Cloudflare as our hosting and infrastructure provider (including the D1 database) and Airtable as a processor. We use aggregate, non-identifying search-demand insights to inform directory coverage decisions. We do not sell or share the query or demand data, and we do not provide paid or ranked placement.</p>
 
   <h2>What we do not collect</h2>
-  <p>No patient health information, no account registration, no cookies (the service is keyless).</p>
+  <p>No patient health information is requested or required &mdash; the tools accept only location, treatment type, and insurance filters, so do not submit personal health details. We do not store your IP address as part of usage records, set cookies, or require account registration. The session identifier is an ephemeral, daily-rotating correlation value, not a persistent user ID.</p>
 
   <h2>Changes</h2>
   <p>We may update this policy; the current version is always at this URL.</p>

@@ -2,6 +2,11 @@ name = "gth-mcp-server"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "."
 
+[[d1_databases]]
+binding = "TELEMETRY_DB"
+database_name = "gth-mcp-telemetry"
+database_id = "7389d069-8184-46c5-ac27-7007a80abbf9"
+
 [[kv_namespaces]]
 binding = "GTH_CALL_METER"
 id = "6bf2873cf50b4e258a054e3f0acf2744"

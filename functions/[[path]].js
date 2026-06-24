@@ -204,8 +204,9 @@ function jsonRpcError(id, code, message) {
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "Content-Type, Accept",
-  "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
+  "Access-Control-Allow-Headers": "Content-Type, Accept, x-api-key, Mcp-Session-Id, MCP-Protocol-Version",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Expose-Headers": "Mcp-Session-Id"
 };
 
 // ── Origin validation (MCP Streamable HTTP security requirement) ──
@@ -291,35 +292,186 @@ async function validateKey(request, env) {
   return { allowed: true, anonymous: true };
 }
 
-// Query telemetry -> Airtable "GTH MCP Query Log" (tblAZCSjdaJLbGh0L). Restored 2026-06-23
-// (D558 follow-up) after the original writer was dropped in the keyless rewrite, leaving the
-// table dead since ~2026-04-15. Non-blocking but NON-SILENT: a failed write is logged (and
-// stamps a KV marker) instead of vanishing the way the GPH equivalent did for two months.
-// Signal Score / Intent Class are Airtable FORMULA fields -- computed there, never written here.
-async function logQuery(env, validation, toolName, args, resultsCount, request) {
+// ============================================================================
+// MCP demand-telemetry enrichment (D561, 2026-06-24) -- CANONICAL block, kept
+// IDENTICAL in gph-mcp-server/functions/mcp.js and the scratch canonical copy
+// (_scratch/mcp-telemetry-2026-06-24/enrichment-canonical.js). Logic is KV-free and
+// network-free: caller_class is UA/Origin-only and deterministic at write time.
+// Cadence-based crawler detection lives in the nightly rollup ONLY, and may only
+// promote unknown -> known_crawler, never demote organic_assistant.
+// ============================================================================
+
+const ASSISTANT_ORIGIN_HOSTS = {
+  'chatgpt.com': 'chatgpt', 'openai.com': 'chatgpt', 'oai.com': 'chatgpt',
+  'claude.ai': 'claude', 'claude.com': 'claude', 'anthropic.com': 'claude',
+  'perplexity.ai': 'perplexity',
+  'gemini.google.com': 'gemini',
+};
+
+function originHostOf(request) {
+  const o = request.headers.get('Origin');
+  if (!o) return '';
+  try { return new URL(o).hostname.toLowerCase(); } catch { return ''; }
+}
+
+function assistantFromOrigin(host) {
+  if (!host) return null;
+  for (const h in ASSISTANT_ORIGIN_HOSTS) {
+    if (host === h || host.endsWith('.' + h)) return ASSISTANT_ORIGIN_HOSTS[h];
+  }
+  return null;
+}
+
+function assistantFromUA(ua) {
+  if (!ua) return null;
+  if (/chatgpt|openai/i.test(ua)) return 'chatgpt';
+  if (/claude|anthropic/i.test(ua)) return 'claude';
+  if (/perplexity/i.test(ua)) return 'perplexity';
+  if (/\bgemini\b|google-?bard/i.test(ua)) return 'gemini';
+  if (/copilot/i.test(ua)) return 'copilot';
+  return null;
+}
+
+function assistantChannel(ua, originHost) {
+  return assistantFromOrigin(originHost) || assistantFromUA(ua);
+}
+
+function classifyCaller(ua, originHost) {
+  if (assistantFromOrigin(originHost)) return 'organic_assistant';
+  const u = (ua || '').trim();
+  if (!u) return 'unknown';
+  if (/probe|listability|uptime|pingdom|healthcheck|statuscake|\bmonitor\b/i.test(u)) return 'directory_probe';
+  if (/^curl|^wget|python-requests|python-httpx|\bhttpx\b|node-fetch|go-http-client|^axios|cbeg-floor-check|postman|insomnia/i.test(u)) return 'self_test';
+  if (assistantFromUA(u)) return 'organic_assistant';
+  if (/bot\b|spider|crawl|chiark|slurp|bingpreview|facebookexternalhit|quality index|scraper|http-client/i.test(u)) return 'known_crawler';
+  return 'unknown';
+}
+
+function funnelStep(tool) {
+  if (tool === 'get_provider_detail' || tool === 'get_facility_detail') return 'drill';
+  if (tool === 'list_states' || tool === 'get_treatment_types') return 'reference';
+  return 'discover';
+}
+
+function demandCell(server, args) {
+  const n = v => ((v == null ? '' : String(v)).trim().toLowerCase()) || '*';
+  if (server === 'gth') return [n(args.treatment_type), n(args.state), n(args.city), n(args.insurance)].join('|');
+  return [n(args.category), n(args.specialty), n(args.state), n(args.ehr_system)].join('|');
+}
+
+function telemetryUtcDay() { return new Date().toISOString().slice(0, 10); }
+
+async function sha256hex(s) {
+  const data = new TextEncoder().encode(s);
+  const buf = await crypto.subtle.digest('SHA-256', data);
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// Mcp-Session-Id (server-issued at initialize, client-echoed) is the load-bearing
+// session key. Fallback for sessionless callers: salted hash of transient ip+ua with a
+// daily-rotating salt -- raw ip/ua are NEVER stored as inputs, only the opaque derived
+// id is stored. 'm:' = real MCP session, 'd:' = derived fallback.
+async function deriveSessionId(request, env) {
+  const incoming = request.headers.get('Mcp-Session-Id');
+  if (incoming) return 'm:' + (await sha256hex(incoming)).slice(0, 16);
+  const ip = request.headers.get('cf-connecting-ip') || '';
+  const ua = request.headers.get('user-agent') || '';
+  const salt = (env && env.SESSION_SALT ? env.SESSION_SALT : 'cbeg-mcp') + ':' + telemetryUtcDay();
+  return 'd:' + (await sha256hex(salt + '|' + ip + '|' + ua)).slice(0, 16);
+}
+
+async function buildTelemetry(server, request, env, toolName, args, resultsCount, tier, ids) {
+  const ua = request.headers.get('user-agent') || '';
+  const originHost = originHostOf(request);
+  const step = funnelStep(toolName);
+  const rc = (typeof resultsCount === 'number') ? resultsCount : null;
+  const zero = (step !== 'reference' && rc === 0) ? 1 : 0;
+  const a = args || {};
+  return {
+    ts: new Date().toISOString(),
+    server,
+    tool: toolName || '',
+    caller_class: classifyCaller(ua, originHost),
+    assistant_channel: assistantChannel(ua, originHost),
+    source: 'mcp',
+    user_agent: ua,
+    session_id: await deriveSessionId(request, env),
+    funnel_step: step,
+    zero_result: zero,
+    results_count: rc,
+    api_key_tier: tier || 'anonymous',
+    category: a.category || null,
+    specialty: a.specialty || null,
+    city: a.city || null,
+    state: a.state || null,
+    ehr_system: a.ehr_system || null,
+    treatment_type: a.treatment_type || null,
+    insurance: a.insurance || null,
+    search_term: a.name || null,
+    demand_cell: demandCell(server, a),
+    vendor_surfaced: (ids && ids.surfaced && ids.surfaced.length) ? JSON.stringify(ids.surfaced) : null,
+    vendor_drilled: (ids && ids.drilled) ? ids.drilled : null,
+    raw_args: JSON.stringify(a),
+  };
+}
+
+// Independent, non-blocking D1 sink. Own try/catch; never throws to the caller.
+async function writeTelemetryD1(env, rec) {
+  const db = env && env.TELEMETRY_DB;
+  if (!db) { console.error('writeTelemetryD1: TELEMETRY_DB not bound -- D1 telemetry skipped'); return; }
+  try {
+    await db.prepare(
+      `INSERT INTO mcp_usage_log
+        (ts, server, tool, caller_class, assistant_channel, source, user_agent, session_id, funnel_step,
+         zero_result, results_count, api_key_tier, category, specialty, city, state, ehr_system,
+         treatment_type, insurance, search_term, demand_cell, vendor_surfaced, vendor_drilled, raw_args)
+       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
+    ).bind(
+      rec.ts, rec.server, rec.tool, rec.caller_class, rec.assistant_channel, rec.source, rec.user_agent,
+      rec.session_id, rec.funnel_step, rec.zero_result, rec.results_count, rec.api_key_tier,
+      rec.category, rec.specialty, rec.city, rec.state, rec.ehr_system,
+      rec.treatment_type, rec.insurance, rec.search_term, rec.demand_cell,
+      rec.vendor_surfaced, rec.vendor_drilled, rec.raw_args
+    ).run();
+  } catch (e) {
+    console.error('writeTelemetryD1: D1 telemetry write threw:', e && e.message);
+  }
+}
+
+// Query telemetry -> Airtable "GTH MCP Query Log" (tblAZCSjdaJLbGh0L) -- the ENRICHED
+// glanceable mirror. Restored 2026-06-23 (D558), enriched 2026-06-24 (D561). Non-blocking
+// but NON-SILENT. Signal Score / Intent Class remain Airtable FORMULA fields (computed
+// there, never written here). Referer + Limit Requested stay GTH-specific (read here).
+async function logQuery(env, rec, request, args) {
   const atKey = env?.AIRTABLE_PAT;
   if (!atKey) { console.error('logQuery: AIRTABLE_PAT not bound -- GTH MCP telemetry write skipped'); return; }
-  const tier = validation?.anonymous ? 'anonymous' : (validation?.record?.plan || 'keyed');
   try {
     const res = await fetch(`https://api.airtable.com/v0/${AT_BASE}/${AT_LOG_TABLE}`, {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${atKey}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         records: [{ fields: {
-          'Timestamp': new Date().toISOString(),
-          'Tool Called': toolName,
-          'State': args.state || '',
-          'City': args.city || '',
-          'Treatment Type': args.treatment_type || '',
-          'Insurance': args.insurance || '',
-          'Search Term': args.name || '',
-          'Results Count': (typeof resultsCount === 'number') ? resultsCount : 0,
-          'Limit Requested': args.limit || 0,
-          'Raw Args': JSON.stringify(args || {}),
-          'User Agent': request.headers.get('user-agent') || '',
-          'Source': 'mcp',
+          'Timestamp': rec.ts,
+          'Tool Called': rec.tool,
+          'State': rec.state || '',
+          'City': rec.city || '',
+          'Treatment Type': rec.treatment_type || '',
+          'Insurance': rec.insurance || '',
+          'Search Term': rec.search_term || '',
+          'Results Count': (typeof rec.results_count === 'number') ? rec.results_count : 0,
+          'Limit Requested': (args && args.limit) || 0,
+          'Raw Args': rec.raw_args || '',
+          'User Agent': rec.user_agent || '',
+          'Source': rec.source || '',
           'Referer': request.headers.get('referer') || '',
-          'API Key Tier': tier,
+          'API Key Tier': rec.api_key_tier || 'anonymous',
+          'Caller Class': rec.caller_class,
+          ...(rec.assistant_channel ? { 'Assistant Channel': rec.assistant_channel } : {}),
+          'Session ID': rec.session_id || '',
+          'Funnel Step': rec.funnel_step || '',
+          'Zero Result': !!rec.zero_result,
+          'Demand Cell': rec.demand_cell || '',
+          'Facility Drilled': rec.vendor_drilled || '',
         }}],
         typecast: true
       })
@@ -416,6 +568,8 @@ export async function onRequest(context) {
   try {
     // MCP protocol methods
     if (method === "initialize") {
+      // Issue a server session id; the client echoes it via Mcp-Session-Id on subsequent
+      // calls (the load-bearing session key for demand stitching). Exposed via CORS_HEADERS.
       return Response.json(jsonRpc(id, {
         protocolVersion: "2024-11-05",
         capabilities: { tools: {} },
@@ -424,7 +578,7 @@ export async function onRequest(context) {
           version: "1.1.1",
           description: "Find US addiction treatment facilities. 12,338 curated, SAMHSA-sourced. Filter by location, treatment type, and insurance accepted."
         }
-      }), { headers: CORS_HEADERS });
+      }), { headers: { ...CORS_HEADERS, 'Mcp-Session-Id': crypto.randomUUID() } });
     }
 
     if (method === "notifications/initialized") {
@@ -459,7 +613,17 @@ export async function onRequest(context) {
       }
       // Strip the internal _resultsCount so it never reaches the client; pass it to telemetry.
       const { _resultsCount, ...clientResult } = result;
-      await logQuery(env, validation, toolName, toolArgs, _resultsCount, request);
+
+      // Enriched demand telemetry -> two INDEPENDENT non-blocking sinks (Airtable mirror +
+      // D1 durable). allSettled so one sink's failure never skips the other; neither blocks
+      // the tool response. Facility drill (the named facility a caller opened) is captured for
+      // the directory-expansion / unmet-demand view only -- GTH has no paid/ranked placement.
+      const tier = validation?.anonymous ? 'anonymous' : (validation?.record?.plan || 'keyed');
+      const ids = (toolName === 'get_facility_detail') ? { drilled: toolArgs.name || '' } : null;
+      const rec = await buildTelemetry('gth', request, env, toolName, toolArgs, _resultsCount, tier, ids);
+      const telemetry = Promise.allSettled([logQuery(env, rec, request, toolArgs), writeTelemetryD1(env, rec)]);
+      if (typeof context.waitUntil === 'function') context.waitUntil(telemetry); else await telemetry;
+
       if (!clientResult.isError) {
         const recording = recordSuccessfulCall(env, validation).catch(e => console.error('record failed:', e));
         if (typeof context.waitUntil === 'function') context.waitUntil(recording);
