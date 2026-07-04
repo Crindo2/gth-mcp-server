@@ -341,9 +341,14 @@ function classifyCaller(ua, originHost) {
   const u = (ua || '').trim();
   if (!u) return 'unknown';
   if (/probe|listability|uptime|pingdom|healthcheck|statuscake|\bmonitor\b/i.test(u)) return 'directory_probe';
-  if (/^curl|^wget|python-requests|python-httpx|\bhttpx\b|node-fetch|go-http-client|^axios|cbeg-floor-check|postman|insomnia/i.test(u)) return 'self_test';
+  // SR-UA fix (2026-07-03): self_test requires a self-identifying cbeg-* UA (our
+  // own harness, e.g. cbeg-floor-check). A generic HTTP client (python-httpx,
+  // curl, wget, node-fetch, axios, ...) is EXTERNAL programmatic traffic, not our
+  // test -- it must not be hidden as self_test. It falls through to known_crawler
+  // below, which the nightly rollup excludes from organic (honest, not organic).
+  if (/^cbeg-/i.test(u)) return 'self_test';
   if (assistantFromUA(u)) return 'organic_assistant';
-  if (/bot\b|spider|crawl|chiark|slurp|bingpreview|facebookexternalhit|quality index|scraper|http-client/i.test(u)) return 'known_crawler';
+  if (/bot\b|spider|crawl|chiark|slurp|bingpreview|facebookexternalhit|quality index|scraper|http-client|^curl|^wget|python-requests|python-httpx|\bhttpx\b|node-fetch|go-http-client|^axios|postman|insomnia/i.test(u)) return 'known_crawler';
   return 'unknown';
 }
 
