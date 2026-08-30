@@ -1,0 +1,27 @@
+{
+  "name": "cbeggroup/gettreatmenthelp",
+  "title": "GTH Intelligence — Substance Abuse Treatment Finder",
+  "description": "Search 12,373 SAMHSA-verified addiction treatment facilities across all 50 US states. Filter by state, city, treatment type, and insurance. Returns facility details, phone numbers, and direct links.",
+  "version": "1.3.0",
+  "websiteUrl": "https://gettreatmenthelp.com",
+  "iconUrl": "https://gth-mcp-server.pages.dev/icon.svg",
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "description": "Optional API key for authenticated access",
+        "x-from": {
+          "header": "x-api-key"
+        }
+      }
+    },
+    "required": []
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gth-mcp-server.pages.dev/mcp"
+    }
+  ]
+}

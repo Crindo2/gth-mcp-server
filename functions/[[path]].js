@@ -8,38 +8,76 @@ const TOOLS = [
     inputSchema: {
       type: "object",
       properties: {
-        state: { type: "string", description: 'US state name or 2-letter abbreviation (e.g. "California" or "CA")' },
-        city: { type: "string", description: "City name" },
+        state: { type: "string", description: 'US state name or 2-letter abbreviation (e.g. "California" or "CA"). Filters results to facilities in this state.' },
+        city: { type: "string", description: 'City name to filter results (e.g. "Phoenix", "New York"). Case-insensitive partial match.' },
         treatment_type: {
           type: "string",
           enum: ["Inpatient Rehab", "Outpatient", "Detox", "IOP (Intensive Outpatient)", "PHP (Partial Hospitalization)", "MAT (Medication-Assisted Treatment)", "Counseling", "Sober Living"],
-          description: "Type of treatment program"
+          description: "Type of treatment program to filter by. Each facility may offer multiple program types."
         },
-        insurance: { type: "string", description: 'Insurance provider (e.g. "Medicaid", "Aetna", "Blue Cross", "Medicare", "Private Pay")' },
-        limit: { type: "number", description: "Results to return (1-20, default 5)", minimum: 1, maximum: 20, default: 5 }
+        insurance: { type: "string", description: 'Insurance provider name to filter by (e.g. "Medicaid", "Aetna", "Blue Cross", "Medicare", "Private Insurance"). Case-insensitive partial match.' },
+        limit: { type: "number", description: "Maximum number of results to return. Range: 1-20, default: 5.", minimum: 1, maximum: 20, default: 5 }
       }
+    },
+    annotations: {
+      title: "Search Treatment Facilities",
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false
     }
   },
   {
     name: "get_facility_detail",
-    description: "Get detailed information about a specific treatment facility by name.",
+    description: "Get detailed information about a specific treatment facility by name. Returns programs offered, insurance accepted, phone number, website, and a description.",
     inputSchema: {
       type: "object",
       properties: {
-        name: { type: "string", description: "Full or partial facility name" }
+        name: { type: "string", description: "Full or partial facility name to search for. Returns the first matching facility. Case-insensitive." }
       },
       required: ["name"]
+    },
+    annotations: {
+      title: "Get Facility Details",
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false
     }
   },
   {
     name: "list_states",
-    description: "List all US states with available treatment facility data and counts.",
-    inputSchema: { type: "object", properties: {} }
+    description: "List all US states that have treatment facility data available, along with the count of facilities in each state. Useful for understanding geographic coverage before searching.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        _unused: { type: "string", description: "This tool takes no parameters. Call with an empty arguments object." }
+      }
+    },
+    annotations: {
+      title: "List States with Facilities",
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false
+    }
   },
   {
     name: "get_treatment_types",
-    description: "Get definitions and explanations of all treatment program types to help users understand their options.",
-    inputSchema: { type: "object", properties: {} }
+    description: "Get definitions and explanations of all treatment program types (Inpatient, Detox, IOP, PHP, Outpatient, MAT, Counseling, Sober Living) to help users understand their options and choose the right level of care.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        _unused: { type: "string", description: "This tool takes no parameters. Call with an empty arguments object." }
+      }
+    },
+    annotations: {
+      title: "Get Treatment Type Definitions",
+      readOnlyHint: true,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false
+    }
   }
 ];
 
@@ -192,9 +230,80 @@ function jsonRpcError(id, code, message) {
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "Content-Type, Accept",
+  "Access-Control-Allow-Headers": "Content-Type, Accept, X-API-Key",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
 };
+
+const FREE_LIMIT_UNAUTH = 10;
+const FREE_LIMIT_KEY = 100;
+const KV_TTL = 60 * 60 * 24 * 60; // 60 days
+
+const LIMIT_RESPONSE = {
+  error: "Free tier limit reached",
+  upgrade: "https://gettreatmenthelp.com/api-access/",
+  message: "25 free calls per month included. Upgrade for unlimited access."
+};
+
+async function checkMeter(request, env) {
+  if (!env.GTH_CALL_METER) return { allowed: true }; // KV not bound, skip metering
+
+  const apiKey = request.headers.get("X-API-Key");
+  const now = new Date();
+  const monthKey = `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, "0")}`;
+
+  // API key provided — validate
+  if (apiKey) {
+    // Check KV cache first
+    const cached = await env.GTH_CALL_METER.get(`apikey:${apiKey}`);
+    if (cached) {
+      const keyData = JSON.parse(cached);
+      if (keyData.status === "active" && keyData.plan !== "free") {
+        return { allowed: true }; // paid key, unlimited
+      }
+      if (keyData.status === "active" && keyData.plan === "free") {
+        // Free registered key: 100/mo limit
+        const meterKey = `meter:key:${apiKey}:${monthKey}`;
+        const count = parseInt(await env.GTH_CALL_METER.get(meterKey) || "0");
+        if (count >= FREE_LIMIT_KEY) return { allowed: false, limit: FREE_LIMIT_KEY };
+        await env.GTH_CALL_METER.put(meterKey, String(count + 1), { expirationTtl: KV_TTL });
+        return { allowed: true };
+      }
+      return { allowed: false, invalid: true };
+    }
+
+    // Not cached — validate against Airtable
+    try {
+      const atResp = await fetch(
+        `https://api.airtable.com/v0/appvHqDMSu6aCwNxA/tblLaooMivGuRJUqS?filterByFormula={API Key}="${apiKey}"&maxRecords=1`,
+        { headers: { Authorization: `Bearer ${env.AIRTABLE_PAT}` } }
+      );
+      const atData = await atResp.json();
+      if (atData.records && atData.records.length > 0) {
+        const rec = atData.records[0].fields;
+        const keyData = { status: rec["Status"] || "active", plan: rec["Plan"] || "free" };
+        // Cache for 1 hour
+        await env.GTH_CALL_METER.put(`apikey:${apiKey}`, JSON.stringify(keyData), { expirationTtl: 3600 });
+        if (keyData.status !== "active") return { allowed: false, invalid: true };
+        if (keyData.plan !== "free") return { allowed: true }; // paid, unlimited
+        // Free key: 100/mo
+        const meterKey = `meter:key:${apiKey}:${monthKey}`;
+        const count = parseInt(await env.GTH_CALL_METER.get(meterKey) || "0");
+        if (count >= FREE_LIMIT_KEY) return { allowed: false, limit: FREE_LIMIT_KEY };
+        await env.GTH_CALL_METER.put(meterKey, String(count + 1), { expirationTtl: KV_TTL });
+        return { allowed: true };
+      }
+    } catch { /* Airtable lookup failed, treat as invalid */ }
+    return { allowed: false, invalid: true };
+  }
+
+  // No API key — unauthenticated: 10/mo by IP
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  const meterKey = `meter:ip:${ip}:${monthKey}`;
+  const count = parseInt(await env.GTH_CALL_METER.get(meterKey) || "0");
+  if (count >= FREE_LIMIT_UNAUTH) return { allowed: false, limit: FREE_LIMIT_UNAUTH };
+  await env.GTH_CALL_METER.put(meterKey, String(count + 1), { expirationTtl: KV_TTL });
+  return { allowed: true };
+}
 
 export async function onRequest(context) {
   const { request, env } = context;
@@ -224,6 +333,17 @@ export async function onRequest(context) {
 
   const { id, method, params } = body;
 
+  // Only meter tools/call (actual API usage), not protocol handshakes
+  if (method === "tools/call") {
+    const meter = await checkMeter(request, env);
+    if (!meter.allowed) {
+      if (meter.invalid) {
+        return Response.json({ error: "Invalid API key" }, { status: 401, headers: CORS_HEADERS });
+      }
+      return Response.json(LIMIT_RESPONSE, { status: 402, headers: CORS_HEADERS });
+    }
+  }
+
   try {
     // MCP protocol methods
     if (method === "initialize") {
@@ -232,8 +352,18 @@ export async function onRequest(context) {
         capabilities: { tools: {} },
         serverInfo: {
           name: "gettreatmenthelp",
-          version: "1.1.0",
-          description: "Treatment facility search + market intelligence — GetTreatmentHelp.com"
+          version: "1.3.0",
+          description: "Search 12,373 SA-only treatment facilities across all 50 US states — GetTreatmentHelp.com"
+        },
+        configSchema: {
+          type: "object",
+          properties: {
+            apiKey: {
+              type: "string",
+              description: "Optional API key for authenticated access"
+            }
+          },
+          required: []
         }
       }), { headers: CORS_HEADERS });
     }
@@ -251,7 +381,21 @@ export async function onRequest(context) {
     }
 
     if (method === "prompts/list") {
-      return Response.json(jsonRpc(id, { prompts: [] }), { headers: CORS_HEADERS });
+      return Response.json(jsonRpc(id, {
+        prompts: [
+          {
+            name: "find_treatment",
+            description: "Find substance abuse treatment facilities near a location",
+            arguments: [
+              {
+                name: "location",
+                description: "ZIP code or city name to search near",
+                required: true
+              }
+            ]
+          }
+        ]
+      }), { headers: CORS_HEADERS });
     }
 
     if (method === "tools/call") {

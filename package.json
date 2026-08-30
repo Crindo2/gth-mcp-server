@@ -1,0 +1,24 @@
+{
+  "name": "gth-mcp-server",
+  "version": "1.0.0",
+  "description": "[![smithery badge](https://smithery.ai/badge/cbeggroup/gettreatmenthelp)](https://smithery.ai/servers/cbeggroup/gettreatmenthelp)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crindo2/gth-mcp-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Crindo2/gth-mcp-server/issues"
+  },
+  "homepage": "https://github.com/Crindo2/gth-mcp-server#readme",
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}

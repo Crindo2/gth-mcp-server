@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "apiKey": {
+      "type": "string",
+      "description": "Optional API key for authenticated access",
+      "x-from": {
+        "header": "x-api-key"
+      }
+    }
+  },
+  "required": []
+}

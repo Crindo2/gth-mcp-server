@@ -1,0 +1,57 @@
+==========================================
+GTH SAMHSA Monthly Refresh
+Date: 2026-07-01T08:00:02Z
+==========================================
+
+[1/4] Fetching SAMHSA data...
+=== GTH SAMHSA Data Refresh (Excel Download) ===
+Date: 2026-07-01T08:00:02.258Z
+
+Loaded 10786 existing facilities
+Downloading SAMHSA dataset from:
+  https://www.samhsa.gov/data/sites/default/files/reports/rpt35993/SA%20facilites/SU%20Directory/National_Directory_SA_Facilities_2022.xlsx
+  Downloaded 1.79 MB
+
+Parsing SAMHSA data...
+  Parsed 12176 rows from 'Facilities List' sheet
+
+Transforming to GTH schema...
+  12176 valid facilities
+
+Merging with existing enrichment data...
+  Merge: 12176 enriched records preserved, 0 new facilities
+  Dedup: removed 1390 duplicates
+
+Final: 10786 facilities, 6.59 MB
+
+Saved to C:\Users\bryan\gth-mcp-server\facilities.json
+
+Top 10 states: CA:991, NY:557, IL:505, FL:444, PA:436, NC:431, OH:389, TX:361, MI:326, MA:322
+
+=== Refresh complete ===
+
+[2/4] Validating facilities.json...
+  Records: 10786
+C:\Users\bryan\gth-mcp-server\refresh-samhsa.sh: line 37: bc: command not found
+  File size: 6905285 bytes ( MB)
+
+[3/4] Deploying to Cloudflare Pages...
+
+ ⛅️ wrangler 4.80.0 (update available 4.106.0)
+──────────────────────────────────────────────
+✨ Compiled Worker successfully
+Uploading... (21/23)
+Uploading... (22/23)
+Uploading... (23/23)
+✨ Success! Uploaded 2 files (21 already uploaded) (2.45 sec)
+
+✨ Uploading Functions bundle
+🌎 Deploying...
+✨ Deployment complete! Take a peek over at https://8f79e84c.gth-mcp-server.pages.dev
+
+[4/4] Testing deployed MCP endpoint...
+  MCP endpoint responding correctly.
+
+==========================================
+Refresh complete: 10786 facilities deployed
+==========================================
