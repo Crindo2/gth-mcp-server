@@ -21,7 +21,10 @@ Targeting strategy (added 2026-05-01 after first run found 7852 false net-new):
   - Fallback (when coords missing): (name_norm, state, city)
   - Both dedup vs curated AND diff vs previous use the SAME key strategy
 
-Env vars required:
+Deterministic mode (GitHub Actions rail, C716 s.3): REFRESH_NO_MODEL=1 skips ALL model/search enrichment (no Anthropic, no Serper). Existing enrichment is preserved
+(records matched to the previous file keep their enriched fields); net-new and weak-insurance records are written to enrichment-queue.json for a separate enrichment pass.
+
+Env vars required (not needed when REFRESH_NO_MODEL=1):
   ANTHROPIC_API_KEY_LOCAL  - Anthropic API key (LOCAL suffix per CC env convention)
   SERPER_API_KEY           - Serper.dev key for Google search
 """
@@ -411,6 +414,28 @@ def enrich_batch(targets, label, usage_total, rewrite_description=True, halt_at=
     return success, fail, halted
 
 
+def carry_forward_enrichment(samhsa_deduped, previous):
+    """Deterministic rail (REFRESH_NO_MODEL=1): a fresh SAMHSA pull replaces matched records with raw API values, which would silently drop earlier model enrichment.
+    Copy the enrichment fields of every previously ENRICHED record (enriched_at set) onto its matched fresh record. Returns how many were carried."""
+    prev_enriched = {}
+    for p in previous:
+        if p.get("enriched_at") and not p.get("curated"):
+            for k in identity_keys(p):
+                prev_enriched.setdefault(k, p)
+    carried = 0
+    for r in samhsa_deduped:
+        for k in identity_keys(r):
+            p = prev_enriched.get(k)
+            if p is not None:
+                for field in ("description", "website", "insurance", "enriched_at", "enrichment_confidence"):
+                    if field in p:
+                        r[field] = p[field]
+                carried += 1
+                break
+    print(f"CARRY-FORWARD: {carried} previously enriched records keep their enrichment", flush=True)
+    return carried
+
+
 def main():
     with open(FACILITIES_PATH, encoding="utf-8") as f:
         previous = json.load(f)
@@ -444,6 +469,8 @@ def main():
     for r in curated:
         r["refreshed_at"] = REFRESHED_AT
 
+    if os.environ.get("REFRESH_NO_MODEL") == "1":
+        carry_forward_enrichment(samhsa_deduped, previous)
     net_new, weak_insurance = identify_enrichment_targets(samhsa_deduped, previous)
 
     usage_total = {
@@ -454,10 +481,17 @@ def main():
         "serper_credits": 0,
     }
     halted_overall = False
-    if net_new:
+    NO_MODEL = os.environ.get("REFRESH_NO_MODEL") == "1"
+    if NO_MODEL:
+        queue = [{"name": r.get("name"), "city": r.get("city"), "stateAbbr": r.get("stateAbbr"), "reason": "net-new"} for r in net_new] + \
+                [{"name": r.get("name"), "city": r.get("city"), "stateAbbr": r.get("stateAbbr"), "reason": "weak-insurance"} for r in weak_insurance]
+        with open(os.path.join(REPO_ROOT, "enrichment-queue.json"), "w", encoding="utf-8") as qf:
+            json.dump({"refreshed_at": REFRESHED_AT, "count": len(queue), "queue": queue}, qf, ensure_ascii=False, indent=1)
+        print(f"NO_MODEL: {len(queue)} records queued for a separate enrichment pass; no model or search calls made", flush=True)
+    if net_new and not NO_MODEL:
         _, _, halted = enrich_batch(net_new, "net-new", usage_total, rewrite_description=True)
         halted_overall = halted_overall or halted
-    if weak_insurance and not halted_overall:
+    if weak_insurance and not halted_overall and not NO_MODEL:
         _, _, halted = enrich_batch(weak_insurance, "weak-insurance", usage_total, rewrite_description=False)
         halted_overall = halted_overall or halted
 
