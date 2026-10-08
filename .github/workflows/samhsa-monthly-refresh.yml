@@ -1,0 +1,119 @@
+name: SAMHSA monthly refresh (deterministic, no model)
+
+# C716 s.2: the laptop task stays Disabled. Enrichment is a separate queue.
+on:
+  schedule:
+    - cron: '17 8 1 * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run = fetch and gates; deploy = gated refresh to main; restore = gated clean main'
+        type: choice
+        options: [dry-run, deploy, restore]
+        default: dry-run
+
+permissions:
+  contents: write
+concurrency:
+  group: samhsa-refresh
+  cancel-in-progress: false
+
+env:
+  PROJECT: gth-mcp-server
+  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  MODE: ${{ github.event_name == 'schedule' && 'deploy' || inputs.mode }}
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Offline negative controls
+        run: python3 -B -m unittest discover -s scripts/tests -v
+
+      - name: Record clean prior main and committed count
+        id: base
+        run: |
+          set -euo pipefail
+          test -z "$(git status --porcelain)"
+          git rev-parse HEAD > "$RUNNER_TEMP/base-sha.txt"
+          git show HEAD:facilities.json > "$RUNNER_TEMP/base.json"
+          python3 -c 'import json,os; print("PRIOR COMMITTED COUNT:", len(json.load(open(os.environ["RUNNER_TEMP"]+"/base.json"))))'
+          echo "PRIOR MAIN SHA: $(cat "$RUNNER_TEMP/base-sha.txt")"
+
+      - name: Fetch, dedup, merge (no model)
+        if: success() && env.MODE != 'restore'
+        run: |
+          set -euo pipefail
+          python3 -B scripts/refresh-samhsa.py | tee "$RUNNER_TEMP/refresh.log"
+
+      - name: Gates (identity, completion, enrichment)
+        id: gates
+        run: python3 -B scripts/validate_refresh.py "$RUNNER_TEMP/base.json" facilities.json "$RUNNER_TEMP/summary.json"
+
+      - name: Record live before-state and prove three main-only fixtures
+        if: success() && steps.gates.outcome == 'success' && env.MODE != 'dry-run'
+        run: python3 -B scripts/pages_refresh.py prepare --plan "$RUNNER_TEMP/readback-plan.json"
+
+      - name: Commit refresh to main after all gates
+        id: commit
+        if: success() && steps.gates.outcome == 'success' && env.MODE == 'deploy'
+        run: |
+          set -euo pipefail
+          N=$(python3 -c 'import json,os; print(json.load(open(os.environ["RUNNER_TEMP"]+"/summary.json"))["facilities"])')
+          git config user.name "SAMHSA refresh automation"
+          git config user.email "$(git log -1 --format=%ce)"
+          git add facilities.json enrichment-queue.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Monthly SAMHSA refresh $(date -u +%Y-%m): $N facilities; identity/completion/enrichment passed"
+            # A concurrent main update refuses this non-force push and stops deploy.
+            git push origin HEAD:main
+          fi
+
+      - name: Build from clean committed main at a recorded SHA
+        id: main
+        if: success() && steps.gates.outcome == 'success' && env.MODE != 'dry-run'
+        run: |
+          set -euo pipefail
+          SHA=$(git rev-parse HEAD)
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$SHA"
+          git worktree add --detach "$RUNNER_TEMP/gth-deploy" "$SHA"
+          test -z "$(git -C "$RUNNER_TEMP/gth-deploy" status --porcelain)"
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+          echo "COMMITTED MAIN SHA: $SHA"
+
+      - name: Deploy, logged-out read-back, checked rollback on any deploy/read-back failure
+        id: deploy
+        if: success() && steps.gates.outcome == 'success' && steps.main.outcome == 'success' && env.MODE != 'dry-run'
+        working-directory: ${{ runner.temp }}/gth-deploy
+        env:
+          MAIN_SHA: ${{ steps.main.outputs.sha }}
+        run: |
+          set -euo pipefail
+          python3 -B scripts/pages_refresh.py deploy --sha "$MAIN_SHA" --plan "$RUNNER_TEMP/readback-plan.json" --receipt "$RUNNER_TEMP/deployment-receipt.json"
+
+      - name: Retain before/after and gate receipts even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: samhsa-refresh-receipts
+          path: |
+            ${{ runner.temp }}/base-sha.txt
+            ${{ runner.temp }}/summary.json
+            ${{ runner.temp }}/refresh.log
+            ${{ runner.temp }}/readback-plan.json
+            ${{ runner.temp }}/deployment-receipt.json
+          if-no-files-found: ignore

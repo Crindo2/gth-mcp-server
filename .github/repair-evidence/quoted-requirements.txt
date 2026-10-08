@@ -1,0 +1,98 @@
+Governing ruling (verbatim):
+
+## s.1 Restore GTH now: no owner gate
+**Before:**
+- record the live facility count and the current Pages deployment id (this is the rollback target);
+- build from a CLEAN checkout of main at a recorded sha, with no local working-copy data.
+
+**Deploy:** wrangler, with the existing credential.
+
+**After (logged-out read-back):**
+- the endpoint count equals the committed count on main (12,362 per the seat's read; use whatever main actually holds);
+- spot-read 3 facilities that are present only in the main set;
+- record the new deployment id.
+
+**Rollback:** if the read-back fails, promote the recorded prior deployment and return the failure.
+
+## s.2 The Windows task stays disabled
+GTH-SAMHSA-Monthly-Refresh stays Disabled. Nothing deploys GTH from the laptop again.
+
+## s.3 The migrated rail, by PR
+Build the migrated rail as the seat proposed:
+- the GitHub Actions monthly job runs fetch, dedup and merge, preserving existing enrichment, with no model on the rail;
+- gates: identity, completion (>=10,000 and >=98% of the prior count) and enrichment non-regression;
+- it commits to main and deploys, with the same before/after read-back as s.1.
+
+New-record enrichment is a separate queue item.
+
+VERIFY_FAIL findings quoted verbatim before repair:
+
+FAIL identity: duplicate_identity is accepted with exit 0; the actual mocked refresh retains an internal SAMHSA duplicate (10,001 output records), and pipeline_duplicate_identity also exits 0. The validator has no duplicate-key check and compares only curated counts.
+
+FAIL enrichment non-regression: removing all five enrichment fields from a retained facility passes with exit 0; separate insurance and enrichment_confidence losses also pass. Aggregate population thresholds do not protect each retained facility.
+
+PASS completion: 9,999/10,000 and 11,759/12,000 exit 1; the isolated exact 98% control (11,760/12,000) exits 0. Actual nonzero gates precede and block commit/deploy by workflow success conditions.
+
+PASS tested carry-forward: mocked main() preserves description, website, insurance, enriched_at and enrichment_confidence exactly and retains curated data; model/search/network traps are not called under REFRESH_NO_MODEL=1.
+
+FAIL literal no-model-anywhere check: callable model/search API code remains in refresh-samhsa.py, although the workflow guard avoids it on the tested deterministic path. Other failures independently require VERIFY_FAIL.
+
+PARTIAL workflow: monthly schedule, main checkout, named Cloudflare secrets, pre-deploy count/prior id and unauthenticated post-deploy count comparison are present. Three spot-reads are arbitrary rather than main-only, and no explicit new canonical deployment-id capture/check exists.
+
+FAIL rollback coverage: rollback runs for read-back failure only after a successful deploy step; deploy-step failure is excluded. Rollback API success and restoration are not checked. No live rollback was attempted.
+
+Ready repair draft: Reject duplicate/ambiguous stable identities, preserve every enriched field per retained identity, keep both count thresholds, separate model/search code if the literal source-wide ban stands, and complete C716 main-only spot-reads plus deployment-id and validated rollback read-backs. Re-submit a new head for independent verification before merge_gate.
+
+No supplied repository test suite exists. Both changed Python scripts compile in memory; saved fixture tests run the actual validator and mocked refresh main() without repository writes.
+
+Detailed defects (verbatim):
+
+GetTreatmentHelp's monthly rail cannot yet guarantee that duplicate or de-enriched data will be stopped before commit and deploy. VERIFY_FAIL.
+
+Subject: gth-mcp-server PR #2, head 2350609474fe56134793d203860053f1d7d35632. Fresh non-author verification against the supplied C716 ruling, without the author's PR comment.
+
+Verbatim operative C716 s.1-s.3 instructions:
+
+## s.1 Restore GTH now: no owner gate
+**Before:**
+- record the live facility count and the current Pages deployment id (this is the rollback target);
+- build from a CLEAN checkout of main at a recorded sha, with no local working-copy data.
+
+**Deploy:** wrangler, with the existing credential.
+
+**After (logged-out read-back):**
+- the endpoint count equals the committed count on main (12,362 per the seat's read; use whatever main actually holds);
+- spot-read 3 facilities that are present only in the main set;
+- record the new deployment id.
+
+**Rollback:** if the read-back fails, promote the recorded prior deployment and return the failure.
+
+## s.2 The Windows task stays disabled
+GTH-SAMHSA-Monthly-Refresh stays Disabled. Nothing deploys GTH from the laptop again.
+
+## s.3 The migrated rail, by PR
+Build the migrated rail as the seat proposed:
+- the GitHub Actions monthly job runs fetch, dedup and merge, preserving existing enrichment, with no model on the rail;
+- gates: identity, completion (>=10,000 and >=98% of the prior count) and enrichment non-regression;
+- it commits to main and deploys, with the same before/after read-back as s.1.
+
+
+Findings at the bound head:
+
+1. FAIL — stable-identity gate. scripts/refresh-samhsa.py:200 constructs coordinate and normalized-name keys, but :226 deduplicates SAMHSA only against curated records. It does not deduplicate the incoming SAMHSA set. scripts/validate_refresh.py:36 checks shape, required-field population, state vocabulary and curated COUNT, with no duplicate-key check or retained-curated-identity comparison. The duplicate_identity fixture replaces the last distinct record with a duplicate of the first while keeping the count at 10,000; the validator exits 0. Mocking the actual fetch into main() yields 10,001 records including an internal SAMHSA duplicate; pipeline_duplicate_identity also exits 0. This gate does not fail closed.
+
+2. FAIL — per-retained-facility enrichment non-regression. scripts/validate_refresh.py:57 compares only aggregate populated counts, tolerating 2% loss in enriched_at/website and 1% in description; insurance and enrichment_confidence are not checked. Removing description, website, insurance, enriched_at and enrichment_confidence from the same retained first facility is accepted (exit 0). Separate insurance and confidence loss controls also exit 0. These corrupt sets can advance to commit and deploy. Aggregate counts cannot establish that each retained identity keeps every enriched field.
+
+3. PASS — completion refusal. 9,999 versus prior 10,000 exits 1; 11,759 versus prior 12,000 (just below 98%) exits 1. Exactly 11,760 versus 12,000 passes when the removed tail has no enrichment, isolating completion from the additional aggregate-description gate. The first boundary attempt included enriched records in that tail and correctly triggered the independent description gate; the final saved control isolates the intended threshold. The workflow's sequential gates and implicit success conditions stop later commit/deploy on these nonzero exits. Invalid identity-field population and total description loss also exit 1, but this does not cure findings 1 and 2.
+
+4. PASS within tested fixture — carry-forward and deterministic execution. The full refresh main() ran with REFRESH_NO_MODEL=1, fetch_page mocked to 11 fixture pages, and urlopen/model/search/enrichment functions replaced by traps. No forbidden call occurred. Description, website, insurance, enriched_at and enrichment_confidence were preserved exactly for the matched enriched record; the curated record was retained except its intended refreshed_at update. A separate enrichment queue was written only under _return/fixtures/pipeline. This proves the intended guarded path for this fixture, not every possible identity collision or schema extension.
+
+5. FAIL under BRIEF Check 1's literal source-wide requirement — model call code remains. scripts/refresh-samhsa.py:286 contains a callable Anthropic request and the script retains Serper/model enrichment functions and an enabled default path when REFRESH_NO_MODEL is absent. The monthly workflow does set REFRESH_NO_MODEL=1 and the offline execution made no model/search call. Operational guard behavior passes for the tested monthly path, but the stronger requirement of no LLM/API model call anywhere in the scripts is not met. Findings 1 and 2 independently establish VERIFY_FAIL regardless of interpretation here.
+
+6. PARTIAL — monthly workflow and C716 s.1 read-back. Schedule is 08:17 UTC on day 1 of each month. Checkout explicitly selects main. Cloudflare secrets are referenced by NAME only: CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID. Prior canonical deployment id and unauthenticated live count are recorded before refresh. Refresh, validation, commit to main and deploy occur in that order for scheduled/deploy mode, with no continue-on-error on the gates. The unauthenticated read-back compares endpoint count to the working facilities file that the earlier step commits. However, :109 chooses three arbitrary facilities rather than three present only in main, and no explicit post-deploy canonical deployment id is captured and checked. The only changed artifacts are the three bound files; no supplied repository test suite exists.
+
+7. FAIL / limited rollback assurance — workflow :116 requires steps.deploy.outcome == 'success', so a failed deploy step cannot invoke rollback even though the step's title claims deploy failures are covered. A read-back mismatch after a successful deploy does invoke POST rollback to the recorded prior id. The response's API success field is not checked, and no follow-up canonical deployment/count read verifies that rollback actually restored the prior state. Offline verification cannot establish Cloudflare/GitHub runtime behavior or live rollback success.
+
+Ready repair draft: Deduplicate the entire candidate set using the same stable identity keys, reject duplicate or ambiguous keys, and compare retained identities against the prior committed file so every enriched field and value remains present. Keep both completion thresholds and default failure propagation. Separate all model/search code into the later enrichment queue worker if the literal source-wide ban is retained. Record the committed sha/count and new canonical deployment id, choose the three required main-only read-back fixtures, and handle deploy/read-back failures with validated prior-deployment promotion and a restoration read-back. Submit a new head for fresh non-author verification; this head is not eligible for merge_gate.
+
+Boundary: All results are local offline fixture execution and source inspection at the named head. No network, account/site/database access, external send, push, merge, deploy, secret inspection or spend occurred. No repository file was modified. The Windows task's current Disabled state, real source completeness, the live endpoint, GitHub execution and Cloudflare permissions/rollback are not verified here. Earlier stage deployment claims and the absent author brief are not evidence used by this verdict.
