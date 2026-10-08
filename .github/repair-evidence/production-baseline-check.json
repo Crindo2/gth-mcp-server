@@ -1,0 +1,10 @@
+{
+ "count": 12362,
+ "accepted": false,
+ "reason": "IDENTITY: duplicate stable identity at records 259 and 260",
+ "origin_main_sha": "4d611fc89fe319c93b678c691ccbb8f1d8c730a2",
+ "head_sha": "2350609474fe56134793d203860053f1d7d35632",
+ "duplicate_stable_identity_groups": 55,
+ "duplicate_excess_records": 96,
+ "identical_duplicate_groups": 22
+}
