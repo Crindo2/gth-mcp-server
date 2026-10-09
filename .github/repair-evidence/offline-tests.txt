@@ -1,0 +1,56 @@
+test_arbitrary_partial_or_wrong_location_spot_rejected (test_monthly_refresh.Deployment.test_arbitrary_partial_or_wrong_location_spot_rejected) ... ok
+test_deploy_step_failure_also_rolls_back (test_monthly_refresh.Deployment.test_deploy_step_failure_also_rolls_back) ... ok
+test_deploy_timeout_also_rolls_back (test_monthly_refresh.Deployment.test_deploy_timeout_also_rolls_back) ... ok
+test_endpoint_count_mismatch_rolls_back_and_returns_failure (test_monthly_refresh.Deployment.test_endpoint_count_mismatch_rolls_back_and_returns_failure) ... ok
+test_main_only_probe_budget_fails_closed (test_monthly_refresh.Deployment.test_main_only_probe_budget_fails_closed) ... ok
+test_no_new_deployment_id_rejected (test_monthly_refresh.Deployment.test_no_new_deployment_id_rejected) ... ok
+test_positive_readback_records_new_id (test_monthly_refresh.Deployment.test_positive_readback_records_new_id) ... ok
+test_prepare_refuses_changed_before_state (test_monthly_refresh.Deployment.test_prepare_refuses_changed_before_state) ... ok
+test_rollback_api_failure_is_not_reported_as_success (test_monthly_refresh.Deployment.test_rollback_api_failure_is_not_reported_as_success) ... ok
+test_rollback_wrong_count_is_not_reported_as_success (test_monthly_refresh.Deployment.test_rollback_wrong_count_is_not_reported_as_success) ... ok
+test_rollback_wrong_id_is_not_reported_as_success (test_monthly_refresh.Deployment.test_rollback_wrong_id_is_not_reported_as_success) ... ok
+test_stale_before_state_prevents_deploy (test_monthly_refresh.Deployment.test_stale_before_state_prevents_deploy) ... ok
+test_three_main_only_spots_proved_absent_not_arbitrary (test_monthly_refresh.Deployment.test_three_main_only_spots_proved_absent_not_arbitrary) ... ok
+test_wrong_canonical_branch_rejected (test_monthly_refresh.Deployment.test_wrong_canonical_branch_rejected) ... ok
+test_wrong_canonical_commit_rejected (test_monthly_refresh.Deployment.test_wrong_canonical_commit_rejected) ... ok
+test_ambiguous_aliases_refused (test_monthly_refresh.Gates.test_ambiguous_aliases_refused) ... ok
+test_cli_refusal_nonzero_and_no_stale_summary (test_monthly_refresh.Gates.test_cli_refusal_nonzero_and_no_stale_summary) ... ok
+test_colocated_and_separate_branches_are_distinct (test_monthly_refresh.Gates.test_colocated_and_separate_branches_are_distinct) ... ok
+test_completion_absolute_negative (test_monthly_refresh.Gates.test_completion_absolute_negative) ... ok
+test_completion_ratio_negative_and_exact_boundary (test_monthly_refresh.Gates.test_completion_ratio_negative_and_exact_boundary) ... ok
+test_curated_swap_at_same_count_refused (test_monthly_refresh.Gates.test_curated_swap_at_same_count_refused) ... ok
+test_duplicate_identity_rejected_even_at_10000 (test_monthly_refresh.Gates.test_duplicate_identity_rejected_even_at_10000) ... ok
+test_duplicate_prior_refused (test_monthly_refresh.Gates.test_duplicate_prior_refused) ... ok
+test_enriched_identity_removed_not_replaced_by_new_enrichment (test_monthly_refresh.Gates.test_enriched_identity_removed_not_replaced_by_new_enrichment) ... ok
+test_future_enrichment_field_loss_refused (test_monthly_refresh.Gates.test_future_enrichment_field_loss_refused) ... ok
+test_invalid_coordinates_refused (test_monthly_refresh.Gates.test_invalid_coordinates_refused) ... ok
+test_invalid_state_refused (test_monthly_refresh.Gates.test_invalid_state_refused) ... ok
+test_many_to_one_refused (test_monthly_refresh.Gates.test_many_to_one_refused) ... ok
+test_missing_one_required_field_refused (test_monthly_refresh.Gates.test_missing_one_required_field_refused) ... ok
+test_positive_unchanged (test_monthly_refresh.Gates.test_positive_unchanged) ... ok
+test_retained_description_loss_or_mutation (test_monthly_refresh.Gates.test_retained_description_loss_or_mutation) ... ok
+test_retained_enriched_at_loss_or_mutation (test_monthly_refresh.Gates.test_retained_enriched_at_loss_or_mutation) ... ok
+test_retained_enrichment_confidence_loss_or_mutation (test_monthly_refresh.Gates.test_retained_enrichment_confidence_loss_or_mutation) ... ok
+test_retained_facility_all_five_enrichment_fields_lost (test_monthly_refresh.Gates.test_retained_facility_all_five_enrichment_fields_lost) ... ok
+test_retained_insurance_loss_or_mutation (test_monthly_refresh.Gates.test_retained_insurance_loss_or_mutation) ... ok
+test_retained_website_loss_or_mutation (test_monthly_refresh.Gates.test_retained_website_loss_or_mutation) ... ok
+test_ambiguous_merge_preserves_previous_file (test_monthly_refresh.Merge.test_ambiguous_merge_preserves_previous_file) ... ok
+test_carry_without_marker_and_future_fields (test_monthly_refresh.Merge.test_carry_without_marker_and_future_fields) ... ok
+test_conflicting_incoming_duplicate_refused (test_monthly_refresh.Merge.test_conflicting_incoming_duplicate_refused) ... ok
+test_full_main_dedup_preservation_with_no_guard (test_monthly_refresh.Merge.test_full_main_dedup_preservation_with_no_guard) ... ok
+test_incoming_identical_duplicates_dropped (test_monthly_refresh.Merge.test_incoming_identical_duplicates_dropped) ... ok
+test_net_new_is_only_queued (test_monthly_refresh.Merge.test_net_new_is_only_queued) ... ok
+test_no_model_or_search_call_source_and_negative_detector (test_monthly_refresh.Merge.test_no_model_or_search_call_source_and_negative_detector) ... ok
+test_truncated_fetch_preserves_previous_file (test_monthly_refresh.Merge.test_truncated_fetch_preserves_previous_file) ... ok
+test_api_success_false_even_http_200_refused (test_monthly_refresh.Transport.test_api_success_false_even_http_200_refused) ... ok
+test_api_wrong_rollback_id_refused (test_monthly_refresh.Transport.test_api_wrong_rollback_id_refused) ... ok
+test_logged_out_public_transport (test_monthly_refresh.Transport.test_logged_out_public_transport) ... ok
+test_missing_or_failed_canonical_refused (test_monthly_refresh.Transport.test_missing_or_failed_canonical_refused) ... ok
+test_public_error_or_unparseable_count_refused (test_monthly_refresh.Transport.test_public_error_or_unparseable_count_refused) ... ok
+test_deploy_cli_checks_clean_sha_and_digest_before_wrangler (test_monthly_refresh.Wiring.test_deploy_cli_checks_clean_sha_and_digest_before_wrangler) ... ok
+test_workflow_gates_precede_and_condition_commit_and_deploy (test_monthly_refresh.Wiring.test_workflow_gates_precede_and_condition_commit_and_deploy) ... ok
+
+----------------------------------------------------------------------
+Ran 51 tests in 112.878s
+
+OK

@@ -1,22 +1,19 @@
 name: SAMHSA monthly refresh (deterministic, no model)
 
-# Replaces the laptop Windows task GTH-SAMHSA-Monthly-Refresh (retired, C716 s.2) and the Desktop routine's deploy step.
-# No Anthropic or Serper call is made on this rail. New-record enrichment goes to enrichment-queue.json for a separate pass.
-
+# C716 s.2: the laptop task stays Disabled. Enrichment is a separate queue.
 on:
   schedule:
-    - cron: '17 8 1 * *'        # 1st of each month, 08:17 UTC
+    - cron: '17 8 1 * *'
   workflow_dispatch:
     inputs:
       mode:
-        description: 'dry-run = fetch + gates only; deploy = refresh, commit to main, deploy; restore = deploy current main as-is (repair)'
+        description: 'dry-run = fetch and gates; deploy = gated refresh to main; restore = gated clean main'
         type: choice
         options: [dry-run, deploy, restore]
         default: dry-run
 
 permissions:
   contents: write
-
 concurrency:
   group: samhsa-refresh
   cancel-in-progress: false
@@ -36,84 +33,87 @@ jobs:
         with:
           ref: main
           fetch-depth: 1
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Record live state (rollback target and before-count)
-        id: before
+      - name: Offline negative controls
+        run: python3 -B -m unittest discover -s scripts/tests -v
+
+      - name: Record clean prior main and committed count
+        id: base
         run: |
           set -euo pipefail
-          PRIOR=$(curl -fsS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT" | python3 -c "import sys,json; print(json.load(sys.stdin)['result']['canonical_deployment']['id'])")
-          BEFORE=$(curl -fsS -X POST "https://$PROJECT.pages.dev/mcp" -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"list_states","arguments":{}}}' | python3 -c "import sys,json,re; print(re.search(r'\((\d+) total\)', json.load(sys.stdin)['result']['content'][0]['text']).group(1))")
-          echo "prior=$PRIOR" >> "$GITHUB_OUTPUT"
-          echo "before_count=$BEFORE" >> "$GITHUB_OUTPUT"
-          echo "live before: $BEFORE facilities, deployment $PRIOR"
+          test -z "$(git status --porcelain)"
+          git rev-parse HEAD > "$RUNNER_TEMP/base-sha.txt"
+          git show HEAD:facilities.json > "$RUNNER_TEMP/base.json"
+          python3 -c 'import json,os; print("PRIOR COMMITTED COUNT:", len(json.load(open(os.environ["RUNNER_TEMP"]+"/base.json"))))'
+          echo "PRIOR MAIN SHA: $(cat "$RUNNER_TEMP/base-sha.txt")"
 
       - name: Fetch, dedup, merge (no model)
-        if: env.MODE != 'restore'
-        env:
-          REFRESH_NO_MODEL: '1'
+        if: success() && env.MODE != 'restore'
         run: |
           set -euo pipefail
-          cp facilities.json "$RUNNER_TEMP/base.json"
-          python3 scripts/refresh-samhsa.py | tee "$RUNNER_TEMP/refresh.log"
+          python3 -B scripts/refresh-samhsa.py | tee "$RUNNER_TEMP/refresh.log"
 
       - name: Gates (identity, completion, enrichment)
-        if: env.MODE != 'restore'
-        run: python3 scripts/validate_refresh.py "$RUNNER_TEMP/base.json" facilities.json "$RUNNER_TEMP/summary.json"
+        id: gates
+        run: python3 -B scripts/validate_refresh.py "$RUNNER_TEMP/base.json" facilities.json "$RUNNER_TEMP/summary.json"
 
-      - name: Commit refresh to main
-        if: env.MODE == 'deploy'
+      - name: Record live before-state and prove three main-only fixtures
+        if: success() && steps.gates.outcome == 'success' && env.MODE != 'dry-run'
+        run: python3 -B scripts/pages_refresh.py prepare --plan "$RUNNER_TEMP/readback-plan.json"
+
+      - name: Commit refresh to main after all gates
+        id: commit
+        if: success() && steps.gates.outcome == 'success' && env.MODE == 'deploy'
         run: |
           set -euo pipefail
-          N=$(python3 -c "import json; print(json.load(open('$RUNNER_TEMP/summary.json'))['facilities'])")
-          E=$(python3 -c "import json; print(json.load(open('$RUNNER_TEMP/summary.json'))['enriched'])")
-          D=$(grep -oE 'DEDUP: dropped [0-9]+' "$RUNNER_TEMP/refresh.log" | grep -oE '[0-9]+' | head -1 || echo 0)
-          git config user.name "CBEG Ops"
-          git config user.email "ops@cbeg.invalid"
+          N=$(python3 -c 'import json,os; print(json.load(open(os.environ["RUNNER_TEMP"]+"/summary.json"))["facilities"])')
+          git config user.name "SAMHSA refresh automation"
+          git config user.email "$(git log -1 --format=%ce)"
           git add facilities.json enrichment-queue.json
-          if git diff --cached --quiet; then echo "no change to commit"; else
-            git commit -m "Monthly SAMHSA refresh — $(date -u +%Y-%m) — $N facilities — $E enriched, ${D:-0} dedup-dropped"
+          if ! git diff --cached --quiet; then
+            git commit -m "Monthly SAMHSA refresh $(date -u +%Y-%m): $N facilities; identity/completion/enrichment passed"
+            # A concurrent main update refuses this non-force push and stops deploy.
             git push origin HEAD:main
           fi
 
-      - name: Deploy
+      - name: Build from clean committed main at a recorded SHA
+        id: main
+        if: success() && steps.gates.outcome == 'success' && env.MODE != 'dry-run'
+        run: |
+          set -euo pipefail
+          SHA=$(git rev-parse HEAD)
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "$SHA"
+          git worktree add --detach "$RUNNER_TEMP/gth-deploy" "$SHA"
+          test -z "$(git -C "$RUNNER_TEMP/gth-deploy" status --porcelain)"
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+          echo "COMMITTED MAIN SHA: $SHA"
+
+      - name: Deploy, logged-out read-back, checked rollback on any deploy/read-back failure
         id: deploy
-        if: env.MODE != 'dry-run'
+        if: success() && steps.gates.outcome == 'success' && steps.main.outcome == 'success' && env.MODE != 'dry-run'
+        working-directory: ${{ runner.temp }}/gth-deploy
+        env:
+          MAIN_SHA: ${{ steps.main.outputs.sha }}
         run: |
           set -euo pipefail
-          npx --yes wrangler@4 pages deploy . --project-name="$PROJECT" --branch=main --commit-hash="$(git rev-parse HEAD)" --commit-message="SAMHSA refresh rail ($MODE) $(git rev-parse --short HEAD)" --commit-dirty=true
+          python3 -B scripts/pages_refresh.py deploy --sha "$MAIN_SHA" --plan "$RUNNER_TEMP/readback-plan.json" --receipt "$RUNNER_TEMP/deployment-receipt.json"
 
-      - name: Read-back (logged-out count + 3 spot-reads)
-        id: readback
-        if: env.MODE != 'dry-run'
-        run: |
-          set -euo pipefail
-          sleep 15
-          python3 - <<'PY'
-          import json, random, re, urllib.request
-          url = "https://gth-mcp-server.pages.dev/mcp"
-          def call(name, args):
-              req = urllib.request.Request(url, data=json.dumps({"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": name, "arguments": args}}).encode(), headers={"Content-Type": "application/json", "User-Agent": "cbeg-samhsa-rail-readback"})
-              return json.load(urllib.request.urlopen(req, timeout=60))["result"]["content"][0]["text"]
-          facilities = json.load(open("facilities.json", encoding="utf-8"))
-          live = int(re.search(r"\((\d+) total\)", call("list_states", {})).group(1))
-          assert live == len(facilities), f"live count {live} != committed {len(facilities)}"
-          random.seed(len(facilities))
-          for r in random.sample([f for f in facilities if f.get("name") and f.get("city")], 3):
-              text = call("get_facility_detail", {"name": r["name"]})
-              assert r["name"].lower()[:30] in text.lower(), f"spot-read failed for {r['name']}"
-          print(f"READ-BACK OK: {live} facilities live, 3 spot-reads found")
-          PY
-
-      - name: Promote the prior deployment if the deploy or read-back failed
-        if: failure() && steps.deploy.outcome == 'success'
-        run: |
-          curl -fsS -X POST -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT/deployments/${{ steps.before.outputs.prior }}/rollback"
-          echo "rolled back to ${{ steps.before.outputs.prior }}"
+      - name: Retain before/after and gate receipts even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: samhsa-refresh-receipts
+          path: |
+            ${{ runner.temp }}/base-sha.txt
+            ${{ runner.temp }}/summary.json
+            ${{ runner.temp }}/refresh.log
+            ${{ runner.temp }}/readback-plan.json
+            ${{ runner.temp }}/deployment-receipt.json
+          if-no-files-found: ignore

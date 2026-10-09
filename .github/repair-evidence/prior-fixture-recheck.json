@@ -1,0 +1,101 @@
+[
+ {
+  "fixture": "all_descriptions_lost",
+  "accepted": false,
+  "expected_accept": false,
+  "matched_expectation": true,
+  "reason": "ENRICHMENT: retained record 0 changed or lost description",
+  "base_sha256": "d21a1e9be00be8b5398baa168059f79e58467ab4927241bf1ce6ef7483f4e7ad",
+  "candidate_sha256": "574fd924ed31d441cb4f2f1def4305a4ee0dd86fba3675f2d4cde94090777d2d"
+ },
+ {
+  "fixture": "below_absolute_10000",
+  "accepted": false,
+  "expected_accept": false,
+  "matched_expectation": true,
+  "reason": "COMPLETION: need >=10000 AND >=98% of prior committed count",
+  "base_sha256": "d21a1e9be00be8b5398baa168059f79e58467ab4927241bf1ce6ef7483f4e7ad",
+  "candidate_sha256": "0e0d9542678e99703264f16a83fc064a7ff43f75539168c6d293763ee10c1980"
+ },
+ {
+  "fixture": "below_relative_98pct",
+  "accepted": false,
+  "expected_accept": false,
+  "matched_expectation": true,
+  "reason": "COMPLETION: need >=10000 AND >=98% of prior committed count",
+  "base_sha256": "6b74ff566a0b4e1fe053afd8ae6e8eb8684012ab4e0ab794bfcbb74573590ccd",
+  "candidate_sha256": "617534d10864f7d9fa665d8d28a759512900dc45a92663457b62292e5e995c52"
+ },
+ {
+  "fixture": "duplicate_identity",
+  "accepted": false,
+  "expected_accept": false,
+  "matched_expectation": true,
+  "reason": "IDENTITY: duplicate stable identity at records 0 and 9999",
+  "base_sha256": "d21a1e9be00be8b5398baa168059f79e58467ab4927241bf1ce6ef7483f4e7ad",
+  "candidate_sha256": "1425fca5b725b2147413e4e4fe133389481f22f450d8ade50a8a9d04d7951717"
+ },
+ {
+  "fixture": "exact_relative_98pct",
+  "accepted": true,
+  "expected_accept": true,
+  "matched_expectation": true,
+  "reason": "all gates passed",
+  "base_sha256": "6b74ff566a0b4e1fe053afd8ae6e8eb8684012ab4e0ab794bfcbb74573590ccd",
+  "candidate_sha256": "e297315b8f777abb78504a158655842f6a1ae3b14ef76fa1650413262d176673"
+ },
+ {
+  "fixture": "missing_required_identity_fields",
+  "accepted": false,
+  "expected_accept": false,
+  "matched_expectation": true,
+  "reason": "IDENTITY: missing or invalid name",
+  "base_sha256": "d21a1e9be00be8b5398baa168059f79e58467ab4927241bf1ce6ef7483f4e7ad",
+  "candidate_sha256": "0efbc376f16e9cb90f9cdad30d267d6ee5ca1553f68e54b73fc00ef712a1c2da"
+ },
+ {
+  "fixture": "pipeline_duplicate_identity",
+  "accepted": false,
+  "expected_accept": false,
+  "matched_expectation": true,
+  "reason": "IDENTITY: duplicate stable identity at records 1 and 10000",
+  "base_sha256": "978b2b354a3b7b64a075a062e520f73688604b4462212aa465dea04b607bd2e2",
+  "candidate_sha256": "3476aef2bd4a35daf188d3c88ab736c797e441af40fc87b0de326eaa161e47be"
+ },
+ {
+  "fixture": "retained_facility_confidence_loss",
+  "accepted": false,
+  "expected_accept": false,
+  "matched_expectation": true,
+  "reason": "ENRICHMENT: retained record 0 changed or lost enrichment_confidence",
+  "base_sha256": "d21a1e9be00be8b5398baa168059f79e58467ab4927241bf1ce6ef7483f4e7ad",
+  "candidate_sha256": "8590efc6b200054dae942fcbe8625fb07bffe771ac5832aa340ca0d762467d45"
+ },
+ {
+  "fixture": "retained_facility_de_enriched",
+  "accepted": false,
+  "expected_accept": false,
+  "matched_expectation": true,
+  "reason": "ENRICHMENT: retained record 0 changed or lost description",
+  "base_sha256": "d21a1e9be00be8b5398baa168059f79e58467ab4927241bf1ce6ef7483f4e7ad",
+  "candidate_sha256": "5c77e9300cde3275e5b1a3325b6c69ff6872a2857968fcbb520e09ec9eee405e"
+ },
+ {
+  "fixture": "retained_facility_insurance_loss",
+  "accepted": false,
+  "expected_accept": false,
+  "matched_expectation": true,
+  "reason": "ENRICHMENT: retained record 0 changed or lost insurance",
+  "base_sha256": "d21a1e9be00be8b5398baa168059f79e58467ab4927241bf1ce6ef7483f4e7ad",
+  "candidate_sha256": "66b099506161a75c7cfaded873b6cfa1de6c8b4e38fd03baca9bae997f33ca1d"
+ },
+ {
+  "fixture": "unchanged_positive",
+  "accepted": true,
+  "expected_accept": true,
+  "matched_expectation": true,
+  "reason": "all gates passed",
+  "base_sha256": "d21a1e9be00be8b5398baa168059f79e58467ab4927241bf1ce6ef7483f4e7ad",
+  "candidate_sha256": "d21a1e9be00be8b5398baa168059f79e58467ab4927241bf1ce6ef7483f4e7ad"
+ }
+]
