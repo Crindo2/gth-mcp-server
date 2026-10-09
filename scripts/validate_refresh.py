@@ -1,75 +1,69 @@
 #!/usr/bin/env python3
-"""Deterministic gates for the SAMHSA monthly refresh (C716 s.3). No model, no network.
-
-Usage: python3 scripts/validate_refresh.py <base facilities.json> <new facilities.json> [summary.json]
-
-Gates (any failure exits 1 and nothing is committed or deployed):
-  IDENTITY    new file is a list of objects; >= 99.9% have non-empty name, city, state, stateAbbr; every stateAbbr is one the previous file already used;
-              the curated records of the previous file are all still present (same curated count).
-  COMPLETION  record count >= 10,000 AND >= 98% of the previous count.
-  ENRICHMENT  existing enrichment is preserved: records with enriched_at, non-empty description and non-empty website must not fall below 98% / 99% / 98% of the previous counts.
-Writes a one-line summary (counts) for the commit message to the optional third argument.
+"""C716 s.3 fail-closed gates; no network and no model.
+Usage: validate_refresh.py <prior committed JSON> <candidate JSON> [summary JSON]
+Only a successful run writes the commit summary.
 """
 import json
 import sys
+from pathlib import Path
+from refresh_identity import IdentityIndex, match_retained, nonempty, protected_fields
 
 MIN_ABS = 10000
-MIN_RATIO = 0.98
 
 
-def load(path):
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
-
-
-def nonempty(v):
-    return v not in (None, "", [], {})
-
-
-def count(records, field):
-    return sum(1 for r in records if nonempty(r.get(field)))
+def validate(base, new):
+    IdentityIndex(base)
+    IdentityIndex(new)
+    matches = match_retained(base, new)
+    states = {r["stateAbbr"] for r in base}
+    if any(r["stateAbbr"] not in states for r in new):
+        raise ValueError("IDENTITY: stateAbbr not present in prior committed file")
+    retained = set(matches.values())
+    reverse = {j: i for i, j in matches.items()}
+    for j, record in enumerate(base):
+        if record.get("curated"):
+            if j not in retained:
+                raise ValueError("IDENTITY: prior curated identity missing")
+            if {k: v for k, v in new[reverse[j]].items() if k != "refreshed_at"} != {
+                    k: v for k, v in record.items() if k != "refreshed_at"}:
+                raise ValueError("IDENTITY: prior curated record changed")
+    if sum(bool(r.get("curated")) for r in base) != sum(bool(r.get("curated")) for r in new):
+        raise ValueError("IDENTITY: curated count changed")
+    if len(new) < MIN_ABS or len(new) * 100 < len(base) * 98:
+        raise ValueError("COMPLETION: need >=10000 AND >=98% of prior committed count")
+    for i, j in matches.items():
+        for field, value in protected_fields(base[j]).items():
+            if field not in new[i] or new[i][field] != value:
+                raise ValueError(f"ENRICHMENT: retained record {j} changed or lost {field}")
+    for j, record in enumerate(base):
+        if nonempty(record.get("enriched_at")) and j not in retained:
+            raise ValueError(f"ENRICHMENT: enriched prior identity {j} missing")
+    for field, percent in (("enriched_at", 98), ("description", 99), ("website", 98)):
+        b = sum(nonempty(r.get(field)) for r in base)
+        n = sum(nonempty(r.get(field)) for r in new)
+        if n * 100 < b * percent:
+            raise ValueError("ENRICHMENT: aggregate non-regression for " + field)
+    return {"facilities": len(new), "previous": len(base),
+            "enriched": sum(nonempty(r.get("enriched_at")) for r in new),
+            "curated": sum(bool(r.get("curated")) for r in new)}
 
 
 def main():
-    base, new = load(sys.argv[1]), load(sys.argv[2])
-    fails = []
-    # IDENTITY
-    if not isinstance(new, list) or not all(isinstance(r, dict) for r in new):
-        print("GATE IDENTITY FAILED: facilities file is not a list of objects")
-        sys.exit(1)
-    req = ("name", "city", "state", "stateAbbr")
-    ok = sum(1 for r in new if all(nonempty(r.get(k)) for k in req))
-    if new and ok / len(new) < 0.999:
-        fails.append(f"IDENTITY: only {ok}/{len(new)} records have name, city, state and stateAbbr")
-    base_states = {r.get("stateAbbr") for r in base}
-    odd = sorted({r.get("stateAbbr") for r in new} - base_states)
-    if odd:
-        fails.append(f"IDENTITY: stateAbbr values not seen in the previous file: {odd[:8]}")
-    bc, nc = sum(1 for r in base if r.get("curated")), sum(1 for r in new if r.get("curated"))
-    if nc != bc:
-        fails.append(f"IDENTITY: curated records changed {bc} -> {nc}")
-    # COMPLETION
-    if len(new) < MIN_ABS:
-        fails.append(f"COMPLETION: {len(new)} records < {MIN_ABS}")
-    if len(new) < MIN_RATIO * len(base):
-        fails.append(f"COMPLETION: {len(new)} records < {MIN_RATIO:.0%} of previous {len(base)}")
-    # ENRICHMENT
-    for field, ratio in (("enriched_at", 0.98), ("description", 0.99), ("website", 0.98)):
-        b, n = count(base, field), count(new, field)
-        if b and n < ratio * b:
-            fails.append(f"ENRICHMENT: {field} populated on {n} records, below {ratio:.0%} of previous {b}")
-    enriched = count(new, "enriched_at")
-    line = {"facilities": len(new), "previous": len(base), "enriched": enriched, "curated": nc}
-    print("GATES:", json.dumps(line))
-    if len(sys.argv) > 3:
-        with open(sys.argv[3], "w", encoding="utf-8") as f:
-            json.dump(line, f)
-    if fails:
-        for m in fails:
-            print("GATE FAILED -", m)
-        sys.exit(1)
-    print("GATES PASSED: identity, completion, enrichment")
+    summary = Path(sys.argv[3]) if len(sys.argv) > 3 else None
+    if summary:
+        summary.unlink(missing_ok=True)
+    try:
+        base = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+        new = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
+        result = validate(base, new)
+    except (ValueError, TypeError, KeyError, OSError) as exc:
+        print("GATE FAILED:", exc)
+        return 1
+    if summary:
+        summary.write_text(json.dumps(result), encoding="utf-8")
+    print("GATES PASSED: identity, completion, enrichment", json.dumps(result))
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
