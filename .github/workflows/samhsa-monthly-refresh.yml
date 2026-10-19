@@ -82,6 +82,7 @@ jobs:
             git commit -m "Monthly SAMHSA refresh $(date -u +%Y-%m): $N facilities; identity/completion/enrichment passed"
             # A concurrent main update refuses this non-force push and stops deploy.
             git push origin HEAD:main
+            echo "committed=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Build from clean committed main at a recorded SHA
@@ -108,7 +109,7 @@ jobs:
           python3 -B scripts/pages_refresh.py deploy --sha "$MAIN_SHA" --plan "$RUNNER_TEMP/readback-plan.json" --receipt "$RUNNER_TEMP/deployment-receipt.json"
 
       - name: Revert the refresh commit on main if the deploy failed and was rolled back
-        if: failure() && steps.commit.outcome == 'success' && env.MODE == 'deploy'
+        if: failure() && steps.commit.outputs.committed == 'true' && env.MODE == 'deploy'
         run: |
           set -euo pipefail
           git fetch origin main
