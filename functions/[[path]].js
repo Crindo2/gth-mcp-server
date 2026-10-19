@@ -127,7 +127,7 @@ function formatFacility(f, idx) {
   const insurance = (f.insurance || []).join(", ");
   const browseUrl = `https://gettreatmenthelp.com/browse?name=${encodeURIComponent(f.name)}`;
   const desc = `Treatment facility in ${f.city}, ${f.stateAbbr}. Offers ${(f.types || []).slice(0, 3).join(", ")}. Accepts ${(f.insurance || []).slice(0, 3).join(", ")}.`;
-  return `**${idx}. ${f.name}**\nLocation: ${f.city}, ${f.state || f.stateAbbr}\nPrograms: ${programs}\nInsurance: ${insurance}\nPhone: ${f.phone || "N/A"}\n${desc}\nMore info: ${browseUrl}`;
+  return `**${idx}. ${f.name}**\nLocation: ${f.city}, ${f.state || f.stateAbbr}\nPrograms: ${programs}\nInsurance: ${insurance}\nPhone: ${f.phone || "N/A"}${f.phone_verify_directly ? " (Verify directly)" : ""}\n${f.street ? "Address: " + f.street + ", " + f.city + ", " + f.stateAbbr + (f.zip ? " " + f.zip : "") + "\n" : ""}${desc}\nMore info: ${browseUrl}`;
 }
 
 async function handleToolCall(name, args, env) {
@@ -169,7 +169,7 @@ async function handleToolCall(name, args, env) {
     const insurance = (match.insurance || []).map(i => `• ${i}`).join("\n");
     const desc = `Treatment facility in ${match.city}, ${match.stateAbbr}. Offers ${(match.types || []).slice(0, 3).join(", ")}. Accepts ${(match.insurance || []).slice(0, 3).join(", ")}.`;
     const browseUrl = `https://gettreatmenthelp.com/browse?name=${encodeURIComponent(match.name)}`;
-    let text = `**${match.name}**\nLocation: ${match.city}, ${match.state || match.stateAbbr}\nPhone: ${match.phone || "N/A"}\n\n**Programs:**\n${programs}\n\n**Insurance:**\n${insurance}\n\n**About:**\n${desc}\n\nMore info: ${browseUrl}\n\n---\nData: [GetTreatmentHelp.com](https://gettreatmenthelp.com)`;
+    let text = `**${match.name}**\nLocation: ${match.city}, ${match.state || match.stateAbbr}\nPhone: ${match.phone || "N/A"}${match.phone_verify_directly ? " (Verify directly)" : ""}${match.street ? "\nAddress: " + match.street + ", " + match.city + ", " + match.stateAbbr + (match.zip ? " " + match.zip : "") : ""}\n\n**Programs:**\n${programs}\n\n**Insurance:**\n${insurance}\n\n**About:**\n${desc}\n\nMore info: ${browseUrl}\n\n---\nData: [GetTreatmentHelp.com](https://gettreatmenthelp.com)`;
     return { content: [{ type: "text", text }], _resultsCount: 1 };
   }
 

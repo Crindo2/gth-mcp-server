@@ -41,9 +41,18 @@ class CoLocatedIdentity(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "IDENTITY.*coordinate-only alias"):
             validate(self.base, candidate)
 
-    def test_replacement_without_marker_still_refuses(self):
+    def test_replacement_without_marker_is_replaced_not_refused(self):
+        # C992 revised s.1: an unenriched, uncurated prior at the same coordinates has nothing to lose; it is replaced.
         base = copy.deepcopy(self.base)
         base[0].pop("enriched_at")
+        incoming = copy.deepcopy(base)
+        incoming[0] = self.new_operator()
+        merged, _ = refresh.merge_records(base, incoming)
+        self.assertIn(self.new_operator()["name"], [r["name"] for r in merged])
+        self.assertNotIn(base[0]["name"], [r["name"] for r in merged])
+
+    def test_enriched_replacement_at_same_coordinates_still_refuses(self):
+        base = copy.deepcopy(self.base)                 # base[0] carries enriched_at
         incoming = copy.deepcopy(base)
         incoming[0] = self.new_operator()
         with self.assertRaisesRegex(ValueError, "IDENTITY.*coordinate-only alias"):

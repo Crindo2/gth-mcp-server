@@ -199,11 +199,79 @@ class Merge(unittest.TestCase):
         merged, _ = refresh.merge_records([record(0), record(1)], incoming)
         self.assertEqual(len(merged), 2)
 
-    def test_conflicting_incoming_duplicate_refused(self):
+    def test_conflicting_incoming_duplicate_keeps_first_and_marks_verify_directly(self):
+        # C992 revised s.1: the feed conflicts at one facility -> first row in SAMHSA's order, phone marked, run never fails
         incoming = [record(0), record(0)]
-        incoming[1]["website"] = "https://conflict.invalid"
-        with self.assertRaisesRegex(ValueError, "conflicting duplicate"):
-            deduplicate(incoming)
+        incoming[0]["phone"] = "555-000-0001"
+        incoming[1]["phone"] = "555-000-0002"
+        incoming[1]["description"] = "a different description that must never be merged in"
+        out = deduplicate(incoming)
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]["phone"], "555-000-0001")
+        self.assertNotIn("different description", out[0]["description"])
+        self.assertTrue(out[0]["phone_verify_directly"])
+
+    def test_same_name_at_two_addresses_are_two_facilities(self):
+        a, b = record(0), record(0)
+        a["street"], a["zip"] = "1 Main St", "90001"
+        b["street"], b["zip"] = "200 Oak Ave", "90002"
+        out = deduplicate([a, b])
+        self.assertEqual(len(out), 2)
+        self.assertFalse(any(r.get("phone_verify_directly") for r in out))
+
+    def test_same_address_identical_rows_collapse_without_a_flag(self):
+        a = record(0); a["street"], a["zip"] = "1 Main St", "90001"
+        out = deduplicate([dict(a), dict(a)])
+        self.assertEqual(len(out), 1)
+        self.assertFalse(out[0].get("phone_verify_directly"))
+
+    def test_address_normalization_ignores_case_and_punctuation(self):
+        a, b = record(0), record(0)
+        a["street"], a["zip"] = "1 Main St.", "90001"
+        b["street"], b["zip"] = "1 MAIN ST", "90001-1234"
+        self.assertEqual(stable_key(a), stable_key(b))
+
+    def test_prior_record_without_street_matches_the_one_source_branch(self):
+        prior = record(0)                       # backfill could not match it: no street, flagged
+        prior["phone_verify_directly"] = True
+        new = record(0); new["street"], new["zip"] = "1 Main St", "90001"
+        self.assertEqual(IdentityIndex([prior]).match(new), 0)
+
+    def test_prior_branch_with_a_different_street_is_not_this_facility(self):
+        prior = record(0); prior["street"], prior["zip"] = "200 Oak Ave", "90002"
+        new = record(0); new["street"], new["zip"] = "1 Main St", "90001"
+        self.assertIsNone(IdentityIndex([prior]).match(new))
+
+    def test_ambiguous_streetless_prior_is_carried_as_new_not_a_failure(self):
+        p1, p2, new = record(0), record(0), record(0)
+        for r in (p1, p2, new):
+            r["latitude"] = r["longitude"] = ""      # no coordinates: prior records are told apart by phone only
+        p1["phone"], p2["phone"] = "555-000-0001", "555-000-0002"
+        new["street"], new["zip"], new["phone"] = "1 Main St", "90001", "555-000-0009"
+        merged, queue = refresh.merge_records([p1, p2], [new])   # must not raise
+        # the source branch is carried as new; both enriched streetless priors are kept and marked, never given to it
+        self.assertEqual(len(merged), 3)
+        self.assertEqual(sum(1 for r in merged if r.get("phone_verify_directly")), 2)
+        self.assertEqual(sum(1 for r in merged if r.get("street")), 1)
+
+    def test_enriched_record_samhsa_no_longer_lists_is_carried_and_marked(self):
+        gone = record(7)                      # enriched (record() sets enriched_at) and absent from the new feed
+        merged, _ = refresh.merge_records([record(0), gone], [record(0)])
+        carried = [r for r in merged if r["name"] == gone["name"]]
+        self.assertEqual(len(carried), 1)
+        self.assertTrue(carried[0]["phone_verify_directly"])
+        self.assertEqual(carried[0]["website"], gone["website"])      # enrichment kept
+
+    def test_unenriched_record_samhsa_no_longer_lists_is_replaced(self):
+        gone = record(7)
+        gone.pop("enriched_at")
+        merged, _ = refresh.merge_records([record(0), gone], [record(0)])
+        self.assertEqual([r["name"] for r in merged], [record(0)["name"]])
+
+    def test_carried_record_does_not_enter_the_enrichment_queue(self):
+        gone = record(7)
+        _, queue = refresh.merge_records([record(0), gone], [record(0)])
+        self.assertNotIn(gone["name"], [q["name"] for q in queue])
 
     def test_carry_without_marker_and_future_fields(self):
         old = record(0)
