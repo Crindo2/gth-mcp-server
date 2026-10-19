@@ -13,7 +13,7 @@ on:
         default: dry-run
 
 permissions:
-  contents: write
+  contents: read
 concurrency:
   group: samhsa-refresh
   cancel-in-progress: false
@@ -28,6 +28,8 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    permissions:
+      contents: write   # only this job pushes the refresh commit to main
     steps:
       - uses: actions/checkout@v4
         with:
@@ -104,6 +106,19 @@ jobs:
         run: |
           set -euo pipefail
           python3 -B scripts/pages_refresh.py deploy --sha "$MAIN_SHA" --plan "$RUNNER_TEMP/readback-plan.json" --receipt "$RUNNER_TEMP/deployment-receipt.json"
+
+      - name: Revert the refresh commit on main if the deploy failed and was rolled back
+        if: failure() && steps.commit.outcome == 'success' && env.MODE == 'deploy'
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          if [ "$(git rev-parse origin/main)" = "$(git rev-parse HEAD)" ]; then
+            git revert --no-edit HEAD
+            git push origin HEAD:main
+            echo "Main reverted to match the restored production deployment."
+          else
+            echo "Main moved since the refresh commit; not reverting automatically."
+          fi
 
       - name: Retain before/after and gate receipts even on failure
         if: always()

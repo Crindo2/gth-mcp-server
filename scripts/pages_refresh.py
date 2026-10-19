@@ -107,6 +107,9 @@ def prepare(client, facilities):
     spots = select_spots(records, client.detail)
     if client.canonical()["id"] != prior or client.count() != before:
         raise RuntimeError("Live state changed during before-read; no deployment allowed")
+    # Completeness is also checked against what production serves now, not only against committed main.
+    if len(records) < 0.98 * before:
+        raise RuntimeError(f"Refreshed count {len(records)} is below 98% of the live public count {before}; no deployment allowed")
     return {"prior": prior, "before_count": before, "expected_count": len(records),
             "facilities_sha256": digest(facilities), "spots": spots,
             "recorded_at": datetime.now(timezone.utc).isoformat()}
@@ -200,7 +203,7 @@ def main():
     receipt = {"before": plan, "main_sha": args.sha}
     try:
         deploy_and_verify(client, plan, args.sha, lambda: subprocess.run([
-            "npx", "--yes", "wrangler@4", "pages", "deploy", ".",
+            "npx", "--yes", "wrangler@4.107.0", "pages", "deploy", ".",
             "--project-name=" + client.project, "--branch=main", "--commit-hash=" + args.sha,
             "--commit-dirty=false", "--commit-message=SAMHSA monthly deterministic rail",
         ], check=True, timeout=600), receipt)
