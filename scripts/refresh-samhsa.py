@@ -116,6 +116,7 @@ def normalize(row):
     return {
         "name": name, "city": city, "state": state_full, "stateAbbr": state_abbr,
         "phone": phone, "website": website,
+        "street": (row.get("street1") or "").strip(), "zip": (row.get("zip") or "").strip(),
         "latitude": str(lat) if lat is not None else "",
         "longitude": str(lng) if lng is not None else "",
         "types": types, "insurance": insurance, "description": description,
@@ -137,6 +138,12 @@ def merge_records(previous, incoming):
         merged[i].update(protected_fields(previous[j]))
     for record in curated:
         record["refreshed_at"] = REFRESHED_AT
+    # C992 revised s.1: an enriched record SAMHSA no longer lists stays, marked "Verify directly" - never dropped for lack of a match.
+    matched_prior = set(retained.values())
+    carried = [deepcopy(r) for j, r in enumerate(previous)
+               if j not in matched_prior and not r.get("curated") and r.get("enriched_at")]
+    for record in carried:
+        record["phone_verify_directly"] = True
     queue = []
     for i, record in enumerate(merged):
         if record.get("curated"):
@@ -146,7 +153,7 @@ def merge_records(previous, incoming):
         if reason:
             queue.append({"name": record["name"], "city": record["city"],
                           "stateAbbr": record["stateAbbr"], "reason": reason})
-    return merged, queue
+    return merged + carried, queue
 
 
 def main():
