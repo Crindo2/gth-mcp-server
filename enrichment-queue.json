@@ -1,0 +1,6348 @@
+{
+ "refreshed_at": "2026-11-01",
+ "count": 1057,
+ "queue": [
+  {
+   "name": "Phoenix Counseling Center",
+   "city": "Shelby",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ka Hale Pomaikai",
+   "city": "Kaunakakai",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Big Island Substance Abuse Council - Hilo Mens TLP",
+   "city": "Keaau",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Big Island Substance Abuse Council - PWWDC TLP",
+   "city": "Keaau",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Penny Lane Centers",
+   "city": "Los Angeles",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Absolute Advocacy LLC",
+   "city": "Concord",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Will Rogers Health Center",
+   "city": "Nowata",
+   "stateAbbr": "OK",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Miami VA Healthcare System - Pembroke Pines/Hollywood CBOC",
+   "city": "Hollywood",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Fellowship House",
+   "city": "Miami",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "WestCare California Inc",
+   "city": "Corcoran",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "WestCare California Inc",
+   "city": "Corcoran",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Colorado Family Counseling Inc",
+   "city": "Edwards",
+   "stateAbbr": "CO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Helping Ourselves Pursue Enrichment - Tucson Alvernon",
+   "city": "Tucson",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "El Dorado Springs",
+   "city": "Tucson",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Cenikor Foundation",
+   "city": "Corpus Christi",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Eastern MO Alt Sentencing Servs Inc - EMASS/O Fallon CIP/SROP",
+   "city": "O Fallon",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Associates at Hope Harbor",
+   "city": "Mission",
+   "stateAbbr": "KS",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Miami VA Healthcare System - Key Largo CBOC",
+   "city": "Key Largo",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "AM/PM Culver City Budget DUI School - Escuela Latina/Assessments/Evaluations",
+   "city": "Culver City",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Nexus Family Recovery Center",
+   "city": "Dallas",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Homeward Bound Inc - Corsicana Outpatient Program",
+   "city": "Dallas",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Life Point Healthcare Servs of TX LLC",
+   "city": "Dallas",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Recovery Monitoring Solutions LLC",
+   "city": "Dallas",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "WestCare TN",
+   "city": "Dandridge",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "WestCare Tennessee Outpatient Clinic",
+   "city": "Dandridge",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Aletheia House - Capital City Residential and Outpt",
+   "city": "Montgomery",
+   "stateAbbr": "AL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "The Shoulder",
+   "city": "Spanish Fort",
+   "stateAbbr": "AL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Indiana Center for Recovery - Bedford Alcohol and Drug Rehab",
+   "city": "Bedford",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "WestCare Georgia",
+   "city": "Atlanta",
+   "stateAbbr": "GA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "MCM Substance Abuse Center",
+   "city": "Elmhurst",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Compass Recovery West",
+   "city": "West Springfield",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Recovery Dynamics",
+   "city": "Lincolnton",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "CapeSide PLLC",
+   "city": "Jacksonville",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alcoholics Home Inc - House of Prayer",
+   "city": "Jamestown",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Camelot of Staten Island Inc - Saratoga Outpatient",
+   "city": "Jamaica",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lets In Mental Health and Recovery LLC",
+   "city": "Cincinnati",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Eagle Harbor Counseling",
+   "city": "Bainbridge Island",
+   "stateAbbr": "WA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Longbranch Recovery and - Wellness Center",
+   "city": "Abita Springs",
+   "stateAbbr": "LA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Changing Phases Behavior Support Inc",
+   "city": "Acworth",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Jabbok Treatment Center",
+   "city": "Adamsville",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "WestCare Pacific Islands - Sanctuary",
+   "city": "Hagatna",
+   "stateAbbr": "GU",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Icarus Recovery Center",
+   "city": "Albuquerque",
+   "stateAbbr": "NM",
+   "reason": "net-new"
+  },
+  {
+   "name": "BHG Albany Treatment Center",
+   "city": "Albany",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "A New Philosophy",
+   "city": "Albion",
+   "stateAbbr": "ME",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Anchor Behavioral Health - Albuquerque",
+   "city": "Albuquerque",
+   "stateAbbr": "NM",
+   "reason": "net-new"
+  },
+  {
+   "name": "Rapides Drug Court Treatment",
+   "city": "Alexandria",
+   "stateAbbr": "LA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hogar Crea La Quinta - Carlos Quevedo Estrada",
+   "city": "Trujillo Alto",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "ASSMCA Programa SERE",
+   "city": "Mayaguez",
+   "stateAbbr": "PR",
+   "reason": "net-new"
+  },
+  {
+   "name": "Serenity Light",
+   "city": "Angleton",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Volunteers of America (VOA) Alaska - Main/Outpatient/Family Services",
+   "city": "Anchorage",
+   "stateAbbr": "AK",
+   "reason": "net-new"
+  },
+  {
+   "name": "Riverplace Counseling Center - Elk River",
+   "city": "Anoka",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Horizons Mental Health Center - Harper County Area Office",
+   "city": "Anthony",
+   "stateAbbr": "KS",
+   "reason": "net-new"
+  },
+  {
+   "name": "Axiom Care - Ocotillo Campus of Care",
+   "city": "Apache Junction",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Soulegria LLC",
+   "city": "Hurricane",
+   "stateAbbr": "UT",
+   "reason": "net-new"
+  },
+  {
+   "name": "Mark Bontreger Inc",
+   "city": "Watertown",
+   "stateAbbr": "SD",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Pinnacle Detox and Recovery",
+   "city": "Arcadia",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Twin City Counseling Center",
+   "city": "Winston Salem",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "National Capital Trt and Recovery - Arlington Recovery Center",
+   "city": "Arlington",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ken Starr MD Wellness Group",
+   "city": "Arroyo Grande",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Start Fresh Treatment Center",
+   "city": "Asheville",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Beyond Addiction DWI/Counseling Agency",
+   "city": "Asheville",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Addiction Recovery Centers (ARC) - Bellefonte Recovery/Maternity Center",
+   "city": "Ashland",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ascensa Health - Womens Residence",
+   "city": "Atlanta",
+   "stateAbbr": "GA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Southern Live Oak Wellness",
+   "city": "Atlanta",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Talbott Recovery Campus",
+   "city": "Atlanta",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Sierra Native Alliance",
+   "city": "Auburn",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Paramount Rehab Center",
+   "city": "Aurora",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Embracia Health",
+   "city": "Austin",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Clean Investments Inc - Counseling Center",
+   "city": "Austin",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Self Recovery",
+   "city": "Austin",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Denton House CDC - Denton House",
+   "city": "Greenwood",
+   "stateAbbr": "MS",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "RICCA - Rock Island Cty Council on Addiction",
+   "city": "East Moline",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Heale Counseling Cliff Gookin",
+   "city": "Tupelo",
+   "stateAbbr": "MS",
+   "reason": "net-new"
+  },
+  {
+   "name": "A and E Healthcare Services Inc",
+   "city": "Baltimore",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Native American Lifelines",
+   "city": "Baltimore",
+   "stateAbbr": "MD",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Sheppard Pratt - Mosaic SUD",
+   "city": "Baltimore",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Summit Community Health Inc",
+   "city": "Baltimore",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Marian House",
+   "city": "Baltimore",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Summit Community Health Inc",
+   "city": "Baltimore",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Magnolia Behavior Health Center LLC",
+   "city": "Baltimore",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Summit Community Health Inc",
+   "city": "Baltimore",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "EXODUS Behavioral Health",
+   "city": "Baltimore",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "New Day New Start Behavioral Health",
+   "city": "Rosedale",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Better Path Community Outreach Ctr LLC",
+   "city": "Windsor Mill",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "House of Hope - Residential/1st Street",
+   "city": "Fort Lauderdale",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Warriors Heart Texas - Military Veterans and First Responders",
+   "city": "Bandera",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Wellspring Inc - Womens Residential Program",
+   "city": "Bangor",
+   "stateAbbr": "ME",
+   "reason": "net-new"
+  },
+  {
+   "name": "Renew Health - Recovery",
+   "city": "North Kingstown",
+   "stateAbbr": "RI",
+   "reason": "net-new"
+  },
+  {
+   "name": "Tomah VAMC - La Crosse Outpatient clinic",
+   "city": "La Crosse",
+   "stateAbbr": "WI",
+   "reason": "net-new"
+  },
+  {
+   "name": "Health Solutions - The Family Center",
+   "city": "Pueblo",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Camelot of Staten Island Inc - Williamsbridge Outpatient",
+   "city": "Bronx",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Helm DUI Services",
+   "city": "Vandalia",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "A and E Behavioral - Healthcare Associates",
+   "city": "Decatur",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Beckley Comprehensive Treatment Center",
+   "city": "Beaver",
+   "stateAbbr": "WV",
+   "reason": "net-new"
+  },
+  {
+   "name": "Summit Community Health Inc",
+   "city": "Bel Air",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Summit Community Health Inc",
+   "city": "Bel Air",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Turning Corners Inc",
+   "city": "Bel Air",
+   "stateAbbr": "MD",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Bel Aire Recovery Center - Outpatient",
+   "city": "Wichita",
+   "stateAbbr": "KS",
+   "reason": "net-new"
+  },
+  {
+   "name": "Jude House Inc",
+   "city": "Bel Alton",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "DeRousse Counseling and DUI Services",
+   "city": "Belleville",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "AAA DUI Services Inc",
+   "city": "Belleville",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Recover Together Bend - Recover Together Bend",
+   "city": "Bend",
+   "stateAbbr": "OR",
+   "reason": "net-new"
+  },
+  {
+   "name": "Little House - Outpatient",
+   "city": "Bellflower",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Wellsync Road to Recovery Services",
+   "city": "Decatur",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Freedom Recovery Center",
+   "city": "Owensville",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "A New Day Counseling Service LLC",
+   "city": "Benton",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Samba Recovery Peachtree",
+   "city": "Peachtree Corners",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Maryville Academy - Saint Mary of Celle",
+   "city": "Berwyn",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "A Better You - Primary Care Spa Wellness",
+   "city": "Springdale",
+   "stateAbbr": "AR",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Service Foundation Inc - Buxmont Academy/Bethlehem",
+   "city": "Bethlehem",
+   "stateAbbr": "PA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Premier Behavioral Services Inc",
+   "city": "Lumberton",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Yellowstone Boys and Girls Ranch - Community Based Services",
+   "city": "Billings",
+   "stateAbbr": "MT",
+   "reason": "net-new"
+  },
+  {
+   "name": "First Step Farm of WNC Inc - Mens Facility",
+   "city": "Candler",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "AppleGate Recovery Birmingham",
+   "city": "Birmingham",
+   "stateAbbr": "AL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alpharus Health - Bloomington",
+   "city": "Bloomington",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Renaissance Refuge - Boise Women's Outpatient",
+   "city": "Boise",
+   "stateAbbr": "ID",
+   "reason": "net-new"
+  },
+  {
+   "name": "Hope Restored Counseling",
+   "city": "Bolivar",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Avenues Recovery Center at Richmond",
+   "city": "Richmond",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Keys of Life LLC",
+   "city": "Richmond",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "True North Clinic",
+   "city": "Roanoke",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ray Recovery",
+   "city": "Hudson",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "STR Silver Pines",
+   "city": "Mahanoy City",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Educational Counseling of America",
+   "city": "Bowling Green",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "NYS OASAS Charles K Post ATC RRi",
+   "city": "Brentwood",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Gage and Associates",
+   "city": "Ottawa",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Eagle Healthworks - Bridgeport",
+   "city": "Bridgeport",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Archway Counseling",
+   "city": "Morganton",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Camelot of Staten Island Inc - Prospect Outpatient",
+   "city": "Bronx",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "NAMI Hernando Inc",
+   "city": "Spring Hill",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Whats Next Counseling",
+   "city": "Broomfield",
+   "stateAbbr": "CO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "DART Program COP",
+   "city": "Buffalo",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Los Angeles IOP Center Inc",
+   "city": "Burbank",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Eagle Healthworks",
+   "city": "Cambridge",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Pathways Substance Abuse LLC - DBA Red River Healthcare",
+   "city": "Pineville",
+   "stateAbbr": "LA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Welcome MAT Health Inc",
+   "city": "Reidsville",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Life Changes Counseling - Life Changes DWI Center",
+   "city": "Reidsville",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Tools for Life Ltd",
+   "city": "Saint Charles",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Colorado Family Counseling Inc",
+   "city": "Carbondale",
+   "stateAbbr": "CO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Indiana Center for Recovery - Carmel Alcohol and Drug Rehab",
+   "city": "Carmel",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Hendricks House Inc - Hendricks House Group",
+   "city": "Millville",
+   "stateAbbr": "NJ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Galloway Men - Hendricks House Group",
+   "city": "Millville",
+   "stateAbbr": "NJ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "WestCare Georgia - Youth Academy",
+   "city": "Carrollton",
+   "stateAbbr": "GA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Eau Claire Comprehensive Trt Ctr - Milwaukee Health Services System LLC",
+   "city": "Eau Claire",
+   "stateAbbr": "WI",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lotus Behavioral Health - Teen Treatment Center",
+   "city": "Winter Springs",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Highland House",
+   "city": "New Castle",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lawrence County VA Outpatient Clinic",
+   "city": "New Castle",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Renew Health and Recovery",
+   "city": "Indianapolis",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "HOPE Recovery Clinic",
+   "city": "Shreveport",
+   "stateAbbr": "LA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Horsemens Benevolent and Protective - Gambling and SUD",
+   "city": "Shreveport",
+   "stateAbbr": "LA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Cornerstone Program",
+   "city": "Englewood",
+   "stateAbbr": "CO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Life Support Behavioral Institute",
+   "city": "Englewood",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Cindy Baird DUI Services LLC",
+   "city": "Central City",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Ciganek LLC",
+   "city": "Centreville",
+   "stateAbbr": "MD",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Doves Nest Program - Womens Div/Charlotte Resuce Mission",
+   "city": "Charlotte",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Mile High Behavioral Healthcare",
+   "city": "Englewood",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alpharus Health - Lake Villa",
+   "city": "Lake Villa",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Reid Outpatient Behavioral Health - Outpatient Behavioral Health",
+   "city": "Richmond",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lakeview OP",
+   "city": "Chicago",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Hardin House",
+   "city": "Chicago",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Bridging the Tys to Jordan Inc",
+   "city": "Chicago",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alpharus Health - Virtual",
+   "city": "Chicago",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Geo Spotlight Reentry Center",
+   "city": "Chicago Heights",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Skyway House Outpatient",
+   "city": "Chico",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Skyway House Residential",
+   "city": "Chico",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Sault Tribe Health and Human Services - Behavioral Health Program",
+   "city": "Munising",
+   "stateAbbr": "MI",
+   "reason": "net-new"
+  },
+  {
+   "name": "Encompass Health and Recovery Center",
+   "city": "Clarksville",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Arukah Institute of Healing",
+   "city": "Princeton",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Commonwealth Substance Abuse Services",
+   "city": "Newport",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "House of TIME Inc",
+   "city": "Columbus",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Mighty Acorn Counseling",
+   "city": "Columbus",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "CREATE Health and Wellness",
+   "city": "Concord",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "A DUI and Defensive Driving School LLC",
+   "city": "Knoxville",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Atlanta Intervention Network Inc",
+   "city": "Conyers",
+   "stateAbbr": "GA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Action Consultants Therapy",
+   "city": "Costa Mesa",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "St Joseph Safety and Health Council",
+   "city": "Saint Joseph",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "AIM Advaita Integrated Medicine",
+   "city": "Raleigh",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Green Hill Recovery",
+   "city": "Raleigh",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Life Changes Counseling - Life Changes Dwi Center",
+   "city": "Creedmoor",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Alpharus Health - Joliet",
+   "city": "Joliet",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Counseling Associates",
+   "city": "Joliet",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Little Love Notes LLC",
+   "city": "Crofton",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Aspire Counseling LLC",
+   "city": "Woodland Park",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Isaiah House Inc - Danville Outpatient Clinic",
+   "city": "Danville",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "ADAPT Psychology Inc - ADAPT Counseling Services",
+   "city": "Evansville",
+   "stateAbbr": "IN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Goodwill Easterseals Miami Valley - Downtown Dayton Counseling and Wellnes",
+   "city": "Dayton",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Armada Recovery - Dayton",
+   "city": "Dayton",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Miami Valley Recovery LLC - Suite NWB 40",
+   "city": "Dayton",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Blue Mountain Counseling - Columbia County",
+   "city": "Dayton",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Oasis Treatment Center",
+   "city": "Daytona Beach",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Chestnut Health Systems Inc",
+   "city": "De Soto",
+   "stateAbbr": "MO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lifeskills - Delray Beach Outpatient",
+   "city": "Delray Beach",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Chroma Wellness Center",
+   "city": "Denver",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Harvest Therapeutic Services",
+   "city": "Denver",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Creative Treatment Options",
+   "city": "Denver",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Sober Strategies Inc - Des Moines",
+   "city": "Urbandale",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Perfectly Flawed Foundation",
+   "city": "La Salle",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Shalom House",
+   "city": "Dover",
+   "stateAbbr": "DE",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Shalom House",
+   "city": "Dover",
+   "stateAbbr": "DE",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Alpharus Health - Downers Grove",
+   "city": "Downers Grove",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Serenity Mountain Recovery Center",
+   "city": "Doylestown",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "WKDA Services LLC",
+   "city": "Dresden",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Navita Health - Ohio Behavioral Health Services",
+   "city": "Dublin",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Durham County - Justice Services Department",
+   "city": "Durham",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Richard Kuehn and Associates",
+   "city": "Durham",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Greated Outreach Services Inc",
+   "city": "Durham",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Sage Prairie Eagan",
+   "city": "Saint Paul",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Volunteers of America (VOA)/Alaska - Residential/ARCH",
+   "city": "Eagle River",
+   "stateAbbr": "AK",
+   "reason": "net-new"
+  },
+  {
+   "name": "Choices SA/MH Inc",
+   "city": "Greenville",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Center for Great Expectations",
+   "city": "Somerset",
+   "stateAbbr": "NJ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Arkview Outpatient - East York",
+   "city": "York",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Orlando Outpatient Center - Outpatient Center",
+   "city": "Maitland",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Healing Pines Recovery - IOP",
+   "city": "Elizabeth",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Healing Pines Recovery LLC - Kiowa",
+   "city": "Elizabeth",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Families Free Inc - Elizabethton",
+   "city": "Elizabethton",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hub City Counseling LLC",
+   "city": "Elizabethtown",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Welcome MAT Health Inc",
+   "city": "Elkin",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Haven House Inc - Outpatient",
+   "city": "Elkton",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Triangle Residential Options for - Substance Abusers Inc (TROSA)",
+   "city": "Winston Salem",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "CASA Trinity - CCCBHC Additional Site",
+   "city": "Elmira",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Coushatta Behavioral Health",
+   "city": "Elton",
+   "stateAbbr": "LA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Boca Recovery Center - New Jersey Drug and Alcohol Rehab",
+   "city": "Englewood",
+   "stateAbbr": "NJ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Tribe Intensive",
+   "city": "Marlton",
+   "stateAbbr": "NJ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Bergen Enterprises Center LLC - DBA Nova Mental Health",
+   "city": "Fair Lawn",
+   "stateAbbr": "NJ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Centre - Fargo Female",
+   "city": "Fargo",
+   "stateAbbr": "ND",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Community Service Foundation Inc - Buxmont Academy/Feasterville",
+   "city": "Feasterville Trevose",
+   "stateAbbr": "PA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Cambridge Recovery Sober Living",
+   "city": "Flanders",
+   "stateAbbr": "NJ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Good News Home Inc - Good News House for Women",
+   "city": "Flemington",
+   "stateAbbr": "NJ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Good News Home Inc",
+   "city": "Flemington",
+   "stateAbbr": "NJ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Above the Water House",
+   "city": "Flint",
+   "stateAbbr": "MI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Central Kentucky DUI and Counseling",
+   "city": "Winchester",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Army Substance Abuse Program",
+   "city": "Fort Dix",
+   "stateAbbr": "NJ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Gracepoint Treatment Center",
+   "city": "Fort Lauderdale",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lifeskills - Fort Lauderdale",
+   "city": "Fort Lauderdale",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Oasis Recovery Center - Oasis Recovery Center",
+   "city": "Fort Myers",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Day One Hope Center",
+   "city": "Fort Smith",
+   "stateAbbr": "AR",
+   "reason": "net-new"
+  },
+  {
+   "name": "Indiana Center for Recovery - Fort Wayne Alcohol and Drug Rehab",
+   "city": "Fort Wayne",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Legacy Treatment Center",
+   "city": "Fort Wayne",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Phoenix Associates Csl Services Inc",
+   "city": "Fort Worth",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ranch Inc",
+   "city": "Frederick",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "A New Awakening of the San Joaquin",
+   "city": "Fresno",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Wild Recovery",
+   "city": "Minneapolis",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ambiance Counseling Services",
+   "city": "Frisco",
+   "stateAbbr": "CO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Symetria Recovery - Frisco",
+   "city": "Frisco",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Samba Recovery Savannah",
+   "city": "Savannah",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Recovery House - Residential Reintegration",
+   "city": "Garden City",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Relax Behavioral Health",
+   "city": "West Palm Beach",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "ROOTS at Evergreen Grove",
+   "city": "Gardner",
+   "stateAbbr": "MA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hygea Healthcare",
+   "city": "Owings Mills",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Spero Health of Indiana LLC - Gary",
+   "city": "Gary",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "ACPP Inc/Cornerstone Christian Center",
+   "city": "Gastonia",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Serenity for Life",
+   "city": "Georgetown",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Warriors Heart Virginia - Military Veterans and First Responders",
+   "city": "Milford",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Grove of LA LLC - DBA The Grove Recovery Center",
+   "city": "Gonzales",
+   "stateAbbr": "LA",
+   "reason": "net-new"
+  },
+  {
+   "name": "A New Beginning",
+   "city": "Goshen",
+   "stateAbbr": "IN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "LAC Counseling Services",
+   "city": "Grand Junction",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ava Health",
+   "city": "Grand Junction",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Addictions Associates Therapy Inc",
+   "city": "Libertyville",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Awareness Counseling Agency",
+   "city": "Lake Worth",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "East Indiana Comprehensive Treatment - Center",
+   "city": "Lawrenceburg",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "ACDM Assessment and Csl of Guilford - Guilford",
+   "city": "Greensboro",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Al Con Counseling Inc",
+   "city": "Greensboro",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Cindy Baird Guidance in Recovery and - DUI Services",
+   "city": "Greenville",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Banyan Treatment Center",
+   "city": "Gulf Breeze",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alpharus Health - Gurnee",
+   "city": "Gurnee",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "ATS Of North Carolina LLC",
+   "city": "Hamlet",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Saint Josephs Hospital Yonkers - Outpatient Rehabilitation 1",
+   "city": "Harrison",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Women on the Way Recovery Center - DBA Men on the Way",
+   "city": "Hayward",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Yellowstone Boys and Girls Ranch - Community Based Services",
+   "city": "Helena",
+   "stateAbbr": "MT",
+   "reason": "net-new"
+  },
+  {
+   "name": "Beachside Rehab",
+   "city": "West Palm Beach",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "ADAPT Psychology Inc - ADAPT Counseling Services",
+   "city": "Henderson",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Pathways Counseling Services",
+   "city": "Henderson",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Drug Abuse Treatment Association Inc - Kelly Center",
+   "city": "West Palm Beach",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Palmer Drug Abuse Prog of Lea County",
+   "city": "Hobbs",
+   "stateAbbr": "NM",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hina Mauka/Teen Care - Radford High School",
+   "city": "Honolulu",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Bobby Benson Center Continuum of Care - Outpatient",
+   "city": "Honolulu",
+   "stateAbbr": "HI",
+   "reason": "net-new"
+  },
+  {
+   "name": "Arrowwood Addiction Treatment Center",
+   "city": "Hopewell",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Trilogy Center for Women",
+   "city": "Hopkinsville",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Unlimited Visions Aftercare Inc",
+   "city": "Houston",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Center for Behavioral Emergency and - Addiction Research/UTHealth Houston",
+   "city": "Houston",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Center for Recovery and - Wellness Resources",
+   "city": "Houston",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Huntington Addiction Wellness Center",
+   "city": "Huntington",
+   "stateAbbr": "WV",
+   "reason": "net-new"
+  },
+  {
+   "name": "Amity Behavioral Health Network - Surf City Detox",
+   "city": "Huntington Beach",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Midwest ADP - Kansas City Site",
+   "city": "Independence",
+   "stateAbbr": "MO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alcohol Services Center Inc",
+   "city": "Jackson",
+   "stateAbbr": "MS",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "New Insights DWI Services and - Counseling Center",
+   "city": "Jacksonville",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Addiction Services of Coastal Carolina",
+   "city": "Jacksonville",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "HINTON",
+   "city": "Jamestown",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ridgeview Behavioral Health",
+   "city": "Jamestown",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Evidence Based Addiction Medicine - DBA High Point Clinic",
+   "city": "Johnson City",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Families Free Inc",
+   "city": "Johnson City",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Phoenix Behavioral Health Services",
+   "city": "Jonesboro",
+   "stateAbbr": "GA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Beach House Center for Recovery",
+   "city": "North Palm Beach",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Hina Mauka/Teen Care - Kailua High School",
+   "city": "Kailua",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hina Mauka/Teen Care - Olomana Youth Center",
+   "city": "Kailua",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hina Mauka/Teen Care - Kalaheo High School",
+   "city": "Kailua",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Leeward Counseling Center",
+   "city": "Kapolei",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "New Way Counseling Center",
+   "city": "Kalamazoo",
+   "stateAbbr": "MI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "First Call Alcohol and Drug Prevention",
+   "city": "Kansas City",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "COPS Outpatient Treatment Program - Counselors Obediently Preventing Subst",
+   "city": "Kansas City",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Addiction Services of Coastal Carolina",
+   "city": "Kenansville",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Families Free Inc - Kingsport",
+   "city": "Kingsport",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Knox Area Rescue Ministries - Serenity Ministries",
+   "city": "Knoxville",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "North Louisiana Whole Health Trt Ctr",
+   "city": "Shreveport",
+   "stateAbbr": "LA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Canku Teca Treatment Center",
+   "city": "Lake Andes",
+   "stateAbbr": "SD",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Midwest Treatment Center Inc",
+   "city": "Lansing",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "We Care Foundation",
+   "city": "Las Vegas",
+   "stateAbbr": "NV",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Icarus Behavioral Health - Nevada",
+   "city": "Las Vegas",
+   "stateAbbr": "NV",
+   "reason": "net-new"
+  },
+  {
+   "name": "Twin Lakes Counseling Services - AIM Wellness IOP",
+   "city": "Leitchfield",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Centerstone - Lewisburg Outpatient Clinic",
+   "city": "Lewisburg",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Recovery Connections of Maine",
+   "city": "Lewiston",
+   "stateAbbr": "ME",
+   "reason": "net-new"
+  },
+  {
+   "name": "DJG LLC - Primary Purpose Behavioral Health",
+   "city": "Lexington",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "New Season Lexington",
+   "city": "Lexington",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Volunteers of America of - Eastern Washington and Northern Idaho",
+   "city": "Spokane",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Hina Mauka/Teen Care - Kauai High School",
+   "city": "Lihue",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Houses of Hope of Nebraska",
+   "city": "Lincoln",
+   "stateAbbr": "NE",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ultimate Solutions Inc",
+   "city": "Livonia",
+   "stateAbbr": "MI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "RockWater Counseling Center",
+   "city": "Mundelein",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Riveon Health - Women's OutPatient Services",
+   "city": "Lorain",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "VA Los Angeles Ambulatory Care Center - Substance Use Disorder Clinic",
+   "city": "Los Angeles",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Carrara Treatment Wellness and Spa",
+   "city": "West Hollywood",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "VA Greater LA Healthcare Systems",
+   "city": "Los Angeles",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Village of Los Lunas - Valencia County DWI Program",
+   "city": "Los Lunas",
+   "stateAbbr": "NM",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Bluegrass Recovery Center",
+   "city": "Louisville",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "A New Perspective Counseling Centers",
+   "city": "Loveland",
+   "stateAbbr": "CO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Changes Place",
+   "city": "Loves Park",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Lubbock Lighthouse",
+   "city": "Lubbock",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hope Alive Center",
+   "city": "Madison",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Aphesis House Inc",
+   "city": "Madison",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Cliffside Malibu 2 - CM2",
+   "city": "Malibu",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Access Malibu - Access",
+   "city": "Malibu",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Cliffside Malibu - Birdview",
+   "city": "Malibu",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Samaritan Daytop Village Inc - IR/Young Mothers/Infants/Toddlers",
+   "city": "New York",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Collaboration of Delaware - Concordia House",
+   "city": "New Castle",
+   "stateAbbr": "DE",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Community Collaboration of Delaware - Chiming House",
+   "city": "New Castle",
+   "stateAbbr": "DE",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Community Collaboration of Delaware - 7th Street House",
+   "city": "New Castle",
+   "stateAbbr": "DE",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "IAFF Center of Excellence - Behavioral Health Trt and Recovery",
+   "city": "Upper Marlboro",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Batlin Recovery Center",
+   "city": "Marshall",
+   "stateAbbr": "MO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Greater Reach Community Services Board - Adult Services",
+   "city": "Petersburg",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Healing Transitions - Mens Campus",
+   "city": "Raleigh",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Affect Therapeutics",
+   "city": "Mc Lean",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Virginia Recovery Centers",
+   "city": "Mechanicsville",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Horizons Mental Health Center - Barber County Area Office",
+   "city": "Medicine Lodge",
+   "stateAbbr": "KS",
+   "reason": "net-new"
+  },
+  {
+   "name": "For the People by the People - Counseling Services",
+   "city": "Memphis",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Southern Sky Outpatient Detox - Memphis Outpatient Detox",
+   "city": "Memphis",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "East Mississippi State Hospital - Substance Use Disorder Unit",
+   "city": "Meridian",
+   "stateAbbr": "MS",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Soba Mesa LLC - DBA Soba Recovery Center",
+   "city": "Mesa",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "High Focus Centers",
+   "city": "Philadelphia",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Connection Inc - Hallie House",
+   "city": "Middletown",
+   "stateAbbr": "CT",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hina Mauka/Teen Care - Mililani High School",
+   "city": "Mililani",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Salt Lake Behavioral Health - Strong Hope Behavioral Health",
+   "city": "Salt Lake City",
+   "stateAbbr": "UT",
+   "reason": "net-new"
+  },
+  {
+   "name": "Villas at Bryn Mawr Outpatient",
+   "city": "Minneapolis",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lifeline Care Center",
+   "city": "Minneapolis",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Truth Changes Us LLC",
+   "city": "Princeville",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Mrs Wilson's Halfway House",
+   "city": "Morristown",
+   "stateAbbr": "NJ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hopkins Medical Association",
+   "city": "Morristown",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Freedom Recovery Center",
+   "city": "Union",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Solutions Education Center Inc",
+   "city": "Murfreesboro",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Recoverable LLC",
+   "city": "Richmond",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alternatives for Better Living",
+   "city": "Napa",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Cleanse Clinic - New Albany",
+   "city": "New Albany",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Our Place Drug and Alcohol - Education Services Inc",
+   "city": "New Albany",
+   "stateAbbr": "IN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Zion Recovery",
+   "city": "New Harmony",
+   "stateAbbr": "UT",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lexington Center for Recovery - Outpatient Rehabilitation",
+   "city": "New Rochelle",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Able Hands - Minquil Drive Group Home",
+   "city": "Newark",
+   "stateAbbr": "DE",
+   "reason": "net-new"
+  },
+  {
+   "name": "Willow Oak Community Behav Health Ctr",
+   "city": "Newnan",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Slate Recovery",
+   "city": "Oklahoma City",
+   "stateAbbr": "OK",
+   "reason": "net-new"
+  },
+  {
+   "name": "Substance Abuse Foundation for Educ - SAFE",
+   "city": "Norman",
+   "stateAbbr": "OK",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Alive Behavioral Services",
+   "city": "Richmond",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Precise Family Care PC",
+   "city": "North Platte",
+   "stateAbbr": "NE",
+   "reason": "net-new"
+  },
+  {
+   "name": "Brightside Recovery",
+   "city": "Northbrook",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Talbot Clinical Services of Ohio",
+   "city": "Toledo",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Solstice Recovery Support Services LLC",
+   "city": "Oak Forest",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Eos Outpatient Services",
+   "city": "Ogden",
+   "stateAbbr": "UT",
+   "reason": "net-new"
+  },
+  {
+   "name": "Eos Serenity Lodge - Eos Outpatient Services",
+   "city": "Ogden",
+   "stateAbbr": "UT",
+   "reason": "net-new"
+  },
+  {
+   "name": "Oakvine Recovery Center - Administrative Location",
+   "city": "Round Rock",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Santa Monica Inc",
+   "city": "Omaha",
+   "stateAbbr": "NE",
+   "reason": "net-new"
+  },
+  {
+   "name": "Open Door Missions - Mens Ministries",
+   "city": "Omaha",
+   "stateAbbr": "NE",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "AppleGate Recovery - Opelika",
+   "city": "Opelika",
+   "stateAbbr": "AL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Cedar Oaks Wellness Center",
+   "city": "Oregonia",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Pathways Counseling Services",
+   "city": "Owensboro",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Amity Behavioral Health Network - Amity San Diego",
+   "city": "San Diego",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Willow Grove Recovery",
+   "city": "Palmyra",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "River Ranch Recovery",
+   "city": "Paris",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Boston Addiction - Renova",
+   "city": "Peabody",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Arise Recovery and Behavioral Health - Arise Recovery Residences",
+   "city": "Peachtree City",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Hina Mauka/Teen Care - Pearl City High School",
+   "city": "Pearl City",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hina Mauka/Teen Care - Highlands Intermediate School",
+   "city": "Pearl City",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Rose Medical Association Inc/Peoria - Peoria",
+   "city": "Peoria",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "New Pointe Treatment Center LLC",
+   "city": "Perry",
+   "stateAbbr": "GA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "High Focus Centers - Rehab After Work",
+   "city": "Philadelphia",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Gaudenzia Inc - Washington House",
+   "city": "Philadelphia",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Native Health - Outpatient Services",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Native Health - Outpatient Services",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Bougainvillea Manor Behavioral Health",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Taos Whole Community Health",
+   "city": "Taos",
+   "stateAbbr": "NM",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Guardian Recovery - Virtual Counseling LLC",
+   "city": "Plano",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Nanna's House 1403 Inc - RRes",
+   "city": "Pleasant Valley",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Second Chance Care",
+   "city": "Rockville",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "West Kentucky Drug and - Alcohol Intervention Services",
+   "city": "Princeton",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "The Meadows Texas",
+   "city": "Princeton",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Welwynn Outpatient Center",
+   "city": "Raleigh",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Healing Transitions - Womens Campus",
+   "city": "Raleigh",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Lion Heart Behavioral Health",
+   "city": "Raynham",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Northern Winds Treatment Center",
+   "city": "Redby",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "New Insights DWI Services and - Counseling Center",
+   "city": "Richlands",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Rio Vista Care",
+   "city": "Rio Vista",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Clear Choices",
+   "city": "Rochester",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Constance Pearson Counseling - Constance Pearson LCMHC LCAS",
+   "city": "Rockingham",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Day One Hope Center",
+   "city": "Rogers",
+   "stateAbbr": "AR",
+   "reason": "net-new"
+  },
+  {
+   "name": "California Recovery Center",
+   "city": "Roseville",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Guidance and Prevention Services",
+   "city": "Royal Oak",
+   "stateAbbr": "MI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Better Decisions Counseling",
+   "city": "Sacramento",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "St Marys Wellness Center",
+   "city": "Saint Marys",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Pathfinder Care LLC",
+   "city": "Saint Paul",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Commonwealth Healthcare Corporation - Community Guidance Center",
+   "city": "Saipan",
+   "stateAbbr": "MP",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Salem CBOC",
+   "city": "Salem",
+   "stateAbbr": "OR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Brookdale Alliance - Center for Health Maintenance",
+   "city": "San Antonio",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Substance Abuse Evaluation - Resource Center",
+   "city": "San Diego",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Right Path Recovery",
+   "city": "San Diego",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Civitas Health Services Inc",
+   "city": "Sandston",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Treatment Centers of Illinois - Hanover Park Treatment",
+   "city": "Schaumburg",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Associates in Behavioral Healthcare - ABC Recovery Center",
+   "city": "Schaumburg",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Integrative Counseling Services",
+   "city": "Schererville",
+   "stateAbbr": "IN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Redefine Wellness and Treatment",
+   "city": "Scottsdale",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Rekindle Clinic LLC",
+   "city": "Seattle",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Evergreen Treatment Services",
+   "city": "Seattle",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Service Foundation Inc - Buxmont Academy/Sellersville",
+   "city": "Sellersville",
+   "stateAbbr": "PA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Circle of Freedom",
+   "city": "Seymour",
+   "stateAbbr": "IA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hope Restored Counseling - Seymour First Baptist",
+   "city": "Seymour",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Johnston Counseling Services Inc",
+   "city": "Smithfield",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Raging River Recovery Center",
+   "city": "Snoqualmie",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Cardinal Recovery",
+   "city": "South Bend",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "New Oakland Family Centers",
+   "city": "Southfield",
+   "stateAbbr": "MI",
+   "reason": "net-new"
+  },
+  {
+   "name": "At PARR Outpatient Services LLC",
+   "city": "Spokane",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Richmond Ctr for Recov/Wellness LLC - Inpatient",
+   "city": "Staten Island",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Camelot Wilson Residential - Stabil Rehab Reintegration",
+   "city": "Staten Island",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Milton Jefferson Recovery",
+   "city": "Steubenville",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Symetria Recovery - Sugar Land",
+   "city": "Sugar Land",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Western Judicial Services Inc - Surprise Location",
+   "city": "Surprise",
+   "stateAbbr": "AZ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "RY Services",
+   "city": "Tempe",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Heritage Foundation Inc - House of Focus",
+   "city": "Thomasville",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Heritage Foundation Inc - Mayas House",
+   "city": "Thomasville",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "D and A  Assessment Services Inc",
+   "city": "Wilmington",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Johnson Park RRi",
+   "city": "Utica",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Starting Point Inc",
+   "city": "Vancouver",
+   "stateAbbr": "WA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Milestone Treatment Center",
+   "city": "Virginia Beach",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Sussex Counseling Services",
+   "city": "Waverly",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Shepherds Fold Ministry",
+   "city": "Wappapello",
+   "stateAbbr": "MO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Thrive Behavioral Health - Post Road",
+   "city": "Warwick",
+   "stateAbbr": "RI",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Connections",
+   "city": "Washington",
+   "stateAbbr": "DC",
+   "reason": "net-new"
+  },
+  {
+   "name": "MBI Health Services LLC",
+   "city": "Washington",
+   "stateAbbr": "DC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Elevate Behavioral Health - Waterloo",
+   "city": "Waterloo",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Peoples Community Health Clinic - Behavioral Health",
+   "city": "Waterloo",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Raleigh House of Hope - The Ranch in Watkins",
+   "city": "Watkins",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Unison Behavioral Health - Garden Gate",
+   "city": "Waycross",
+   "stateAbbr": "GA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Adventist Hinsdale Hospital - New Day Center",
+   "city": "Westmont",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Wichita Comprehensive Treatment - Center",
+   "city": "Wichita",
+   "stateAbbr": "KS",
+   "reason": "net-new"
+  },
+  {
+   "name": "ARS of Virginia LLC",
+   "city": "Winchester",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Nova Vitae Treatment Center",
+   "city": "Woodland Hills",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Journies",
+   "city": "Grand Rapids",
+   "stateAbbr": "MI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hope House Inc",
+   "city": "Augusta",
+   "stateAbbr": "GA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "KCK Alcohol Safety Action Project",
+   "city": "Kansas City",
+   "stateAbbr": "KS",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "McLeod Centers for Wellbeing - Concord OTP",
+   "city": "Concord",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "U Turn for Christ New Mexico",
+   "city": "Albuquerque",
+   "stateAbbr": "NM",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Riveon Health - Mens Services",
+   "city": "Lorain",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Hogar Crea Isabela Adolescentes",
+   "city": "Isabela",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Arcare",
+   "city": "Memphis",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Riverside County Latino Commission on - Alc/Drug Servs/Casa Cecilia Recov Home",
+   "city": "Thermal",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "HarborCrest - Harbor Regional Health Comm Hospital",
+   "city": "Aberdeen",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Chickasaw Nation Hina Chokma - Mens Recovery Center",
+   "city": "Ada",
+   "stateAbbr": "OK",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Valley Vista - Vergennes",
+   "city": "Vergennes",
+   "stateAbbr": "VT",
+   "reason": "net-new"
+  },
+  {
+   "name": "Hogar Crea Aguadilla",
+   "city": "Aguadilla",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Comprehensive Healthcare - Detox and Outpatient",
+   "city": "Yakima",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Apple Valley Counseling Services LLC - DBA Valley Health and Counseling",
+   "city": "Yakima",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Comprehensive Healthcare",
+   "city": "Yakima",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Hospital Menonita CIMA Inc - FEP",
+   "city": "Aibonito",
+   "stateAbbr": "PR",
+   "reason": "net-new"
+  },
+  {
+   "name": "YMCA Outreach Services - Aiea High School",
+   "city": "Aiea",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Lexington Center for Recovery",
+   "city": "Suffern",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Porch Light Health",
+   "city": "Alamosa",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Conifer Park Inc - COP 4",
+   "city": "Troy",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Washington Institute of Addiction Stud",
+   "city": "Auburn",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Centro Madre Dominga - Casa Belen Inc",
+   "city": "Ponce",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Granite Wellness Centers - OP/IOP/DUI/MIR",
+   "city": "Grass Valley",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Granite Wellness Centers - Residential",
+   "city": "Grass Valley",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Servicio de Tratamiento Residencial - Adolescentes (SeRA)",
+   "city": "Bayamon",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hogar Crea Cabo Rojo",
+   "city": "Cabo Rojo",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Centro de Servicios Especializados - Fajardo",
+   "city": "Fajardo",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hogar Crea Sabana Grande",
+   "city": "Sabana Grande",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Amarillo VA Healthcare System",
+   "city": "Amarillo",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Pearl Health Clinic LLC",
+   "city": "Idaho Falls",
+   "stateAbbr": "ID",
+   "reason": "net-new"
+  },
+  {
+   "name": "NEFA LLC - No Excuse for Abuse LLC",
+   "city": "Clearfield",
+   "stateAbbr": "UT",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Mosaic Family Health",
+   "city": "Appleton",
+   "stateAbbr": "WI",
+   "reason": "net-new"
+  },
+  {
+   "name": "Bright Horizons Behavioral Health",
+   "city": "Halethorpe",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alpharus Health - Jacksonville",
+   "city": "Jacksonville",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Pearl Health Clinic LLC",
+   "city": "Rexburg",
+   "stateAbbr": "ID",
+   "reason": "net-new"
+  },
+  {
+   "name": "BNJ Health Services LLC",
+   "city": "Baltimore",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Porch Light Recovery - DBA The Recovery Center",
+   "city": "Cortez",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Porch Light Health",
+   "city": "Arvada",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Millennium Behavior Health Services",
+   "city": "Chicago",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ravenwood Health - Ashtabula Office",
+   "city": "Ashtabula",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Saint Josephs Mercy Care Services Inc",
+   "city": "Atlanta",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Bowen Health - Auburn",
+   "city": "Auburn",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Syracuse VA - Auburn Outpatient VA Clinic",
+   "city": "Auburn",
+   "stateAbbr": "NY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Intercept Associates",
+   "city": "Federal Way",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "New Opportunities Inc - Audubon",
+   "city": "Audubon",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Porch Light Health",
+   "city": "Aurora",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lumera Healthcare LLC - Paducah",
+   "city": "Paducah",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Sea Mar Behavioral Health - Visions Youth Treatment Center",
+   "city": "Bellingham",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Volunteers of America Chesapeake Inc - Hope Center",
+   "city": "Baltimore",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Haven Detox - NJ Mental Health and Addiction Rehab",
+   "city": "Sewell",
+   "stateAbbr": "NJ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Clinica de Tratamiento Integral - Asistido con Medimentos/Bayamon",
+   "city": "Bayamon",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hogar Crea San Sebastian",
+   "city": "San Sebastian",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hogar Crea Guanica",
+   "city": "Guanica",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Groups Recover Together",
+   "city": "Bedford",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Spiritt Family Services",
+   "city": "Bell Gardens",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Porch Light Health",
+   "city": "Pueblo",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alpharus Health - Swansea",
+   "city": "Belleville",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Sunrise Services Inc - Bellingham",
+   "city": "Bellingham",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "MHMR of Tarrant County - West Clinic",
+   "city": "Fort Worth",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Bridges Inc - Benson Outpatient",
+   "city": "Benson",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Bridges Inc - Benson Inpatient and Outpatient",
+   "city": "Benson",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "BridgeHill Crossing",
+   "city": "Berea",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "National Institutes of Health - Hatfield Clinical Research Center",
+   "city": "Bethesda",
+   "stateAbbr": "MD",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "McLeod Centers for Wellbeing - Hickory OTP",
+   "city": "Hickory",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "STR Lehigh Valley",
+   "city": "Bethlehem",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Mid Coast/Parkview Health - Addiction Resource Center",
+   "city": "Brunswick",
+   "stateAbbr": "ME",
+   "reason": "net-new"
+  },
+  {
+   "name": "Aletheia House - Mothers Hope Residential",
+   "city": "Birmingham",
+   "stateAbbr": "AL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Community Bridges Inc - Womens Transition Project",
+   "city": "Bisbee",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "West Central Behavioral Health Clinic",
+   "city": "Bismarck",
+   "stateAbbr": "ND",
+   "reason": "net-new"
+  },
+  {
+   "name": "Sound - Northgate",
+   "city": "Seattle",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Roots Through Recovery",
+   "city": "Long Beach",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Eastern MO Alt Sentencing Servs Inc - EMASS/St Charles/CIP/SROP",
+   "city": "Saint Charles",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "New Hope Counseling of Blairsville",
+   "city": "Blairsville",
+   "stateAbbr": "GA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Indiana Center for Recovery - Bloomington Alcohol and Drug Rehab",
+   "city": "Bloomington",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Phoenix Counseling Center - Gaylains House of Hope",
+   "city": "Lincolnton",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "McLeod Centers for Wellbeing - Lenoir OTP",
+   "city": "Lenoir",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alpharus Health - Carbondale",
+   "city": "Carbondale",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Harvard Street Neighborhood Health Cen",
+   "city": "Dorchester Center",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Boulder Alcohol Education Center",
+   "city": "Boulder",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Stepstone Connect",
+   "city": "Bountiful",
+   "stateAbbr": "UT",
+   "reason": "net-new"
+  },
+  {
+   "name": "Brightli - Burrell Behavioral Health",
+   "city": "Branson",
+   "stateAbbr": "MO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Eastern MO Alt Sentencing Servs Inc - EMASS/Overland CIP/SROP",
+   "city": "Saint Louis",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Dacotah Foundation - Alternative Care Services",
+   "city": "Fargo",
+   "stateAbbr": "ND",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "LA Esperanza Health Counseling Service",
+   "city": "Lynnwood",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "A New Image Counseling Servs LLC",
+   "city": "Brighton",
+   "stateAbbr": "CO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Eastern MO Alt Sentencing Servs Inc - EMASS/Troy CIP/SROP",
+   "city": "Troy",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "VanArk Behavioral Mangement Inc",
+   "city": "Pikeville",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Kings County Hospital Center - Outpatient Program",
+   "city": "Brooklyn",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Serendipity II Madeline Randers Center - RR",
+   "city": "Brooklyn",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Brownsville Community Residential Ctr - RR",
+   "city": "Brooklyn",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "CCMS - Outpatient Clinic",
+   "city": "Brooklyn",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "BayCare Behavioral Health - Hernando Outpatient",
+   "city": "Brooksville",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Glenwood Behavioral Health Hospital",
+   "city": "Cincinnati",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Arrowleaf - Pope County Office",
+   "city": "Golconda",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Professional Care Services Inc - Brownsville",
+   "city": "Brownsville",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Southwest Behavioral Health Services - Buckeye Outpatient Clinic",
+   "city": "Buckeye",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lakeside Academy",
+   "city": "Buffalo",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Erie County Medical Center Corp MMD - Withdrawal and Stabilization Program",
+   "city": "Buffalo",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Daymark Recovery Services - Lee",
+   "city": "Sanford",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Centerstone of Illinois Inc - Preferred Family Healthcare Inc",
+   "city": "Quincy",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Harbor Houses of Jackson Inc - Residential Primary",
+   "city": "Byram",
+   "stateAbbr": "MS",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Guara Bi Inc - SUD",
+   "city": "Caguas",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Lifeways",
+   "city": "Ontario",
+   "stateAbbr": "OR",
+   "reason": "net-new"
+  },
+  {
+   "name": "New Hope International Csl Servs LLC",
+   "city": "Louisville",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "LHRC - Restore Recovery Center",
+   "city": "Pineville",
+   "stateAbbr": "LA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Marine Corps Community Services - Substance Assessment Counseling Center",
+   "city": "Camp Lejeune",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Nulease Medical Solutions",
+   "city": "Campbellsville",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Associates in Behavioral Healthcare - ABC DUI Counseling",
+   "city": "Saint Charles",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Colorado Family Counseling Inc",
+   "city": "Glenwood Springs",
+   "stateAbbr": "CO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Acorn Counseling and Mediation Ltd",
+   "city": "Carlinville",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Fred Kennedy Associates Inc - DUI Treatment Program Carson",
+   "city": "Carson",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Easterseals Blake Foundation",
+   "city": "Casa Grande",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Desert Senita",
+   "city": "Casa Grande",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Turtle Bay Cafe of Casa Grande LLC",
+   "city": "Casa Grande",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Mentoring And Inspiring Kids In - Development/Casa Grande",
+   "city": "Casa Grande",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alpharus Health - Caseyville",
+   "city": "Caseyville",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Envision Counseling Services",
+   "city": "Shreveport",
+   "stateAbbr": "LA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Fresno County Hispanic Commission on - Alcohol/Drug Abuse Servs/DATE Prog",
+   "city": "Sanger",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Prairie Ridge Integrated Behavioral - Healthcare/Mason City",
+   "city": "Mason City",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Integrated Health Services - Adult Services",
+   "city": "Centralia",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Chambersburg Comprehensive Trt Ctr",
+   "city": "Chambersburg",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Arizona Behavioral Csl and Educ Inc",
+   "city": "Chandler",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Prairie Ridge Integrated Behavioral - Healthcare/Charles City",
+   "city": "Charles City",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Prestera Health Services - Kanawha Outpatient",
+   "city": "Charleston",
+   "stateAbbr": "WV",
+   "reason": "net-new"
+  },
+  {
+   "name": "Prestera Health Services - Kanawha Childrens Outpatient",
+   "city": "South Charleston",
+   "stateAbbr": "WV",
+   "reason": "net-new"
+  },
+  {
+   "name": "Prestera Health Services - Michael Avenue Outpatient",
+   "city": "Charleston",
+   "stateAbbr": "WV",
+   "reason": "net-new"
+  },
+  {
+   "name": "McLeod Centers for Wellbeing - Charlotte OTP",
+   "city": "Charlotte",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Clover Behavioral Health",
+   "city": "Chelmsford",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "North Suffolk Community Services - Hanton House",
+   "city": "Chelsea",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Centerstone of Indiana Inc - Centerstone Richmond/Child and Family",
+   "city": "Richmond",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Centerstone of Indiana Inc - Centerstone Richmond/Adult and Family",
+   "city": "Richmond",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Allens Family Counseling Center",
+   "city": "Chicago",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Rincon Family Services",
+   "city": "Chicago",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "DUI Counseling and - Evaluation Services Inc",
+   "city": "Chicago",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "DUI Metropolitan Services Inc",
+   "city": "Chicago",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Alpharus Health - Chicago Kedzie",
+   "city": "Chicago",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "DUI Counseling Center - Cumberland Business Center",
+   "city": "Harwood Heights",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Desert Oasis Recovery",
+   "city": "Ridgecrest",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Riverside County Latino Commission on - Alc/Drug Abuse Servs/Casa Las Palmas",
+   "city": "Indio",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Riverside County Latino Commission on - Alc/Drug Abuse Servs/Michaels Yth Trt",
+   "city": "Indio",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Awareness Program",
+   "city": "Indio",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Muscogee Creek Nation Behav Health - Substance Abuse Services",
+   "city": "Coweta",
+   "stateAbbr": "OK",
+   "reason": "net-new"
+  },
+  {
+   "name": "Help Recovery Centers",
+   "city": "Christiana",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Community Health Alliance - SRS",
+   "city": "Hamilton",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "RS Recovery Services Inc",
+   "city": "Claremont",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Iowa Specialty Hospital Clarion",
+   "city": "Clarion",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Your Precious Dreams LLC",
+   "city": "Cleveland",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Riveon Health - Middleburg Heights Center",
+   "city": "Cleveland",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Health Connect America - Cleveland Office",
+   "city": "Cleveland",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Bi Bett Corp - Pueblos del Sol",
+   "city": "Concord",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Riverside County Latino Commission on - Alc/Drug Abuse Servs/Counseling",
+   "city": "Coachella",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Space Coast Recovery Inc",
+   "city": "Cocoa",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Miami Dade Rehab Services Bureau - TASC Diversion and Treatment Program",
+   "city": "Miami",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Unison Behavioral Health - Clinch County Behavioral Health Servs",
+   "city": "Homerville",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lumera Healthcare LLC - Murray",
+   "city": "Murray",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Porch Light Health",
+   "city": "Durango",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Porch Light Health",
+   "city": "Colorado Springs",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "A Good Life Counseling",
+   "city": "Colorado Springs",
+   "stateAbbr": "CO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Place of Hope Inc",
+   "city": "Columbia",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Fowler House - North Central Mental Health/Satellite",
+   "city": "Columbus",
+   "stateAbbr": "OH",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Clinic 5 LLC",
+   "city": "Columbus",
+   "stateAbbr": "OH",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Nova Behavioral Health Inc",
+   "city": "Dayton",
+   "stateAbbr": "OH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Miami VA Healthcare System - Deerfield Beach CBOC",
+   "city": "Deerfield Beach",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Veterans Alcoholic Rehab Prog (VARP) - Stephen P Levine Outpatient",
+   "city": "San Bernardino",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Recovery Team - Drug Alcohol and Mental Health Trt",
+   "city": "Delray Beach",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Broadway Counseling Services of Denver",
+   "city": "Denver",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Special Services Clinic Inc",
+   "city": "Denver",
+   "stateAbbr": "CO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Riverside University Health System - Desert Hot Springs Substance Abuse",
+   "city": "Desert Hot Springs",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Latino Family Services Inc",
+   "city": "Detroit",
+   "stateAbbr": "MI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Badlands Behavioral Health Clinic - Behavioral Health Services",
+   "city": "Dickinson",
+   "stateAbbr": "ND",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Bridges Inc - Winslow Outpatient Services Center",
+   "city": "Winslow",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Amity Foundation - Amistad de Los Angeles",
+   "city": "Los Angeles",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Pineland BHDD - Wayne Counseling Center",
+   "city": "Jesup",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Flint River Hospital",
+   "city": "Montezuma",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "DSAMH Bridge Clinic",
+   "city": "Dover",
+   "stateAbbr": "DE",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "James E Van Zandt Medical Center - Dubois VA Outpatient Clinic",
+   "city": "Du Bois",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Associates in Behavioral Healthcare - About Behavioral Change",
+   "city": "Dundee",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Recovery Team - Drug Alcohol and Mental Health Trt",
+   "city": "East Falmouth",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Murray Fork Clinic",
+   "city": "Laurinburg",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Breath of Life Counseling Service LLC",
+   "city": "Somerset",
+   "stateAbbr": "NJ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "House of Freedom Inc",
+   "city": "Kissimmee",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Miami VA Healthcare System - Key West CBOC",
+   "city": "Key West",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Columbia Valley Community Health - Behavioral Health",
+   "city": "East Wenatchee",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Maryville Inc - Outpatient Treatment Services",
+   "city": "Voorhees",
+   "stateAbbr": "NJ",
+   "reason": "net-new"
+  },
+  {
+   "name": "True North Recovery Inc - KARA House",
+   "city": "Ketchikan",
+   "stateAbbr": "AK",
+   "reason": "net-new"
+  },
+  {
+   "name": "El Cajon Comprehensive Treatment Ctr",
+   "city": "El Cajon",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Rio Arriba County Department of - Health and Human Services",
+   "city": "Espanola",
+   "stateAbbr": "NM",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Esperanza Wellness",
+   "city": "El Paso",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Catholic Charities of Miami - Behav Hlth Servs St Luke",
+   "city": "Miami",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Prairie Ridge - Eldora",
+   "city": "Eldora",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Eastern MO Alt Sentencing Services Inc - EMASS/Warrenton CIP/SROP",
+   "city": "Warrenton",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Twin Rivers Recovery - C-Line Community Outreach Services",
+   "city": "Jersey City",
+   "stateAbbr": "NJ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Porch Light Health",
+   "city": "Greeley",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Eliot Community Human Services - Eliot Center/Everett",
+   "city": "Everett",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "North Sound Behavioral Health Trt - NSBHTC",
+   "city": "Everett",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Center for Human Services - Madison Building",
+   "city": "Everett",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Medical Services - Everett on Evergreen",
+   "city": "Everett",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Miami VA Healthcare System - Homestead CBOC",
+   "city": "Homestead",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Campbell High School",
+   "city": "Ewa Beach",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Ilima Intermediate School",
+   "city": "Ewa Beach",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Ewa Makai Middle School",
+   "city": "Ewa Beach",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "True North Recovery Inc - Fairbanks Outpatient",
+   "city": "Fairbanks",
+   "stateAbbr": "AK",
+   "reason": "net-new"
+  },
+  {
+   "name": "SASS Recovery Inc",
+   "city": "Fall River",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Centre - Fargo Male",
+   "city": "Fargo",
+   "stateAbbr": "ND",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Murray Fork Clinic",
+   "city": "Fayetteville",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Miami Dade Rehab Services Bureau - TASC Diversion and Trt Prog South",
+   "city": "Homestead",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "South Carolina Vocational Rehab",
+   "city": "Florence",
+   "stateAbbr": "SC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "RevCore Recovery Center/Manhattan - Outpatient Clinic 1",
+   "city": "Jackson Heights",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Saint Xavier Community Services - Part 822 Outpatient Program with OTP",
+   "city": "Forest Hills",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Prairie Ridge Integrated Behavioral - Healthcare/Forest City",
+   "city": "Forest City",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "BasePoint Academy Forney",
+   "city": "Forney",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Arisa Health Inc - Forrest City Clinic",
+   "city": "Forrest City",
+   "stateAbbr": "AR",
+   "reason": "net-new"
+  },
+  {
+   "name": "Archways Behav Healthcare Center - Main Facility",
+   "city": "Fort Lauderdale",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Broward House Inc - Substance Abuse Treatment Program",
+   "city": "Fort Lauderdale",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Centennial Mental Health Center Inc",
+   "city": "Fort Morgan",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Port Saint Lucie Hospital",
+   "city": "Port Saint Lucie",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "ADAP Counseling Services",
+   "city": "Port Saint Lucie",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Foundations Wellness Center",
+   "city": "Port Saint Lucie",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Centre - Mandan",
+   "city": "Mandan",
+   "stateAbbr": "ND",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Substance Abuse Guidance and Education - (SAGE)",
+   "city": "Fort Worth",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Advocates Community Behavioral Health - Framingham",
+   "city": "Framingham",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lawrence Medical Center",
+   "city": "Framingham",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Venango CBOC",
+   "city": "Franklin",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Kings View - Community Services DUI and PC 1000",
+   "city": "Fresno",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Fresno County Hispanic Commission on - Alcohol/Drug Abuse Servs Inc",
+   "city": "Fresno",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "National Council on Alc and Drug Dep - San Fernando Valley",
+   "city": "Newhall",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Bridge Inc - Northwood Addiction Treatment Center",
+   "city": "Gadsden",
+   "stateAbbr": "AL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "CED Fellowship House Inc",
+   "city": "Gadsden",
+   "stateAbbr": "AL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Malcolm Randall VAMC - SATT Gainesville",
+   "city": "Gainesville",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Alachua County Board of Commissioners",
+   "city": "Gainesville",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Conifer Park Inc - COP",
+   "city": "Liverpool",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Addicare Group of Texas",
+   "city": "Garland",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hogar Crea Arecibo Damas",
+   "city": "Garrochales",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Gaston Crisis and Recovery Center",
+   "city": "Gastonia",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Phoenix Counseling Center",
+   "city": "Gastonia",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "McLeod Centers for Wellbeing - Gastonia OTP",
+   "city": "Gastonia",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "DSAMH Bridge Clinic",
+   "city": "Georgetown",
+   "stateAbbr": "DE",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Lakeland Centres",
+   "city": "Lakeland",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Jewish Family and Childrens Service - East Valley Clinic",
+   "city": "Gilbert",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Rutherford Regional Health System - Behavioral Health Services",
+   "city": "Rutherfordton",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Banner Thunderbird Medical Center - Banner Thunderbird Behavioral Health",
+   "city": "Glendale",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Bridges Inc - Globe Outpatient Services Center",
+   "city": "Globe",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Life Changes Counseling - Life Changes Dwi Center",
+   "city": "Graham",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Friendship House Counseling Clinic",
+   "city": "Grand Island",
+   "stateAbbr": "NE",
+   "reason": "net-new"
+  },
+  {
+   "name": "CBI Encompass Health Services - Page Integrated Health Home",
+   "city": "Page",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Stony Brook Eastern Long Island Hosp - Behavioral Heath Services",
+   "city": "Greenport",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Addiction Recovery Program - Health Services",
+   "city": "Hackensack",
+   "stateAbbr": "NJ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Adolescent Substance Abuse Program",
+   "city": "Hackensack",
+   "stateAbbr": "NJ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "For Our Recovering (FOR) Families",
+   "city": "Marysville",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Addiction and Family Counseling Inc",
+   "city": "Munster",
+   "stateAbbr": "IN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Prairie Ridge Integrated Behavioral - Healthcare/Hampton",
+   "city": "Hampton",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "WestCare California Inc",
+   "city": "Hanford",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "WestCare California Inc - WestCare Adolescent Services",
+   "city": "Hanford",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "WestCare California Inc",
+   "city": "Hanford",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Arisa Health Inc - Harrison Clinic",
+   "city": "Harrison",
+   "stateAbbr": "AR",
+   "reason": "net-new"
+  },
+  {
+   "name": "Prairie Ridge - Tama",
+   "city": "Tama",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Haven Detox - FL Mental Health and Addiction Rehab",
+   "city": "West Palm Beach",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Van Dyke Addiction Treatment Center",
+   "city": "Ovid",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Swinncomm Holdings LLC - Institute for Chem Dependency Studies",
+   "city": "Houston",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Clarvida - Family Preservation Services of NC",
+   "city": "Hendersonville",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Region IV MHS - Desoto County Adult Services",
+   "city": "Hernando",
+   "stateAbbr": "MS",
+   "reason": "net-new"
+  },
+  {
+   "name": "Substance Abuse Guidance and Education - (SAGE)",
+   "city": "Hewitt",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "County of Los Angeles - High Desert Regional Health Center",
+   "city": "Lancaster",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Concept Health Systems Inc - Adult/Adolescent/Outpatient Services",
+   "city": "Hialeah",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Concept Health Systems Inc - Adult/Adolescent/Outpatient Services",
+   "city": "Hialeah",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "ORE and Associates LLC - OREA",
+   "city": "Silver Spring",
+   "stateAbbr": "MD",
+   "reason": "net-new"
+  },
+  {
+   "name": "Contra Costa County - West County Childrens MH Services",
+   "city": "San Pablo",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "The Womens Home - Mabee WholeLife Service Center",
+   "city": "Houston",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Community Bridges Inc - Albert Long Residential Program",
+   "city": "Holbrook",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Miami VA Healthcare System - Hollywood CBOC",
+   "city": "Hollywood",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Central Middle School",
+   "city": "Honolulu",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - McKinley High School",
+   "city": "Honolulu",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Moanalua High School",
+   "city": "Honolulu",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Farrington High School",
+   "city": "Honolulu",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Moanalua Middle School",
+   "city": "Honolulu",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Kalakaua Middle School",
+   "city": "Honolulu",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Roosevelt High School",
+   "city": "Honolulu",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Stevenson Middle School",
+   "city": "Honolulu",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Molokai High School",
+   "city": "Hoolehua",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Ouachita - Behavioral Health and Wellness",
+   "city": "Hot Springs National Park",
+   "stateAbbr": "AR",
+   "reason": "net-new"
+  },
+  {
+   "name": "Spirit Mind and Body - Behavioral Health Services PLLC",
+   "city": "Houston",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Texas Clinic - Melbourne",
+   "city": "Houston",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Assoc for the Adv of Mexican Americans - (AAMA)",
+   "city": "Houston",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Terros Health - Kingman Counseling Center",
+   "city": "Kingman",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "RestorationCity",
+   "city": "Hungerford",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Prestera Health Services - 6th Avenue",
+   "city": "Huntington",
+   "stateAbbr": "WV",
+   "reason": "net-new"
+  },
+  {
+   "name": "AIDS Action Coalition - DBA Thrive Alabama",
+   "city": "Huntsville",
+   "stateAbbr": "AL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Prestera Health Services",
+   "city": "Hurricane",
+   "stateAbbr": "WV",
+   "reason": "net-new"
+  },
+  {
+   "name": "Indianapolis Counseling Center Inc - Batterers Intervention Program",
+   "city": "Indianapolis",
+   "stateAbbr": "IN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Indianapolis Counseling Center Inc - Alcohol and Drug Treatment Program",
+   "city": "Indianapolis",
+   "stateAbbr": "IN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Sandra Eskenazi Mental Health Center - West",
+   "city": "Indianapolis",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ascension St Vincent Indianapolis - Stress Center",
+   "city": "Indianapolis",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Winchester Community Mental Health Ctr",
+   "city": "Inwood",
+   "stateAbbr": "WV",
+   "reason": "net-new"
+  },
+  {
+   "name": "Aries Consultant Services Inc",
+   "city": "Kankakee",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Center for Independent Learning - The Friendship Connection",
+   "city": "Jackson",
+   "stateAbbr": "MS",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hamilton Davis Mental Health Inc",
+   "city": "Pearl",
+   "stateAbbr": "MS",
+   "reason": "net-new"
+  },
+  {
+   "name": "Pathways of Tennessee Inc - Pathways Employee Assistance Program",
+   "city": "Jackson",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Metro Treatment of Florida LP - New Season Treatment Center 31",
+   "city": "Jacksonville",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Marine Corps Community Services - Substance Assessment Counseling Center",
+   "city": "Jacksonville",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hogar Crea Las Marias",
+   "city": "Las Marias",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Ozark Center - Urgent Behavioral Solutions",
+   "city": "Joplin",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Fairfax Behavioral Health - Kirkland E and T",
+   "city": "Kirkland",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Bobby Benson Center - Residential",
+   "city": "Kahuku",
+   "stateAbbr": "HI",
+   "reason": "net-new"
+  },
+  {
+   "name": "YMCA of Honolulu - Kapolei Middle School",
+   "city": "Kapolei",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Kapolei High School",
+   "city": "Kapolei",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "University of Kansas Hospital Addi",
+   "city": "Kansas City",
+   "stateAbbr": "KS",
+   "reason": "net-new"
+  },
+  {
+   "name": "EM Jellinek Center",
+   "city": "Knoxville",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Meridian Health Services",
+   "city": "Kokomo",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Anpetu Luta Otipi/Kyle Campus - Comprehensive Substance Abuse Program",
+   "city": "Kyle",
+   "stateAbbr": "SD",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "La Jolla Healing Center",
+   "city": "La Jolla",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Beacon Behavioral Hospital - Northshore",
+   "city": "Lacombe",
+   "stateAbbr": "LA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Tri County Human Services Inc - New Beginning Men",
+   "city": "Lakeland",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Safety Consultant Services Inc",
+   "city": "Long Beach",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "STR Lancaster",
+   "city": "Lancaster",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "River Place Behavioral Health",
+   "city": "Laplace",
+   "stateAbbr": "LA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Santa Rosa Treatment Program Inc",
+   "city": "Santa Rosa",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "La Clinica De Familia Inc - Wellness Center",
+   "city": "Las Cruces",
+   "stateAbbr": "NM",
+   "reason": "net-new"
+  },
+  {
+   "name": "Las Cruces Recovery Center",
+   "city": "Las Cruces",
+   "stateAbbr": "NM",
+   "reason": "net-new"
+  },
+  {
+   "name": "ALT Recovery Group",
+   "city": "Las Cruces",
+   "stateAbbr": "NM",
+   "reason": "net-new"
+  },
+  {
+   "name": "Laughlin Rural Outreach Clinic",
+   "city": "Laughlin",
+   "stateAbbr": "NV",
+   "reason": "net-new"
+  },
+  {
+   "name": "Boone County Offices - Outpatient Services",
+   "city": "Lebanon",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "McAlister Institute for Trt and - Education/New Connections",
+   "city": "Lemon Grove",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Spectrum Health Systems Inc",
+   "city": "Leominster",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "STR Bucks County",
+   "city": "Levittown",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ball Quantrell Jones - Hope Center Recovery",
+   "city": "Lexington",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Child and Family Service Kauai - E Ala Hou",
+   "city": "Lihue",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Granite Wellness Centers - OP/IOP/DUI",
+   "city": "Lincoln",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Human Service Center/Lincoln - DBA Trillium Place",
+   "city": "Lincoln",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Haven Detox - Mental Health and Addiction Rehab",
+   "city": "Little Rock",
+   "stateAbbr": "AR",
+   "reason": "net-new"
+  },
+  {
+   "name": "Northpoint Recovery - Littleton",
+   "city": "Littleton",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Heartland Family Service",
+   "city": "Logan",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Northern Plains - Childrens Advocacy",
+   "city": "Minot",
+   "stateAbbr": "ND",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Windows of Discovery - Outpatient",
+   "city": "London",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Clear Steps Recovery - New Hampshire",
+   "city": "Londonderry",
+   "stateAbbr": "NH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Porch Light Health",
+   "city": "Longmont",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "AM/PM West LA Convenient Driver Safety - DUI Schools Assessments/Evaluations",
+   "city": "Los Angeles",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Nuview Treatment Center - Los Angeles",
+   "city": "Los Angeles",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Revive Detox",
+   "city": "Los Angeles",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Sunrise Community Counseling Center",
+   "city": "Los Angeles",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Kaiser Permanente - Culver Marina Addiction Medicine Depar",
+   "city": "Los Angeles",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "VOA Addiction Recovery Services - Freedom House 3 Residential Services",
+   "city": "Louisville",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Seven Counties Services Inc - Mary Street",
+   "city": "Louisville",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "VOA Recovery - Freedom House 2 Transitional Living",
+   "city": "Louisville",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Volunteers of America Mid States - Freedom House 1 Residential IOP",
+   "city": "Louisville",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Clear Vision Counseling LLC",
+   "city": "Louisville",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Porch Light Health",
+   "city": "Loveland",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Foundations Center - Renee Luthe",
+   "city": "Loves Park",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Texas Tech Univ Health Sciences Center - Dept of Psychiatry SW Initiative",
+   "city": "Lubbock",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "South Central Alabama - Mental Health Center",
+   "city": "Luverne",
+   "stateAbbr": "AL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Amoskeag Health",
+   "city": "Manchester",
+   "stateAbbr": "NH",
+   "reason": "net-new"
+  },
+  {
+   "name": "RevCore Recovery Ctr of Manhattan - Outpatient Clinic",
+   "city": "New York",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Quality Behavioral Health Inc - Manistee Outpatient Services",
+   "city": "Manistee",
+   "stateAbbr": "MI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "DSAMH Bridge Clinic",
+   "city": "New Castle",
+   "stateAbbr": "DE",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "MeadowWood Behavioral Health Hospital",
+   "city": "New Castle",
+   "stateAbbr": "DE",
+   "reason": "net-new"
+  },
+  {
+   "name": "Maple Mountain Recovery",
+   "city": "Mapleton",
+   "stateAbbr": "UT",
+   "reason": "net-new"
+  },
+  {
+   "name": "RHA Health Services",
+   "city": "Marion",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Prairie Ridge - Marshalltown",
+   "city": "Marshalltown",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Westbrook Family Medicine",
+   "city": "Marysville",
+   "stateAbbr": "MI",
+   "reason": "net-new"
+  },
+  {
+   "name": "Kuumba Comm Health/Wellness Ctr Inc - DBA New Horizons Healthcare",
+   "city": "Roanoke",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Healing Hearts Foundation - HHF",
+   "city": "Memphis",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Harbor House",
+   "city": "Memphis",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "CLEAN Inc - Choosing Life Ending Addiction Now",
+   "city": "Memphis",
+   "stateAbbr": "TN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Social Model Advocates Inc - Hobie House",
+   "city": "Merced",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Prodigy Healthcare",
+   "city": "Mesa",
+   "stateAbbr": "AZ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Terros Health",
+   "city": "Mesa",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Southwest Behavioral Health Services - Mesa Outpatient Clinic",
+   "city": "Mesa",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Bridges Inc - Community Psychiatric Emergency Center",
+   "city": "Mesa",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Advocate Program - Central Location",
+   "city": "Miami",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Douglas Garden CMHC",
+   "city": "Miami",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Concept Health Systems Inc - Adult/Adolescent/Residential Services",
+   "city": "Miami",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Concept Health Systems Inc - Adult/Adolescent Outpatient/Prevention",
+   "city": "Miami",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Jessie Trice Community Health Ctr - Reaves House/Womens Residential",
+   "city": "Miami",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Miami Dade CAHSD - New Direction Residential Trt Prog",
+   "city": "Miami",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Miami Dade Rehab Services Bureau - TASC Diversion and Treatment Program",
+   "city": "Miami",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Renew Health - Recovery",
+   "city": "Middletown",
+   "stateAbbr": "CT",
+   "reason": "net-new"
+  },
+  {
+   "name": "Rushford Center Inc - Residential Intensive Treatment DMHAS",
+   "city": "Middletown",
+   "stateAbbr": "CT",
+   "reason": "net-new"
+  },
+  {
+   "name": "Rushford Center Inc - Residential Detox Services",
+   "city": "Middletown",
+   "stateAbbr": "CT",
+   "reason": "net-new"
+  },
+  {
+   "name": "West Milwaukee Comprehensive Trt Ctr - Quality Addiction Management Inc",
+   "city": "Milwaukee",
+   "stateAbbr": "WI",
+   "reason": "net-new"
+  },
+  {
+   "name": "RightQuest Recovery Services",
+   "city": "Minneapolis",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Indiana Center for Recovery - South Bend Alcohol and Drug Rehab",
+   "city": "Mishawaka",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Providence St Patrick Hospital - Psychiatric Inpatient Units",
+   "city": "Missoula",
+   "stateAbbr": "MT",
+   "reason": "net-new"
+  },
+  {
+   "name": "The Shoulder",
+   "city": "Mobile",
+   "stateAbbr": "AL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "HumanWorks Collective",
+   "city": "Monroe",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "McLeod Centers for Wellbeing - Monroe OTP",
+   "city": "Monroe",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Centerstone of Indiana Inc - Centerstone Mooresville",
+   "city": "Mooresville",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Immanuel Sobriety Inc - DBA Immanuel House Outpatient SUD Trt",
+   "city": "Moreno Valley",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Recovery Team - Drug Alcohol and Mental Health Trt",
+   "city": "Mountainside",
+   "stateAbbr": "NJ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Changes Carrollton Springs",
+   "city": "Plano",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "NEFA LLC - No Excuse for Abuse LLC",
+   "city": "Salt Lake City",
+   "stateAbbr": "UT",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Waianae High School",
+   "city": "Waianae",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Nanakuli High School",
+   "city": "Waianae",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Waianae Intermediate School",
+   "city": "Waianae",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "MAT Care Clinics",
+   "city": "Nashua",
+   "stateAbbr": "NH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Victor H Lopez LSW MSW LCADC CCS",
+   "city": "New Brunswick",
+   "stateAbbr": "NJ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Southeast Louisiana VA HCS - New Orleans VA Outpatient Clinic",
+   "city": "New Orleans",
+   "stateAbbr": "LA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "BayCare Behavioral Health - Community Recovery Center South",
+   "city": "New Port Richey",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Four County Mental Health Center Inc - Cowley Branch Office",
+   "city": "Winfield",
+   "stateAbbr": "KS",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Renew Health - Recovery",
+   "city": "Portsmouth",
+   "stateAbbr": "NH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Greater Seacoast - Health",
+   "city": "Portsmouth",
+   "stateAbbr": "NH",
+   "reason": "net-new"
+  },
+  {
+   "name": "Multicultural Clinical Center",
+   "city": "Springfield",
+   "stateAbbr": "VA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Centerstone of Indiana Inc - Centerstone Jennings County",
+   "city": "North Vernon",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Spectrum Health Systems Inc - Outpatient Methadone Clinic",
+   "city": "Waltham",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Latino Treatment Center",
+   "city": "West Chicago",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Family Res and Esst Enterprises - Success Article 31 Integrated Outpt",
+   "city": "Oakdale",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Teen Challenge of East Bay Inc - Teen Challenge",
+   "city": "Oakland",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "LifeStream Behavioral Center",
+   "city": "Ocala",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Seaside Family Health Care",
+   "city": "Old Orchard Beach",
+   "stateAbbr": "ME",
+   "reason": "net-new"
+  },
+  {
+   "name": "Casa La Providencia Inc",
+   "city": "San Juan",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Grove Estate Addiction Treatment",
+   "city": "Peru",
+   "stateAbbr": "IN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Still Waters Recovery",
+   "city": "Oneida",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "New Way of Life Counseling",
+   "city": "Owensboro",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Healtop Healthcare LLC",
+   "city": "Pounding Mill",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "El Proyecto del Barrio Inc",
+   "city": "Panorama City",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Renacer Latino Inc",
+   "city": "Waukegan",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Elianak Care LLC",
+   "city": "Park Forest",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Elijah's House Treatment Center",
+   "city": "Pasadena",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Evas Village - Mens Halfway House",
+   "city": "Paterson",
+   "stateAbbr": "NJ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Community Bridges Inc - Payson All Services",
+   "city": "Payson",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Northeast Treatment Centers - CCBHC",
+   "city": "Philadelphia",
+   "stateAbbr": "PA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Banner University Medicine - Behavioral Health Center",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Banner University Medicine - Comprehensive Pain and Add Clinic",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Terros Health - Lifewell Oak",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Bridges Inc - Central City Addiction Recovery Center",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Homes of Personal Enrichment and - Sobriety Services/HOPESS",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Terros Behavioral Wellness - Mitchell Clinic",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Southwest Behavioral Health Services - Erickson Outpatient Clinic",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Jewish Family and Childrens Service - Michael R Zent Healthcare Center",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Arizona Rehab Campus",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Southwest Behavioral Health Services - Metro Outpatient Clinic",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Family Service Agency - DBA Addiction Resources Inc",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Community Bridges Inc - Cactus Integrated Care",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Jewish Family and Childrens Service - West Valley Clinic",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Southwest Behavioral Health Services - Broadway Outpatient Clinic",
+   "city": "Phoenix",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "CTIAM Ponce - Centro de Tratamiento con Metadona",
+   "city": "Ponce",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Burrell Inc - Centerstone of Missouri",
+   "city": "Poplar Bluff",
+   "stateAbbr": "MO",
+   "reason": "net-new"
+  },
+  {
+   "name": "New Directions IP",
+   "city": "Port Jervis",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Renew Health and Recovery",
+   "city": "South Portland",
+   "stateAbbr": "ME",
+   "reason": "net-new"
+  },
+  {
+   "name": "Multicultural Clinical Center",
+   "city": "Sterling",
+   "stateAbbr": "VA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Burrell Inc - Centerstone of Missouri",
+   "city": "Potosi",
+   "stateAbbr": "MO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Solstice House",
+   "city": "Reading",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "W B Healthcare/Nu Image",
+   "city": "Red Springs",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Adolescent Counseling Services - Adolescent Substance Addiction Trt",
+   "city": "Redwood City",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ascend Clinical Services",
+   "city": "Rehrersburg",
+   "stateAbbr": "PA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Casselton Consultants",
+   "city": "Richmond",
+   "stateAbbr": "VA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Community Bridges Inc - Little Colorado Behavioral Health Ctr",
+   "city": "Saint Johns",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "FIRST at Blue Ridge Inc",
+   "city": "Ridgecrest",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Centro de Tratamiento Residencial - Varones San Juan",
+   "city": "San Juan",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Salvation Army - Adult Rehabilitation Center",
+   "city": "Rockford",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Syracuse VA - Rome Outpatient VA Clinic",
+   "city": "Rome",
+   "stateAbbr": "NY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Granite Wellness Centers - OP/IOP/DUI/MIR/Adolescent OP",
+   "city": "Roseville",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Sanford Medical Center - Thief River Falls CD Program",
+   "city": "Thief River Falls",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Arisa Health Inc - Russellville Clinic",
+   "city": "Russellville",
+   "stateAbbr": "AR",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alpharus Health",
+   "city": "Saint Louis",
+   "stateAbbr": "MO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Eastern MO Alt Sentencing Servs Inc - EMASS/St Louis City CIP/SROP",
+   "city": "Saint Louis",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Anicka Counseling Center",
+   "city": "Salt Lake City",
+   "stateAbbr": "UT",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Beat AIDS",
+   "city": "San Antonio",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alamo Area Resource Center Inc",
+   "city": "San Antonio",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Union of Pan Asian Communities",
+   "city": "San Diego",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Teen Challenge San Diego",
+   "city": "San Diego",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Volunteers of America Southwest CA Inc - Renaissance Treatment Center",
+   "city": "San Diego",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Father Alfred Center - Saint Anthony Foundation",
+   "city": "San Francisco",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Salvation Army - Harbor Light Center Recovery and Trt",
+   "city": "San Francisco",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "San Francisco AIDS Foundation - Substance Health Services/Stonewall",
+   "city": "San Francisco",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "San Francisco AIDS Foundation - Stonewall Project Castro SA",
+   "city": "San Francisco",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Homeless Childrens Network - Kupona",
+   "city": "San Francisco",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Veterans Affairs Medical Center - Addiction Recovery Treatment Services",
+   "city": "San Francisco",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "VA Palo Alto Healthcare System - San Jose CBOC",
+   "city": "San Jose",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Tratamiento Residencial - Para Mujeres/ASSMCA",
+   "city": "San Juan",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Fred Kennedy Associates Inc - High Gain Project/DUI Trt Program",
+   "city": "Santa Monica",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Solstice Health and Wellness",
+   "city": "Sarasota",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Black Bear Treatment Center LLC - DBA Black Bear Lodge",
+   "city": "Sautee Nacoochee",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Conifer Park Inc - COP 3",
+   "city": "Schenectady",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Lakeview Center Inc - Pathway/Shalimar",
+   "city": "Shalimar",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "AM/PM VanNuys Driver Safety DUI School - Escuela Latina/Assessments/Evaluations",
+   "city": "Van Nuys",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "National Council on Alcoholism and - Drug Department/San Fernando Valley",
+   "city": "Van Nuys",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Show Low VA Healthcare Clinic",
+   "city": "Show Low",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Physicians Behavioral Hospital",
+   "city": "Shreveport",
+   "stateAbbr": "LA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Southeast Louisiana VA HCS - Slidell VA Clinic",
+   "city": "Slidell",
+   "stateAbbr": "LA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Safety Consultant Services Inc",
+   "city": "South Gate",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Tahoe Youth and Family Services",
+   "city": "South Lake Tahoe",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Pathways Inc",
+   "city": "South Shore",
+   "stateAbbr": "KY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alpharus Health - Springfield Outpatient",
+   "city": "Springfield",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Alpharus Health - Springfield",
+   "city": "Springfield",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Courage to Change Inc",
+   "city": "Spokane",
+   "stateAbbr": "WA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Community Bridges Inc - Little Colorado Behavioral Health Ctr",
+   "city": "Springerville",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "New Growth Recovery",
+   "city": "Springfield",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Correction Services",
+   "city": "Springfield",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Desert Senita",
+   "city": "Stanfield",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Camelot of Staten Island Inc - Staten Island Outpatient",
+   "city": "Staten Island",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "McLeod Centers for Wellbeing - Statesville OTP",
+   "city": "Statesville",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "Ineza Outpatient Services",
+   "city": "Stockton",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "New Horizons of the Treasure Coast - Outpatient Mental Health and Substance",
+   "city": "Stuart",
+   "stateAbbr": "FL",
+   "reason": "net-new"
+  },
+  {
+   "name": "ADAP Counseling Services",
+   "city": "Stuart",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Community Bridges Inc - Dodge Center",
+   "city": "Tucson",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Terros Health - Campbell Counseling Center",
+   "city": "Tucson",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Syracuse VA - Behavioral Health Outpatient VA Clinic",
+   "city": "Syracuse",
+   "stateAbbr": "NY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Tampa Therapy and Rehabilitation Inc",
+   "city": "Tampa",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Easterseals Blake Foundation",
+   "city": "Thatcher",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Georgia Pines Community Service Board",
+   "city": "Thomasville",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Omnia Recovery Inc",
+   "city": "Thousand Oaks",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Western Judicial Services Inc - Tolleson",
+   "city": "Tolleson",
+   "stateAbbr": "AZ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Astra Mental Health and Recovery - Youth Campus",
+   "city": "Topeka",
+   "stateAbbr": "KS",
+   "reason": "net-new"
+  },
+  {
+   "name": "Astra Mental Health and Recovery - Adult Campus",
+   "city": "Topeka",
+   "stateAbbr": "KS",
+   "reason": "net-new"
+  },
+  {
+   "name": "Driver Benefits Inc - Southwest Driver Benefits Program",
+   "city": "Torrance",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Family and Childrens Services - North Tulsa Office",
+   "city": "Tulsa",
+   "stateAbbr": "OK",
+   "reason": "net-new"
+  },
+  {
+   "name": "Family and Childrens Services - Womens Justice Team Program",
+   "city": "Tulsa",
+   "stateAbbr": "OK",
+   "reason": "net-new"
+  },
+  {
+   "name": "Compass Behavioral Health - Ulysses",
+   "city": "Ulysses",
+   "stateAbbr": "KS",
+   "reason": "net-new"
+  },
+  {
+   "name": "Valley HealthCare System",
+   "city": "Weston",
+   "stateAbbr": "WV",
+   "reason": "net-new"
+  },
+  {
+   "name": "Northwest Alabama Mental Health Ctr - Fayette County Outpatient",
+   "city": "Vernon",
+   "stateAbbr": "AL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Thrive IRC Inc",
+   "city": "Vero Beach",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Leilehua High School",
+   "city": "Wahiawa",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Waialua High and Intermediate School",
+   "city": "Waialua",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Waipahu High School",
+   "city": "Waipahu",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "YMCA of Honolulu - Waipahu Intermediate School",
+   "city": "Waipahu",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Creative Pathways Inc",
+   "city": "Washington",
+   "stateAbbr": "DC",
+   "reason": "net-new"
+  },
+  {
+   "name": "True North Recovery Inc - Vita Nova",
+   "city": "Wasilla",
+   "stateAbbr": "AK",
+   "reason": "net-new"
+  },
+  {
+   "name": "True North Recovery Inc - Wasilla Outpatient",
+   "city": "Wasilla",
+   "stateAbbr": "AK",
+   "reason": "net-new"
+  },
+  {
+   "name": "True North Recovery Inc - Wasilla Outpatient",
+   "city": "Wasilla",
+   "stateAbbr": "AK",
+   "reason": "net-new"
+  },
+  {
+   "name": "Prestera Health Services - Wayne Childrens Outpatient",
+   "city": "Wayne",
+   "stateAbbr": "WV",
+   "reason": "net-new"
+  },
+  {
+   "name": "Substance Abuse Guidance and Education - (SAGE)",
+   "city": "Weatherford",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Vida Utah",
+   "city": "West Jordan",
+   "stateAbbr": "UT",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hunter Health",
+   "city": "Wichita",
+   "stateAbbr": "KS",
+   "reason": "net-new"
+  },
+  {
+   "name": "Haven Detox - MA Mental Health and Addiction Rehab",
+   "city": "Worcester",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Choices Inc - Choices",
+   "city": "Worcester",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Veterans Inc - RRS COE Womens Program",
+   "city": "Worcester",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "WellSpan Health - Philhaven START Program",
+   "city": "York",
+   "stateAbbr": "PA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Tortuga Recovery Community Center",
+   "city": "Yuma",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Transitional Living Center Recovery - Recovery Yuma",
+   "city": "Yuma",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Jill Knisley LADC - Inspire Recovery Services, LLC",
+   "city": "Bemidji",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Flagler Open Arms Recovery Services",
+   "city": "Bunnell",
+   "stateAbbr": "FL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Against the Odds Recovery and Reentry",
+   "city": "Chaska",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Rippling Waters Retreat LLC - RRh",
+   "city": "Delhi",
+   "stateAbbr": "NY",
+   "reason": "net-new"
+  },
+  {
+   "name": "Pathways Counseling Services PLLC",
+   "city": "Hartford",
+   "stateAbbr": "KY",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Bulloch Counseling Services - Bulloch DUI Risk Reduction Inc",
+   "city": "Statesboro",
+   "stateAbbr": "GA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Renew Your Mind",
+   "city": "Anchorage",
+   "stateAbbr": "AK",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hogar Dios Es Nuestro Refugio Inc",
+   "city": "Guaynabo",
+   "stateAbbr": "PR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "W and G Enterprises Inc - Alcohol Education and Recovery Servs",
+   "city": "Chino",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Aztec Counseling Agency Inc",
+   "city": "Joliet",
+   "stateAbbr": "IL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "BasePoint Academy McKinney",
+   "city": "McKinney",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Fred Kennedy Associates Inc - DUI Treatment Program San Pedro",
+   "city": "San Pedro",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Prairie Ridge - Grinnell",
+   "city": "Grinnell",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Guadalupe Centers Inc",
+   "city": "Kansas City",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Big Island Substance Abuse Council - Hilo Mens TLP 2",
+   "city": "Keaau",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "DUI Programs of East Tennessee Inc",
+   "city": "Knoxville",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "McLeod Centers for Wellbeing - Marion OTP",
+   "city": "Marion",
+   "stateAbbr": "NC",
+   "reason": "net-new"
+  },
+  {
+   "name": "SureStep Psychology Services",
+   "city": "Mesa",
+   "stateAbbr": "AZ",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Permian Basin Community Ctrs for - MHMR",
+   "city": "Midland",
+   "stateAbbr": "TX",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "CURA Inc - RCRP",
+   "city": "Newark",
+   "stateAbbr": "NJ",
+   "reason": "net-new"
+  },
+  {
+   "name": "North Slope Borough Health Department - DHSS/Integrated Behavioral Health",
+   "city": "Barrow",
+   "stateAbbr": "AK",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "North Slope Borough Health Department - Gathering Place",
+   "city": "Barrow",
+   "stateAbbr": "AK",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Central Arkansas Treatment Services",
+   "city": "Bryant",
+   "stateAbbr": "AR",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Leech Lake Band of Ojibwe - Adolescent Outpatient Program",
+   "city": "Cass Lake",
+   "stateAbbr": "MN",
+   "reason": "net-new"
+  },
+  {
+   "name": "Reality Counseling Services",
+   "city": "Charlotte",
+   "stateAbbr": "MI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "AppleGate Recovery - Decatur",
+   "city": "Decatur",
+   "stateAbbr": "AL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Step Denver",
+   "city": "Denver",
+   "stateAbbr": "CO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "BHG Glen Allen Treatment Center",
+   "city": "Glen Allen",
+   "stateAbbr": "VA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Wel Mor Psychology Group Inc",
+   "city": "Huntington Beach",
+   "stateAbbr": "CA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Hutchinson Comprehensive Treatment - Center/Mobile",
+   "city": "Hutchinson",
+   "stateAbbr": "KS",
+   "reason": "net-new"
+  },
+  {
+   "name": "Hina Mauka - Kaneohe Adolescent Office",
+   "city": "Kaneohe",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "First Step Counseling and Medical",
+   "city": "Kodak",
+   "stateAbbr": "TN",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Positive Steps Inc",
+   "city": "Lakewood",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Crossroads Treatment Center - Pennsauken",
+   "city": "Merchantville",
+   "stateAbbr": "NJ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Great Lakes Adult and Teen Challenge - Robby Dawson Home for Women",
+   "city": "Milwaukee",
+   "stateAbbr": "WI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Pointe Coupee Human Services Ctr",
+   "city": "New Roads",
+   "stateAbbr": "LA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Lake Area Counseling Halfway House",
+   "city": "Norlina",
+   "stateAbbr": "NC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Alpharus Health - Peoria",
+   "city": "Peoria",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "Innovation Resource Center",
+   "city": "Sunnyside",
+   "stateAbbr": "WA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Hidden Creek Wellness Retreat",
+   "city": "Tallapoosa",
+   "stateAbbr": "GA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Prairie Ridge Integrated Behavioral - Healthcare/Algona",
+   "city": "Algona",
+   "stateAbbr": "IA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Oceans Behavioral Hospital - Amarillo",
+   "city": "Amarillo",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "Synergy International Healthcare Servs",
+   "city": "Bossier City",
+   "stateAbbr": "LA",
+   "reason": "net-new"
+  },
+  {
+   "name": "Sunrise Counseling and Wellness",
+   "city": "Colorado Springs",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "LRC Substance Abuse and Behav Health - Behavioral Programs",
+   "city": "Columbia",
+   "stateAbbr": "SC",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "VA Palo Alto Healthcare System - Monterey CBOC (116A/MONT)",
+   "city": "Marina",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Na Nizhoozhi Center Inc - A Bridge to Recovery",
+   "city": "Gallup",
+   "stateAbbr": "NM",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Porch Light Health",
+   "city": "Grand Junction",
+   "stateAbbr": "CO",
+   "reason": "net-new"
+  },
+  {
+   "name": "Pine Woods Behavioral Health - Crisis Center",
+   "city": "Griffin",
+   "stateAbbr": "GA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "WestCare California Inc",
+   "city": "Hanford",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Austin Pines Ranch",
+   "city": "Paige",
+   "stateAbbr": "TX",
+   "reason": "net-new"
+  },
+  {
+   "name": "YMCA of Honolulu - Dole Middle School",
+   "city": "Honolulu",
+   "stateAbbr": "HI",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Plaza De Nuestra Comunidad",
+   "city": "Idleyld Park",
+   "stateAbbr": "OR",
+   "reason": "net-new"
+  },
+  {
+   "name": "MedPlex Inc Jasper",
+   "city": "Jasper",
+   "stateAbbr": "AL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Prestera Health Services - Riverside Mens SUD Residential",
+   "city": "Saint Albans",
+   "stateAbbr": "WV",
+   "reason": "net-new"
+  },
+  {
+   "name": "Benilde Hall Program",
+   "city": "Kansas City",
+   "stateAbbr": "MO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Escuela Latina - Evaluaciones Alcohol Drugs",
+   "city": "Los Angeles",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Insight Treatment Program Inc",
+   "city": "Mobile",
+   "stateAbbr": "AL",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Endeavor Health - Mill Street",
+   "city": "Naperville",
+   "stateAbbr": "IL",
+   "reason": "net-new"
+  },
+  {
+   "name": "CURA Inc - Newark Residential Program",
+   "city": "Newark",
+   "stateAbbr": "NJ",
+   "reason": "net-new"
+  },
+  {
+   "name": "OVP Health/Williamson",
+   "city": "Williamson",
+   "stateAbbr": "WV",
+   "reason": "net-new"
+  },
+  {
+   "name": "SpectraCare Health Systems - Dale County/Clinic and Day Treatment",
+   "city": "Ozark",
+   "stateAbbr": "AL",
+   "reason": "net-new"
+  },
+  {
+   "name": "HealthRIGHT 360 - FOTEP",
+   "city": "Pomona",
+   "stateAbbr": "CA",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "CURA Inc - Secaucus Residential Program",
+   "city": "Secaucus",
+   "stateAbbr": "NJ",
+   "reason": "net-new"
+  },
+  {
+   "name": "SAGE Counseling Inc",
+   "city": "Tempe",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Renew Health and Recovery",
+   "city": "Westborough",
+   "stateAbbr": "MA",
+   "reason": "net-new"
+  },
+  {
+   "name": "A and D Counseling LLC",
+   "city": "Westminster",
+   "stateAbbr": "CO",
+   "reason": "weak-insurance"
+  },
+  {
+   "name": "Easterseals Blake Foundation",
+   "city": "Yuma",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  },
+  {
+   "name": "Turtle Bay Cafe of Yuma LLC",
+   "city": "Yuma",
+   "stateAbbr": "AZ",
+   "reason": "net-new"
+  }
+ ]
+}
