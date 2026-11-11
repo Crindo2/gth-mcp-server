@@ -108,15 +108,20 @@ jobs:
           set -euo pipefail
           python3 -B scripts/pages_refresh.py deploy --sha "$MAIN_SHA" --plan "$RUNNER_TEMP/readback-plan.json" --receipt "$RUNNER_TEMP/deployment-receipt.json"
 
-      - name: Revert the refresh commit on main if the deploy failed and was rolled back
+      - name: Revert the refresh commit on main only if production is verified on the prior deployment
         if: failure() && steps.commit.outputs.committed == 'true' && env.MODE == 'deploy'
         run: |
           set -euo pipefail
+          # Git revert is not production proof: gate on the receipt's verified live prior deployment.
+          if ! python3 -c 'import json,os,sys; sys.exit(0 if json.load(open(os.environ["RUNNER_TEMP"]+"/deployment-receipt.json")).get("prior_live_verified") is True else 1)' 2>/dev/null; then
+            echo "NOT reverting main: production prior-deployment state is NOT verified (no receipt or restoration unverified). Main holds the refresh commit; live production is UNKNOWN until read back. See deployment-receipt.json."
+            exit 1
+          fi
           git fetch origin main
           if [ "$(git rev-parse origin/main)" = "$(git rev-parse HEAD)" ]; then
             git revert --no-edit HEAD
             git push origin HEAD:main
-            echo "Main reverted to match the restored production deployment."
+            echo "Main reverted by git. Production was independently verified (receipt prior_live_verified) to be serving the prior deployment."
           else
             echo "Main moved since the refresh commit; not reverting automatically."
           fi

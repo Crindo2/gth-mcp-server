@@ -169,12 +169,27 @@ def deploy_and_verify(client, plan, sha, deploy, receipt, sleep=time.sleep):
     except Exception as exc:
         receipt["status"] = "DEPLOY_OR_READBACK_FAILED"
         receipt["failure"] = type(exc).__name__
+        # If the deploy never changed production (e.g. wrangler failed to start), the prior
+        # deployment is still live. Verify and record that instead of calling the rollback API,
+        # and never claim a rollback happened.
+        try:
+            still_prior = verify_rollback(client, plan)
+        except Exception:
+            still_prior = None
+        if still_prior:
+            receipt["rollback_skipped"] = "prior deployment still live; no rollback performed"
+            receipt["live_after_failure"] = still_prior
+            receipt["prior_live_verified"] = True
+            raise RuntimeError("Deployment/read-back failed; prior deployment still live and verified (no rollback performed)") from exc
         try:
             client.rollback(plan["prior"])
             receipt["rollback"] = poll(lambda: verify_rollback(client, plan), sleep)
         except Exception as rollback_exc:
+            receipt["prior_live_verified"] = False
             receipt["rollback_failure"] = type(rollback_exc).__name__
             raise RuntimeError("Deployment/read-back failed; rollback restoration NOT verified") from rollback_exc
+        receipt["live_after_failure"] = receipt["rollback"]
+        receipt["prior_live_verified"] = True
         raise RuntimeError("Deployment/read-back failed; prior deployment restored and verified") from exc
 
 
