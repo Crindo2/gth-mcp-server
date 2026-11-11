@@ -447,6 +447,29 @@ class Deployment(unittest.TestCase):
         with patch.object(self.client, "canonical", preview):
             self.assert_rollback(self.deploy)
 
+    def test_deploy_never_started_skips_rollback_and_records_prior_live(self):
+        def wrangler_never_ran():
+            raise subprocess.CalledProcessError(1, "wrangler")
+        with self.assertRaisesRegex(RuntimeError, "still live and verified"):
+            self.run_rail(wrangler_never_ran)
+        self.assertEqual(self.client.rollback_calls, [])
+        self.assertNotIn("rollback", self.receipt)
+        self.assertIn("rollback_skipped", self.receipt)
+        self.assertIs(self.receipt["prior_live_verified"], True)
+        self.assertEqual(self.receipt["live_after_failure"], {"deployment": "prior-deployment", "count": 10001})
+
+    def test_rollback_paths_set_prior_live_verified_flag(self):
+        self.client.bad_detail = True
+        self.assert_rollback(self.deploy)
+        self.assertIs(self.receipt["prior_live_verified"], True)
+        self.assertEqual(self.receipt["live_after_failure"]["deployment"], "prior-deployment")
+        self.setUp()
+        self.client.rollback_error = True
+        self.client.bad_detail = True
+        with self.assertRaisesRegex(RuntimeError, "NOT verified"):
+            self.run_rail(self.deploy)
+        self.assertIs(self.receipt["prior_live_verified"], False)
+
     def test_rollback_api_failure_is_not_reported_as_success(self):
         self.client.rollback_error = True
         self.client.bad_detail = True
@@ -556,6 +579,7 @@ class Wiring(unittest.TestCase):
             self.assertIn("if: success() && steps.gates.outcome == 'success'", block)
             self.assertNotIn("continue-on-error", block)
         self.assertNotIn("continue-on-error", source)
+        self.assertIn("prior_live_verified", source[source.index("- name: Revert"):])
         self.assertIn("git show HEAD:facilities.json", source)
         self.assertIn("git push origin HEAD:main", source)
         self.assertNotIn("--force", source)
