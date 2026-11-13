@@ -2,8 +2,10 @@ name: SAMHSA monthly refresh (deterministic, no model)
 
 # C716 s.2: the laptop task stays Disabled. Enrichment is a separate queue.
 on:
-  schedule:
-    - cron: '17 8 1 * *'
+  # C2009 s.6.1 (item 4): the monthly schedule is retired; GTH is moving off the treatment directory.
+  # To reverse: restore the two lines below under on: and merge.
+  #   schedule:
+  #     - cron: '17 8 1 * *'
   workflow_dispatch:
     inputs:
       mode:
