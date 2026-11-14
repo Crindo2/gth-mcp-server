@@ -1,0 +1,76 @@
+name: Retire or restore the MCP server (manual only)
+
+# C2009 s.6.2 item 5, C2015 s.2. Manual dispatch only; nothing runs on merge.
+# retire: deploys retired/ (a static page, no functions/) to the Pages project,
+#   so /mcp stops answering tool calls. Records the deployment it replaces first.
+# restore: rolls the Pages project back to a given earlier deployment id
+#   (the before-state production deployment was fd0825f2-a6e6-45c0-84c3-c24c3e058c79).
+# Run retire only after the directory delistings have read back (Chat's step).
+# The Pages project, D1 database, KV namespaces and this repository are kept.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'retire = deploy the retired page; restore = roll back to a deployment id'
+        type: choice
+        options: [retire, restore]
+        required: true
+      confirm:
+        description: 'Type exactly: gth-mcp-server'
+        required: true
+      restore_deployment_id:
+        description: 'For restore only: the Pages deployment id to roll back to'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gth-mcp-retire
+  cancel-in-progress: false
+
+env:
+  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  PROJECT: gth-mcp-server
+  MODE: ${{ inputs.mode }}
+  CONFIRM: ${{ inputs.confirm }}
+  RESTORE_ID: ${{ inputs.restore_deployment_id }}
+
+jobs:
+  retire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Guard
+        run: |
+          test "$CONFIRM" = "$PROJECT" || { echo "STOP: confirm must equal $PROJECT"; exit 2; }
+          if [ "$MODE" = "restore" ]; then
+            echo "$RESTORE_ID" | grep -Eq '^[0-9a-f-]{36}$' || { echo "STOP: restore needs a deployment id"; exit 2; }
+          fi
+          test -f retired/index.html
+          test ! -d retired/functions
+      - name: Record the current production deployment (before-state)
+        run: |
+          curl -sS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT" \
+            | python3 -c 'import json,sys;d=json.load(sys.stdin);r=d.get("result") or {};c=r.get("canonical_deployment") or {};print("before-state production deployment:",c.get("id"),c.get("created_on"))'
+      - name: Retire (deploy the static page)
+        if: env.MODE == 'retire'
+        run: npx --yes wrangler@4.80.0 pages deploy retired --project-name "$PROJECT" --branch main --commit-dirty=true
+      - name: Restore (roll back to the given deployment)
+        if: env.MODE == 'restore'
+        run: |
+          curl -sS -X POST -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT/deployments/$RESTORE_ID/rollback" \
+            | python3 -c 'import json,sys;d=json.load(sys.stdin);print("rollback success:",d.get("success"));sys.exit(0 if d.get("success") else 1)'
+      - name: Read back the production deployment
+        run: |
+          sleep 20
+          curl -sS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT" \
+            | python3 -c 'import json,sys;d=json.load(sys.stdin);r=d.get("result") or {};c=r.get("canonical_deployment") or {};print("after-state production deployment:",c.get("id"),c.get("created_on"))'
